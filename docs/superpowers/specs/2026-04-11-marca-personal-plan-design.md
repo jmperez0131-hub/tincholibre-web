@@ -13,7 +13,10 @@
 **Estado actual:**
 - Instagram activo pero pausado
 - Un producto terminado: Guía de Meditación para Principiantes (PDF) — nivel Low Ticket
-- Landing page construida (index.html), sin dominio ni hosting aún
+- Libro publicado: **Libertad en Jaque** (físico + digital) — sin página de venta digital aún
+- Facilitador y coproductor de Maestrías del Silicon Valley: ~50–100 emprendedores/mes que ya conocen y confían en Tincho a través de los bootcamps presenciales
+- Dominio registrado: tincholibre.com (pendiente de configurar)
+- Landing page construida (index.html), pendiente de hospedar en Netlify
 - Sin infraestructura técnica (email marketing, tienda digital, comunidad)
 - Sin facturación electrónica (requerida en Colombia para vender)
 
@@ -22,7 +25,7 @@
 ## 2. Enfoque elegido: Contenido Primero + Dos Carriles en Paralelo
 
 **Carril Público:** Instagram → lead magnet → lista de email → productos digitales (funnel escalable)  
-**Carril Comunidad:** contactos tibios → outreach directo → WhatsApp/lista cerrada → Skool (comunidad paga)
+**Carril Comunidad:** contactos tibios + participantes de bootcamps → outreach directo → WhatsApp/lista cerrada → Skool (comunidad paga)
 
 Los dos carriles operan desde el día 1. No son secuenciales — se alimentan mutuamente.
 
@@ -58,6 +61,7 @@ El Lead Magnet captura. El Low Ticket convierte al primer comprador. El Skool ge
 - Comunicar que vuelve activo y qué viene
 - Detectar quiénes quieren algo ahora
 - Invitar a seguirlo / reactivar el vínculo
+- **Participantes de bootcamps (Maestrías del Silicon Valley):** ~50–100 emprendedores/mes con contacto directo. Ya experimentaron la yoga/meditación de Tincho. Prioridad máxima de outreach — son el warm audience más caliente disponible. Invitarlos al Skool y al lead magnet desde el primer bootcamp del mes 1.
 
 ### Fase 1 — Semanas 1–4: Base técnica + primeras conversiones
 
@@ -127,12 +131,30 @@ El Lead Magnet captura. El Low Ticket convierte al primer comprador. El Skool ge
 | Email marketing | Kit (ConvertKit) | Gratuito hasta 10K subs, 1 automatización |
 | Ventas digitales | Hotmart | Sin costo fijo; comisión por venta |
 | Comunidad | Skool | Hobby $9 USD/mes + 10% transacción |
+| Instagram DM automation | ManyChat | Free hasta 1.000 contactos |
+| Bio link hub | Beacons.ai o Linktree | Plan gratuito suficiente para empezar |
 | Producción | Teléfono + micrófono | Ya disponible |
 | Planificación | Notion | Banco de ideas + calendario editorial |
 | Facturación electrónica | Alegra | Requerido en Colombia (DIAN) |
 
+**Mecanismo de entrega del Lead Magnet vía ManyChat:**
+- CTA en posts/reels: "Comentá CALMA y te lo mando por DM"
+- ManyChat detecta el comentario → envía DM automático con link de descarga
+- Dentro del DM flow: solicitar email para enviarlo también por correo → construye lista en Kit en paralelo
+- El landing page (tincholibre.com) permanece como canal secundario para tráfico no-Instagram
+
+**Estructura del hub de bio (Beacons.ai / Linktree):**
+1. Protocolo 3 Respiraciones — descarga gratuita (lead magnet)
+2. Guía de Meditación — comprar
+3. Libertad en Jaque — conocer el libro / comprar
+4. Maestrías del Silicon Valley — conocer el programa
+5. Comunidad Skool — unirse
+6. Programas (PMR, Core, Premium) — se agregan a medida que se lanzan
+
+**Quick win pendiente:** Crear página de venta para Libertad en Jaque en tincholibre.com/libro — actualmente sin presencia digital.
+
 **Blockers pre-lanzamiento (sin esto no se puede vender):**
-1. Registrar dominio (Namecheap)
+1. ~~Registrar dominio~~ → tincholibre.com ya comprado, pendiente configurar en Netlify
 2. Configurar facturación electrónica (Alegra) — obligatorio en Colombia antes de operar en Hotmart
 
 **Limitación Kit a vigilar:** El plan gratuito permite 1 sola automatización. Suficiente para la secuencia de bienvenida inicial. Al agregar el segundo producto (PMR), evaluar upgrade al plan Creator ($39 USD/mes).
