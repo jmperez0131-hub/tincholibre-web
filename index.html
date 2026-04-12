@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tincho — Oasis de calma en medio del caos</title>
+    <meta name="description" content="Instructor certificado de yoga, pranayama y neurociencia aplicada. Ayudo a profesionales a regular su sistema nervioso y acceder a calma real en medio de una vida exigente.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─── TOKENS ──────────────────────────────────────── */
+        :root {
+            --navy:        #252b5a;
+            --navy-mid:    #1a1f45;
+            --navy-deep:   #0f0e1a;
+            --cream:       #e7e1af;
+            --cream-light: #f4f0e4;
+            --orange:      #e96930;
+            --orange-dark: #c75420;
+            --text-dark:   #1a1814;
+            --text-muted:  #4a4035;
+            --on-dark:     rgba(231, 225, 175, 0.90);
+            --on-dark-sub: rgba(231, 225, 175, 0.52);
+        }
+
+        /* ─── RESET ───────────────────────────────────────── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--navy);
+            color: var(--cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-track { background: var(--navy-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 3px; }
+
+        img { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ─── NAVBAR ──────────────────────────────────────── */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 200;
+            padding: 22px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: background 0.4s ease, padding 0.3s ease, border-color 0.4s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav.scrolled {
+            background: rgba(26, 31, 69, 0.94);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 14px 48px;
+            border-bottom-color: rgba(231, 225, 175, 0.08);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .nav-brand img {
+            width: 34px;
+            height: 34px;
+            object-fit: contain;
+            image-orientation: from-image;
+        }
+
+        .nav-brand-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--cream);
+            letter-spacing: 0.02em;
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            background: var(--orange);
+            color: #fff;
+            border-radius: 7px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            transition: background 0.2s, transform 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-cta:hover {
+            background: var(--orange-dark);
+            transform: translateY(-1px);
+        }
+
+        /* ─── HERO ────────────────────────────────────────── */
+        .hero {
+            position: relative;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            background: var(--navy);
+            overflow: hidden;
+        }
+
+        /* Grain texture overlay */
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            opacity: 0.025;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-photo-wrap {
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 50%;
+        }
+
+        .hero-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            image-orientation: from-image;
+        }
+
+        /* Gradient fades photo into navy on left and bottom */
+        .hero-photo-wrap::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, var(--navy) 0%, rgba(37,43,90,0.55) 45%, transparent 70%);
+            z-index: 1;
+        }
+
+        .hero-photo-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(37,43,90,0.3) 0%, transparent 40%, var(--navy) 100%);
+            z-index: 1;
+        }
+
+        /* Triskelión watermark */
+        .hero-mark {
+            position: absolute;
+            right: 2%;
+            bottom: -6%;
+            width: 38vw;
+            max-width: 480px;
+            opacity: 0.045;
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            max-width: 1140px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 130px 48px 96px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 28px;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.1rem, 5.5vw, 4rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.18;
+            max-width: 580px;
+            margin-bottom: 28px;
+        }
+
+        .hero-title em {
+            font-style: italic;
+            color: var(--cream);
+            opacity: 0.78;
+        }
+
+        .hero-sub {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--on-dark-sub);
+            max-width: 420px;
+            line-height: 1.8;
+            margin-bottom: 52px;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            border: none;
+            border-radius: 9px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+            text-decoration: none;
+        }
+
+        .btn-orange {
+            background: var(--orange);
+            color: #fff;
+            box-shadow: 0 8px 36px rgba(233, 105, 48, 0.38);
+        }
+
+        .btn-orange:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 44px rgba(233, 105, 48, 0.50);
+        }
+
+        .btn svg { flex-shrink: 0; }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            color: var(--on-dark-sub);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            animation: float 2.5s ease-in-out infinite;
+            z-index: 3;
+        }
+
+        .scroll-hint-line {
+            width: 1px;
+            height: 44px;
+            background: linear-gradient(to bottom, rgba(231,225,175,0.45), transparent);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50%       { transform: translateX(-50%) translateY(7px); }
+        }
+
+        /* ─── SHARED SECTION STRUCTURE ────────────────────── */
+        .section { padding: 108px 48px; }
+
+        .section-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+        }
+
+        .label {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--orange);
+            margin-bottom: 16px;
+        }
+
+        .label--center { display: block; text-align: center; }
+
+        .h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.22;
+            margin-bottom: 20px;
+        }
+
+        /* ─── PROBLEMA ────────────────────────────────────── */
+        .problema {
+            background: var(--navy-mid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problema .h2 { color: var(--cream); }
+
+        .problema-mark {
+            position: absolute;
+            right: -5%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36vw;
+            max-width: 440px;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .problema-intro {
+            color: var(--on-dark-sub);
+            font-size: 1.08rem;
+            max-width: 520px;
+            margin-bottom: 60px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-problem {
+            background: rgba(37, 43, 90, 0.55);
+            border: 1px solid rgba(231, 225, 175, 0.07);
+            border-left: 3px solid var(--orange);
+            border-radius: 14px;
+            padding: 34px 28px;
+            transition: transform 0.3s ease, border-left-color 0.3s ease;
+        }
+
+        .card-problem:hover {
+            transform: translateY(-5px);
+            border-left-color: var(--cream);
+        }
+
+        .card-problem p {
+            color: var(--on-dark);
+            font-size: 1rem;
+            line-height: 1.8;
+        }
+
+        /* ─── TRANSICIÓN ──────────────────────────────────── */
+        .transicion {
+            background: linear-gradient(175deg, var(--navy-mid) 0%, var(--cream-light) 100%);
+            padding: 96px 48px;
+            text-align: center;
+        }
+
+        .transicion-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-style: italic;
+            font-weight: 400;
+            color: var(--navy);
+            max-width: 680px;
+            margin: 0 auto;
+            line-height: 1.65;
+            position: relative;
+        }
+
+        .transicion-quote::before {
+            content: '\201C';
+            font-family: 'Playfair Display', serif;
+            font-size: 6rem;
+            color: var(--orange);
+            opacity: 0.35;
+            position: absolute;
+            top: -32px;
+            left: -20px;
+            line-height: 1;
+        }
+
+        /* ─── MI CAMINO ───────────────────────────────────── */
+        .camino { background: var(--cream-light); }
+
+        .camino-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 88px;
+            align-items: center;
+        }
+
+        .camino-photo-wrap {
+            position: relative;
+            border-radius: 18px;
+            overflow: hidden;
+            aspect-ratio: 3 / 4;
+            box-shadow: 0 32px 80px rgba(37, 43, 90, 0.18);
+        }
+
+        .camino-photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+            image-orientation: from-image;
+            transition: transform 0.7s ease;
+        }
+
+        .camino-photo-wrap:hover img { transform: scale(1.03); }
+
+        /* Subtle inner border */
+        .camino-photo-wrap::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 18px;
+            box-shadow: inset 0 0 0 1px rgba(37, 43, 90, 0.1);
+        }
+
+        .camino-text-wrap .h2 { color: var(--navy); }
+
+        .camino-p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.88;
+            margin-bottom: 22px;
+            font-weight: 400;
+        }
+
+        .camino-callout {
+            display: block;
+            background: var(--navy);
+            color: var(--cream);
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.05rem;
+            padding: 20px 26px;
+            border-radius: 10px;
+            line-height: 1.65;
+            margin-top: 12px;
+            border-left: 3px solid var(--orange);
+        }
+
+        /* ─── CÓMO TRABAJO ────────────────────────────────── */
+        .trabajo {
+            background: var(--cream-light);
+            border-top: 1px solid rgba(37, 43, 90, 0.07);
+        }
+
+        .trabajo .h2 {
+            color: var(--navy);
+            text-align: center;
+        }
+
+        .trabajo-intro {
+            text-align: center;
+            color: var(--text-muted);
+            max-width: 480px;
+            margin: 0 auto 64px;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .step {
+            background: #fff;
+            border: 1px solid rgba(37, 43, 90, 0.06);
+            border-radius: 18px;
+            padding: 44px 30px 38px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 20px 56px rgba(37, 43, 90, 0.1);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: var(--navy);
+            color: var(--cream);
+            border-radius: 50%;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 26px;
+        }
+
+        .step h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--navy);
+            margin-bottom: 14px;
+            font-weight: 600;
+        }
+
+        .step p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ─── TESTIMONIOS ─────────────────────────────────── */
+        .testimonios {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonios-mark {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            max-width: 640px;
+            opacity: 0.028;
+            pointer-events: none;
+        }
+
+        .testimonios .h2 {
+            color: var(--cream);
+            text-align: center;
+        }
+
+        .t-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+            margin-top: 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .t-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(231, 225, 175, 0.09);
+            border-radius: 18px;
+            padding: 38px 32px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .t-quote-mark {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            line-height: 0.6;
+            color: var(--orange);
+            margin-bottom: 22px;
+            display: block;
+            opacity: 0.9;
+        }
+
+        .t-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--on-dark);
+            font-size: 0.98rem;
+            line-height: 1.85;
+            margin-bottom: 30px;
+            flex: 1;
+        }
+
+        .t-author {
+            border-top: 1px solid rgba(231, 225, 175, 0.1);
+            padding-top: 20px;
+        }
+
+        .t-name {
+            color: var(--cream);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+        }
+
+        .t-role {
+            color: var(--on-dark-sub);
+            font-size: 0.8rem;
+            margin-top: 3px;
+        }
+
+        /* ─── LEAD MAGNET / CTA ───────────────────────────── */
+        .cta {
+            background: var(--navy-mid);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-mark {
+            position: absolute;
+            right: -4%;
+            bottom: -8%;
+            width: 32vw;
+            max-width: 360px;
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta .h2 {
+            color: var(--cream);
+            margin-bottom: 14px;
+        }
+
+        .cta-protocol {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--cream);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .cta-sub {
+            color: var(--on-dark-sub);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            margin-bottom: 52px;
+            font-weight: 300;
+        }
+
+        .cta-sub strong {
+            color: var(--cream);
+            font-weight: 500;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 18px 24px;
+            background: rgba(37, 43, 90, 0.7);
+            border: 1.5px solid rgba(231, 225, 175, 0.14);
+            border-radius: 10px;
+            color: var(--cream);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.22s, background 0.22s;
+        }
+
+        .form-input::placeholder { color: var(--on-dark-sub); }
+
+        .form-input:focus {
+            border-color: rgba(233, 105, 48, 0.7);
+            background: rgba(233, 105, 48, 0.04);
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 20px 40px;
+            background: var(--orange);
+            color: #fff;
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+            box-shadow: 0 8px 36px rgba(233, 105, 48, 0.38);
+        }
+
+        .form-submit:hover {
+            background: var(--orange-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 14px 44px rgba(233, 105, 48, 0.52);
+        }
+
+        .form-submit:disabled {
+            background: #2d8a4e;
+            box-shadow: none;
+            transform: none;
+            cursor: default;
+        }
+
+        .form-privacy {
+            color: var(--on-dark-sub);
+            font-size: 0.8rem;
+        }
+
+        /* ─── FOOTER ──────────────────────────────────────── */
+        footer {
+            background: var(--navy-deep);
+            border-top: 1px solid rgba(231, 225, 175, 0.06);
+            padding: 48px 48px;
+        }
+
+        .footer-inner {
+            max-width: 1140px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand img {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+            opacity: 0.75;
+        }
+
+        .footer-brand span {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--cream);
+            opacity: 0.65;
+        }
+
+        .footer-ig {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--on-dark-sub);
+            font-size: 0.875rem;
+            transition: color 0.2s;
+        }
+
+        .footer-ig:hover { color: var(--cream); }
+
+        .footer-copy {
+            color: var(--on-dark-sub);
+            font-size: 0.8rem;
+        }
+
+        /* ─── ANIMATIONS ──────────────────────────────────── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.in { opacity: 1; transform: translateY(0); }
+        .reveal[data-delay="1"] { transition-delay: 0.10s; }
+        .reveal[data-delay="2"] { transition-delay: 0.20s; }
+        .reveal[data-delay="3"] { transition-delay: 0.30s; }
+        .reveal[data-delay="4"] { transition-delay: 0.40s; }
+
+        /* ─── RESPONSIVE ──────────────────────────────────── */
+        @media (max-width: 960px) {
+            .cards        { grid-template-columns: 1fr; gap: 16px; }
+            .camino-grid  { grid-template-columns: 1fr; gap: 48px; }
+            .camino-photo-wrap { order: -1; aspect-ratio: 4 / 3; }
+            .steps        { grid-template-columns: 1fr; gap: 18px; }
+            .t-grid       { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav           { padding: 16px 24px; }
+            .nav.scrolled  { padding: 12px 24px; }
+            .nav-cta       { padding: 9px 18px; font-size: 0.82rem; }
+
+            .hero-photo-wrap {
+                width: 100%;
+                opacity: 0.22;
+            }
+            .hero-photo-wrap::before {
+                background: linear-gradient(180deg, transparent 20%, var(--navy) 80%);
+            }
+
+            .hero-content    { padding: 120px 24px 88px; }
+            .section         { padding: 80px 24px; }
+            .transicion      { padding: 72px 24px; }
+            .footer-inner    { flex-direction: column; text-align: center; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title        { font-size: 1.95rem; }
+            .transicion-quote  { font-size: 1.2rem; }
+            .transicion-quote::before { font-size: 4rem; top: -20px; left: -8px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, .reveal { transition: none !important; animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAVBAR
+════════════════════════════════════════════════ -->
+<nav class="nav" id="nav" role="navigation" aria-label="Navegación principal">
+    <a href="#inicio" class="nav-brand" aria-label="Tincho — Inicio">
+        <img src="Documentos Pagina web/Logo.png" alt="Triskelión — logo de Tincho">
+        <span class="nav-brand-name">Tincho</span>
+    </a>
+    <a href="#protocolo" class="nav-cta">Descarga el protocolo</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     HERO — EL CAOS
+════════════════════════════════════════════════ -->
+<section class="hero" id="inicio" aria-label="Sección principal">
+
+    <div class="hero-photo-wrap" aria-hidden="true">
+        <img
+            src="Documentos Pagina web/Fotos Principales/IMG_1395.JPG"
+            alt="Tincho — instructor de yoga, pranayama y neurociencia aplicada"
+        >
+    </div>
+
+    <img
+        src="Documentos Pagina web/Logo.png"
+        alt=""
+        class="hero-mark"
+        aria-hidden="true"
+    >
+
+    <div class="hero-content">
+        <span class="eyebrow reveal">Yoga · Pranayama · Neurociencia aplicada</span>
+
+        <h1 class="hero-title reveal" data-delay="1">
+            La calma no es un estado de ánimo.<br>
+            <em>Es un mecanismo que se aprende.</em>
+        </h1>
+
+        <p class="hero-sub reveal" data-delay="2">
+            Vives acelerado pero no sabes cómo bajar esa velocidad.<br>
+            Ninguna solución funciona porque ninguna ataca la raíz.
+        </p>
+
+        <a href="#protocolo" class="btn btn-orange reveal" data-delay="3" aria-label="Descarga el protocolo gratuito de respiración">
+            Descarga el protocolo gratuito
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="scroll-hint-line"></div>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     EL PROBLEMA
+════════════════════════════════════════════════ -->
+<section class="section problema" id="problema" aria-labelledby="problema-title">
+
+    <img src="Documentos Pagina web/Logo.png" alt="" class="problema-mark" aria-hidden="true">
+
+    <div class="section-inner">
+        <span class="label reveal">El problema</span>
+        <h2 class="h2 reveal" id="problema-title" data-delay="1">¿Te suena familiar?</h2>
+        <p class="problema-intro reveal" data-delay="2">
+            No es que no lo intentaste.<br>Es que ninguna solución ataca la raíz.
+        </p>
+
+        <div class="cards" role="list">
+            <div class="card-problem reveal" data-delay="1" role="listitem">
+                <p>Reaccionas antes de pensar — y en el momento ya sabes que no querías hacerlo, pero no puedes parar.</p>
+            </div>
+            <div class="card-problem reveal" data-delay="2" role="listitem">
+                <p>Te cuesta encontrar calma real, no solo distraerte. Apps, meditación, todo produce lo mismo.</p>
+            </div>
+            <div class="card-problem reveal" data-delay="3" role="listitem">
+                <p>De noche no logras apagar la mente aunque hayas estado agotado todo el día.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TRANSICIÓN — EL PIVOTE
+════════════════════════════════════════════════ -->
+<div class="transicion" role="separator" aria-label="Cita">
+    <p class="transicion-quote reveal">
+        La calma no depende del entorno.<br>Depende de lo que ocurre adentro.
+    </p>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
+     MI CAMINO — LA CALMA
+════════════════════════════════════════════════ -->
+<section class="section camino" id="sobre-mi" aria-labelledby="camino-title">
+    <div class="section-inner">
+        <div class="camino-grid">
+
+            <div class="camino-photo-wrap reveal">
+                <img
+                    src="Documentos Pagina web/Fotos/IMG_5794.jpg"
+                    alt="Tincho en práctica de meditación, rodeado de naturaleza"
+                >
+            </div>
+
+            <div class="camino-text-wrap">
+                <span class="label reveal">Mi camino</span>
+                <h2 class="h2 reveal" id="camino-title" data-delay="1">Pasé por lo más extremo que puede vivir una persona.</h2>
+
+                <p class="camino-p reveal" data-delay="2">
+                    Fue ahí, sin otro camino posible, donde descubrí que la calma no depende de las circunstancias. Depende de lo que ocurre adentro. No lo leí en un libro — lo encontré cuando no quedaba ninguna otra salida.
+                </p>
+
+                <p class="camino-p reveal" data-delay="3">
+                    Por eso hablo de esto. No desde la teoría, sino desde el mecanismo real. El yoga, la respiración y la neurociencia aplicada no son conceptos abstractos — son herramientas que llevan siglos funcionando, y la ciencia explica hoy exactamente por qué.
+                </p>
+
+                <span class="camino-callout reveal" data-delay="4">
+                    Tu cuerpo tiene un sensor de seguridad. Puedes aprender a activarlo. De eso trata todo esto.
+                </span>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     CÓMO TRABAJO
+════════════════════════════════════════════════ -->
+<section class="section trabajo" id="metodo" aria-labelledby="trabajo-title">
+    <div class="section-inner">
+
+        <span class="label label--center reveal">El método</span>
+        <h2 class="h2 reveal" id="trabajo-title" data-delay="1">Cómo trabajo</h2>
+        <p class="trabajo-intro reveal" data-delay="2">
+            Tres pasos. Sin depender de un lugar ni de una hora específica.
+        </p>
+
+        <div class="steps" role="list">
+            <div class="step reveal" data-delay="1" role="listitem">
+                <div class="step-num" aria-hidden="true">1</div>
+                <h3>Reconocer</h3>
+                <p>Hacemos visible qué está ocurriendo en tu cuerpo cuando vives acelerado.</p>
+            </div>
+            <div class="step reveal" data-delay="2" role="listitem">
+                <div class="step-num" aria-hidden="true">2</div>
+                <h3>Respirar</h3>
+                <p>Técnicas concretas que bajan el interruptor ahora mismo, sin depender de lugar ni horario.</p>
+            </div>
+            <div class="step reveal" data-delay="3" role="listitem">
+                <div class="step-num" aria-hidden="true">3</div>
+                <h3>Integrar</h3>
+                <p>Lo sostienes solo. La libertad está en tu equilibrio, no en mí.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     TESTIMONIOS
+════════════════════════════════════════════════ -->
+<section class="section testimonios" id="testimonios" aria-labelledby="testimonios-title">
+
+    <img src="Documentos Pagina web/Logo.png" alt="" class="testimonios-mark" aria-hidden="true">
+
+    <div class="section-inner">
+        <span class="label label--center reveal">Quienes ya lo vivieron</span>
+        <h2 class="h2 reveal" id="testimonios-title" data-delay="1">Lo que dicen</h2>
+
+        <div class="t-grid" role="list">
+
+            <div class="t-card reveal" data-delay="1" role="listitem">
+                <span class="t-quote-mark" aria-hidden="true">"</span>
+                <p class="t-text">
+                    Pensaba entrenar en el gym luego de la meditación y no pude — por el estado de serenidad que jamás había tenido en 50 años. Toda la vida he ido a mil, y hoy siento que voy a 20.
+                </p>
+                <div class="t-author">
+                    <div class="t-name">Yuby</div>
+                    <div class="t-role">Estudiante de meditación</div>
+                </div>
+            </div>
+
+            <div class="t-card reveal" data-delay="2" role="listitem">
+                <span class="t-quote-mark" aria-hidden="true">"</span>
+                <p class="t-text">
+                    Total gratitud por lo que he recibido. Me ha ayudado mucho — me he sentido mucho mejor, ha traído mucha calma. Es maravilloso poder disfrutar este conocimiento.
+                </p>
+                <div class="t-author">
+                    <div class="t-name">Paula Botero</div>
+                    <div class="t-role">Participante, programa de práctica</div>
+                </div>
+            </div>
+
+            <div class="t-card reveal" data-delay="3" role="listitem">
+                <span class="t-quote-mark" aria-hidden="true">"</span>
+                <p class="t-text">
+                    Tu forma de contar tu historia me dio la libertad que justo necesitaba, luego de sentirme tan atrapada en una rutina cotidiana que a veces sentía que iba en piloto automático.
+                </p>
+                <div class="t-author">
+                    <div class="t-name">Lectora</div>
+                    <div class="t-role">París, Francia</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     LEAD MAGNET — CTA PRINCIPAL
+════════════════════════════════════════════════ -->
+<section class="section cta" id="protocolo" aria-labelledby="cta-title">
+
+    <img src="Documentos Pagina web/Logo.png" alt="" class="cta-mark" aria-hidden="true">
+
+    <div class="cta-inner">
+
+        <span class="label reveal">Gratuito</span>
+
+        <h2 class="cta-protocol reveal" data-delay="1">Protocolo 3 Respiraciones</h2>
+
+        <p class="cta-sub reveal" data-delay="2">
+            Tres minutos antes de dormir que activan el freno natural de tu sistema nervioso.<br>
+            No necesitas experiencia previa. Solo seguir el protocolo una vez para sentir que funciona.<br><br>
+            <strong>Después: sabes qué hacer cuando la mente no para.</strong><br>
+            Una victoria pequeña, real, verificable esa misma noche.
+        </p>
+
+        <form class="form reveal" data-delay="3" id="form-protocolo" novalidate>
+            <label for="email-input" class="sr-only">Tu correo electrónico</label>
+            <input
+                type="email"
+                id="email-input"
+                class="form-input"
+                placeholder="Tu correo electrónico"
+                required
+                autocomplete="email"
+                aria-required="true"
+            >
+            <button type="submit" class="form-submit" id="form-btn">
+                Descarga el protocolo — es gratis
+            </button>
+        </form>
+
+        <p class="form-privacy reveal" data-delay="4">
+            Sin spam. Tu correo solo se usa para enviarte el protocolo.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+    <div class="footer-inner">
+
+        <a href="#inicio" class="footer-brand" aria-label="Tincho — Volver al inicio">
+            <img src="Documentos Pagina web/Logo.png" alt="">
+            <span>Tincho</span>
+        </a>
+
+        <a
+            href="https://instagram.com/tincholibre"
+            class="footer-ig"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Tincho — @tincholibre"
+        >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @tincholibre
+        </a>
+
+        <p class="footer-copy">© 2026 Tincho. Todos los derechos reservados.</p>
+
+    </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════
+     JS
+════════════════════════════════════════════════ -->
+<script>
+    /* ── Visually hidden utility ─────────────────── */
+    const style = document.createElement('style');
+    style.textContent = '.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}';
+    document.head.appendChild(style);
+
+    /* ── Navbar scroll state ─────────────────────── */
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 56);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    /* ── Reveal on scroll ────────────────────────── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('in');
+                revealObs.unobserve(e.target);
+            }
+        });
+    }, { threshold: 0.12, rootMargin: '0px 0px -36px 0px' });
+
+    revealEls.forEach(el => revealObs.observe(el));
+
+    /* Hero reveals immediately */
+    document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('in'));
+
+    /* ── Form ────────────────────────────────────── */
+    document.getElementById('form-protocolo').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = this.querySelector('.form-input');
+        const btn   = document.getElementById('form-btn');
+
+        if (!input.value || !input.validity.valid) {
+            input.focus();
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = '¡Listo! Revisa tu correo.';
+    });
+</script>
+
+</body>
+</html>
