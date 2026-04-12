@@ -1,0 +1,37 @@
+# Claude Code internal settings
+.claude/
+
+# Superpowers plugin cache
+.superpowers/
+
+# Internal planning docs
+LANDING.md
+PROMPTS.md
+ROADMAP.md
+
+# Book files (manuscript - not public)
+Libertad en Jaque/
+
+# Internal research
+Bibliografía/
+
+# Testimonials (private)
+Testimonios/
+
+# Extra photos (solo las usadas por index.html están en el repo)
+Documentos Pagina web/Fotos/*
+!Documentos Pagina web/Fotos/IMG_5794.jpg
+Documentos Pagina web/Fotos Principales/*
+!Documentos Pagina web/Fotos Principales/IMG_1395.JPG
+
+# Internal strategy documents
+Curaduria_YouTube_Tincho.docx
+Estrategia_Contenido_Tincho.docx
+Mapa_Bibliografico_Tincho.docx
+Oferta_Tincho.docx
+Oferta_Tincho_v2.docx
+Guia Para Definir un Nicho.pdf
+Guia de meditación - Tincho (5).pdf
+Guia-para-Crear-una-Oferta.pdf
+Guía para Definir tus Puertas de Comunicación.pdf
+Guía para definir un Nicho (Tincho).docx
