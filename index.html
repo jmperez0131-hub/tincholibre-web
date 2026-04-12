@@ -6,6 +6,23 @@
     <title>Tincho — Oasis de calma en medio del caos</title>
     <meta name="description" content="Instructor certificado de yoga, pranayama y neurociencia aplicada. Ayudo a profesionales a regular su sistema nervioso y acceder a calma real en medio de una vida exigente.">
 
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tincho — Oasis de calma en medio del caos">
+    <meta property="og:description" content="Instructor de yoga, pranayama y neurociencia aplicada. Descarga gratis el Protocolo 3 Respiraciones.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tincholibre.com">
+    <meta property="og:image" content="https://tincholibre.com/Documentos%20Pagina%20web/Fotos%20Principales/IMG_1395.JPG">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tincho — Oasis de calma en medio del caos">
+    <meta name="twitter:description" content="Instructor de yoga, pranayama y neurociencia aplicada. Descarga gratis el Protocolo 3 Respiraciones.">
+    <meta name="twitter:image" content="https://tincholibre.com/Documentos%20Pagina%20web/Fotos%20Principales/IMG_1395.JPG">
+
+    <!-- Canonical + Favicon -->
+    <link rel="canonical" href="https://tincholibre.com">
+    <link rel="icon" href="Documentos Pagina web/Logo.png" type="image/png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -28,7 +45,7 @@
 
         /* ─── RESET ───────────────────────────────────────── */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; font-size: 16px; }
+        html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: 80px; }
 
         body {
             font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -432,6 +449,21 @@
 
         .camino-text-wrap .h2 { color: var(--navy); }
 
+        .camino-credentials {
+            color: var(--orange);
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 28px;
+        }
+
+        .camino-credentials em {
+            font-style: italic;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
         .camino-p {
             color: var(--text-muted);
             font-size: 1.05rem;
@@ -603,6 +635,73 @@
             margin-top: 3px;
         }
 
+        /* ─── FAQ ────────────────────────────────────────── */
+        .faq { background: var(--cream-light); }
+
+        .faq-h2 {
+            color: var(--navy);
+            text-align: center;
+            margin-bottom: 52px;
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border: 1px solid rgba(37, 43, 90, 0.08);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .faq-item[open] {
+            box-shadow: 0 8px 32px rgba(37, 43, 90, 0.08);
+        }
+
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            padding: 24px 28px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--navy);
+            cursor: pointer;
+            list-style: none;
+            user-select: none;
+        }
+
+        .faq-q::-webkit-details-marker { display: none; }
+
+        .faq-q::after {
+            content: '+';
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: var(--orange);
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item[open] .faq-q::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-a {
+            padding: 0 28px 24px;
+            color: var(--text-muted);
+            font-size: 0.97rem;
+            line-height: 1.85;
+        }
+
         /* ─── LEAD MAGNET / CTA ───────────────────────────── */
         .cta {
             background: var(--navy-mid);
@@ -639,6 +738,14 @@
             color: var(--cream);
             font-weight: 700;
             margin-bottom: 10px;
+        }
+
+        .cta-bridge {
+            color: var(--on-dark-sub);
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-bottom: 36px;
+            letter-spacing: 0.02em;
         }
 
         .cta-sub {
@@ -709,10 +816,16 @@
             cursor: default;
         }
 
-        .form-privacy {
+        .form-trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
             color: var(--on-dark-sub);
             font-size: 0.8rem;
         }
+
+        .form-trust svg { flex-shrink: 0; opacity: 0.7; }
 
         /* ─── FOOTER ──────────────────────────────────────── */
         footer {
@@ -795,16 +908,18 @@
 
             .hero-photo-wrap {
                 width: 100%;
-                opacity: 0.22;
+                position: absolute;
+                opacity: 0.18;
             }
             .hero-photo-wrap::before {
-                background: linear-gradient(180deg, transparent 20%, var(--navy) 80%);
+                background: linear-gradient(180deg, rgba(37,43,90,0.4) 0%, var(--navy) 85%);
             }
 
             .hero-content    { padding: 120px 24px 88px; }
             .section         { padding: 80px 24px; }
             .transicion      { padding: 72px 24px; }
             .footer-inner    { flex-direction: column; text-align: center; }
+            footer           { padding: 36px 24px; }
         }
 
         @media (max-width: 480px) {
@@ -817,6 +932,50 @@
             *, .reveal { transition: none !important; animation: none !important; }
         }
     </style>
+
+    <!-- JSON-LD Schema: FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Necesito experiencia previa con meditación o yoga?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. El protocolo está diseñado exactamente para quien nunca meditó — y para quien lo intentó y no le funcionó. No hay posturas, no hay terminología, no hay nada que aprender antes." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto tiempo lleva ver resultados?",
+          "acceptedAnswer": { "@type": "Answer", "text": "La primera vez que lo usas, esa misma noche. Sientes que algo baja. El cambio sostenido, el que se instala en el cuerpo, se consolida en 7 a 14 días de práctica." }
+        },
+        {
+          "@type": "Question",
+          "name": "Yo soy muy activo — ¿esto es para mí?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Especialmente para ti. Las personas con más carga mental son las que más se benefician. El protocolo no te pide que pares — te da la herramienta para bajar el interruptor sin perder tu ritmo." }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Esto reemplaza mi terapia o medicación?",
+          "acceptedAnswer": { "@type": "Answer", "text": "No. Complementa cualquier otro proceso. Regula el sistema nervioso — no diagnostica ni trata. Si estás en terapia o tratamiento médico, esto convive con eso sin problema." }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD Schema: Person -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Tincho",
+      "url": "https://tincholibre.com",
+      "sameAs": ["https://instagram.com/tincholibre"],
+      "jobTitle": "Instructor de yoga, pranayama y neurociencia aplicada",
+      "description": "Ayudo a profesionales a regular su sistema nervioso y acceder a calma real en medio de una vida exigente.",
+      "knowsAbout": ["yoga", "pranayama", "meditación", "neurociencia aplicada", "regulación del sistema nervioso"]
+    }
+    </script>
 </head>
 <body>
 
@@ -899,7 +1058,7 @@
                 <p>Reaccionas antes de pensar — y en el momento ya sabes que no querías hacerlo, pero no puedes parar.</p>
             </div>
             <div class="card-problem reveal" data-delay="2" role="listitem">
-                <p>Te cuesta encontrar calma real, no solo distraerte. Apps, meditación, todo produce lo mismo.</p>
+                <p>Te cuesta encontrar calma real, no solo distraerte. Apps, meditación, todas producen lo mismo.</p>
             </div>
             <div class="card-problem reveal" data-delay="3" role="listitem">
                 <p>De noche no logras apagar la mente aunque hayas estado agotado todo el día.</p>
@@ -937,6 +1096,7 @@
             <div class="camino-text-wrap">
                 <span class="label reveal">Mi camino</span>
                 <h2 class="h2 reveal" id="camino-title" data-delay="1">Pasé por lo más extremo que puede vivir una persona.</h2>
+                <p class="camino-credentials reveal" data-delay="1">Instructor certificado de yoga y pranayama &nbsp;·&nbsp; 7 años enseñando &nbsp;·&nbsp; Autor de <em>Libertad en Jaque</em></p>
 
                 <p class="camino-p reveal" data-delay="2">
                     Fue ahí, sin otro camino posible, donde descubrí que la calma no depende de las circunstancias. Depende de lo que ocurre adentro. No lo leí en un libro, lo encontré cuando no quedaba ninguna otra salida.
@@ -1017,7 +1177,7 @@
             <div class="t-card reveal" data-delay="2" role="listitem">
                 <span class="t-quote-mark" aria-hidden="true">"</span>
                 <p class="t-text">
-                    Total gratitud por lo que he recibido. Me ha ayudado mucho — me he sentido mucho mejor, ha traído mucha calma. Es maravilloso poder disfrutar este conocimiento.
+                    Total gratitud por lo que he recibido. Me ha ayudado mucho, me he sentido mucho mejor, ha traído mucha calma. Es maravilloso poder disfrutar este conocimiento.
                 </p>
                 <div class="t-author">
                     <div class="t-name">Paula Botero</div>
@@ -1043,6 +1203,41 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     FAQ — OBJECIONES
+════════════════════════════════════════════════ -->
+<section class="section faq" id="faq" aria-labelledby="faq-title">
+    <div class="section-inner">
+        <span class="label label--center reveal">Preguntas frecuentes</span>
+        <h2 class="h2 faq-h2 reveal" id="faq-title" data-delay="1">Lo que suele preguntar antes de empezar</h2>
+
+        <div class="faq-list" role="list">
+
+            <details class="faq-item reveal" data-delay="1" role="listitem">
+                <summary class="faq-q">¿Necesito experiencia previa con meditación o yoga?</summary>
+                <p class="faq-a">No. El protocolo está diseñado exactamente para quien nunca meditó — y para quien lo intentó y no le funcionó. No hay posturas, no hay terminología, no hay nada que aprender antes.</p>
+            </details>
+
+            <details class="faq-item reveal" data-delay="2" role="listitem">
+                <summary class="faq-q">¿Cuánto tiempo lleva ver resultados?</summary>
+                <p class="faq-a">La primera vez que lo usas, esa misma noche. Sientes que algo baja. El cambio sostenido, el que se instala en el cuerpo, se consolida en 7 a 14 días de práctica.</p>
+            </details>
+
+            <details class="faq-item reveal" data-delay="3" role="listitem">
+                <summary class="faq-q">Yo soy muy activo — ¿esto es para mí?</summary>
+                <p class="faq-a">Especialmente para ti. Las personas con más carga mental son las que más se benefician. El protocolo no te pide que pares — te da la herramienta para bajar el interruptor sin perder tu ritmo.</p>
+            </details>
+
+            <details class="faq-item reveal" data-delay="4" role="listitem">
+                <summary class="faq-q">¿Esto reemplaza mi terapia o medicación?</summary>
+                <p class="faq-a">No. Complementa cualquier otro proceso. Regula el sistema nervioso — no diagnostica ni trata. Si estás en terapia o tratamiento médico, esto convive con eso sin problema.</p>
+            </details>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
      LEAD MAGNET — CTA PRINCIPAL
 ════════════════════════════════════════════════ -->
 <section class="section cta" id="protocolo" aria-labelledby="cta-title">
@@ -1054,6 +1249,7 @@
         <span class="label reveal">Gratuito</span>
 
         <h2 class="cta-protocol reveal" data-delay="1">Protocolo 3 Respiraciones</h2>
+        <p class="cta-bridge reveal" data-delay="1">El primer paso del método, en tres minutos.</p>
 
         <p class="cta-sub reveal" data-delay="2">
             Tres minutos antes de dormir que activan el freno natural de tu sistema nervioso.<br>
@@ -1073,14 +1269,14 @@
                 autocomplete="email"
                 aria-required="true"
             >
+            <p class="form-trust">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                Sin spam — tu correo solo se usa para enviarte el protocolo
+            </p>
             <button type="submit" class="form-submit" id="form-btn">
-                Descarga el protocolo — es gratis
+                Recibir el protocolo gratis
             </button>
         </form>
-
-        <p class="form-privacy reveal" data-delay="4">
-            Sin spam. Tu correo solo se usa para enviarte el protocolo.
-        </p>
 
     </div>
 
