@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Libertad en Jaque — Juan Martín Pérez Tobón</title>
+  <meta name="description" content="La crónica del cicloviajero colombiano que pedaleó 30.000 km por 17 países... y terminó preso en Argentina. Una historia real sobre la libertad que nadie puede quitarte.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Libertad en Jaque — Juan Martín Pérez Tobón">
+  <meta property="og:description" content="El cicloviajero que pedaleó 30.000 km por 17 países… y terminó preso. Una historia real sobre la libertad que nadie puede quitarte.">
+  <meta property="og:type" content="book">
+  <meta property="og:url" content="https://tincholibre.com/libertad-en-jaque">
+  <meta property="og:image" content="https://tincholibre.com/Libertad%20en%20Jaque/Epub/Libertadenjaque.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Libertad en Jaque — Juan Martín Pérez Tobón">
+  <meta name="twitter:description" content="El cicloviajero que pedaleó 30.000 km por 17 países… y terminó preso. Una historia real sobre la libertad que nadie puede quitarte.">
+  <meta name="twitter:image" content="https://tincholibre.com/Libertad%20en%20Jaque/Epub/Libertadenjaque.jpg">
+
+  <!-- Canonical + Favicon -->
+  <link rel="canonical" href="https://tincholibre.com/libertad-en-jaque">
+  <link rel="icon" href="Documentos Pagina web/Logo.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Crimson+Pro:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── TOKENS ───────────────────────────────────── */
+    :root {
+      --bg:           #09080A;
+      --bg-2:         #0F0E12;
+      --bg-3:         #15141A;
+      --cream:        #E8DCC8;
+      --cream-dim:    rgba(232,220,200,0.58);
+      --cream-ghost:  rgba(232,220,200,0.10);
+      --gold:         #C49A2A;
+      --gold-bright:  #E5B94A;
+      --gold-ghost:   rgba(196,154,42,0.12);
+      --border:       rgba(232,220,200,0.07);
+      --border-md:    rgba(232,220,200,0.16);
+    }
+
+    /* ─── RESET ────────────────────────────────────── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+
+    /* ─── GRAIN OVERLAY ─────────────────────────────── */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.038;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* ─── LAYOUT ────────────────────────────────────── */
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 72px); }
+
+    /* ─── REVEAL ────────────────────────────────────── */
+    .r  { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+    .r.on { opacity: 1; transform: none; }
+    .r1 { transition-delay: .10s; }
+    .r2 { transition-delay: .22s; }
+    .r3 { transition-delay: .36s; }
+
+    /* ─── NAV ───────────────────────────────────────── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px clamp(24px, 5vw, 72px);
+      background: linear-gradient(to bottom, rgba(9,8,10,.96) 60%, transparent);
+    }
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic; font-size: 14px;
+      letter-spacing: .22em; text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .nav-btn {
+      font-family: 'Crimson Pro', serif;
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--gold); border: 1px solid var(--gold);
+      padding: 8px 22px; cursor: pointer;
+      transition: background .22s, color .22s;
+    }
+    .nav-btn:hover { background: var(--gold); color: var(--bg); }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    .hero {
+      min-height: 100svh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; gap: 48px;
+      padding: 120px clamp(24px, 5vw, 72px) 60px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 22px;
+      animation: fadeUp .8s ease .1s both;
+    }
+    .hero-eyebrow::before { content:''; display:block; width:28px; height:1px; background:var(--gold); }
+    .hero-h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(72px, 10.5vw, 132px);
+      line-height: .9; letter-spacing: .025em;
+      color: var(--cream); margin-bottom: 24px;
+      animation: fadeUp .8s ease .25s both;
+    }
+    .hero-h1 em { color: var(--gold); font-style: normal; }
+    .hero-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2vw, 22px); font-weight: 300; font-style: italic;
+      color: var(--cream-dim); max-width: 430px; line-height: 1.55;
+      margin-bottom: 44px;
+      animation: fadeUp .8s ease .40s both;
+    }
+    .hero-btns {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      animation: fadeUp .8s ease .55s both;
+    }
+    .btn-gold {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Crimson Pro', serif; font-size: 14px;
+      letter-spacing: .18em; text-transform: uppercase;
+      background: var(--gold); color: var(--bg);
+      padding: 15px 34px; cursor: pointer;
+      transition: background .22s, transform .22s;
+    }
+    .btn-gold:hover { background: var(--gold-bright); transform: translateY(-2px); }
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Crimson Pro', serif; font-size: 14px;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: var(--cream-dim); border: 1px solid var(--border-md);
+      padding: 14px 34px; cursor: pointer;
+      transition: border-color .22s, color .22s;
+    }
+    .btn-ghost:hover { border-color: var(--cream-dim); color: var(--cream); }
+
+    /* Book image */
+    .hero-book-wrap {
+      display: flex; justify-content: center; align-items: center;
+      position: relative;
+      animation: fadeIn 1.2s ease .3s both;
+    }
+    .hero-book-wrap::before {
+      content: '';
+      position: absolute;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(196,154,42,.1) 0%, transparent 70%);
+    }
+    .hero-book {
+      width: min(360px, 100%); position: relative; z-index: 1;
+      filter: drop-shadow(0 40px 80px rgba(0,0,0,.75));
+      animation: float 7s ease-in-out infinite;
+      cursor: pointer;
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-14px); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .hero-book { animation: none; }
+      .hero-eyebrow, .hero-h1, .hero-sub, .hero-btns, .hero-book-wrap, .stats-bar { animation: none; opacity: 1; transform: none; }
+    }
+
+    /* ─── STATS BAR ─────────────────────────────────── */
+    .stats-bar {
+      border-top: 1px solid var(--border);
+      padding: 44px clamp(24px, 5vw, 72px);
+      max-width: 1200px; margin: 0 auto;
+      display: flex; gap: 60px; flex-wrap: wrap;
+      animation: fadeUp .8s ease .70s both;
+    }
+    .stat-n {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(36px, 5vw, 56px); color: var(--gold); line-height: 1;
+    }
+    .stat-l {
+      font-size: 12px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--cream-dim); margin-top: 4px;
+    }
+
+    /* ─── CONTRAST ──────────────────────────────────── */
+    .contrast {
+      background: var(--bg-2);
+      padding: clamp(80px,10vw,130px) 0;
+      position: relative; overflow: hidden;
+    }
+    .contrast::before {
+      content: '♚';
+      position: absolute; font-size: 700px; line-height: 1;
+      color: rgba(232,220,200,.012);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      pointer-events: none;
+    }
+    .contrast-grid {
+      display: grid; grid-template-columns: 1fr 56px 1fr;
+      align-items: center; gap: 24px;
+      max-width: 1000px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .contrast-side { text-align: center; }
+    .contrast-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(56px, 8.5vw, 104px); line-height: 1; color: var(--cream);
+    }
+    .contrast-unit {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold); margin: 6px 0 14px;
+    }
+    .contrast-desc { font-size: 16px; color: var(--cream-dim); line-height: 1.55; }
+    .contrast-big--dim { color: var(--cream-dim); }
+    .contrast-unit--faded { opacity: .5; }
+    .contrast-chess { font-size: 24px; }
+    .btn-group { margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap; }
+    .sec-label--center { justify-content: center; }
+    .contrast-mid {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      color: var(--gold);
+    }
+    .contrast-mid-line {
+      width: 1px; height: 70px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
+    .contrast-pull {
+      margin: 0 auto; padding: 60px clamp(24px, 5vw, 72px) 0;
+      max-width: 780px; text-align: center;
+    }
+    .contrast-pull blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(22px, 3.5vw, 36px); font-weight: 300; font-style: italic;
+      color: var(--cream); line-height: 1.45;
+    }
+    .contrast-pull cite {
+      display: block; margin-top: 22px;
+      font-family: 'Crimson Pro', serif; font-style: normal;
+      font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ─── SECTION SHARED ─────────────────────────────── */
+    .sec { padding: clamp(80px,10vw,140px) 0; }
+    .sec-label {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .sec-label::before { content:''; display:block; width:22px; height:1px; background:var(--gold); }
+    .sec-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(44px, 6.5vw, 76px); line-height: .94; letter-spacing: .02em;
+    }
+
+    /* ─── THREE ACTS ─────────────────────────────────── */
+    .acts { background: var(--bg); }
+    .acts-hd { text-align: center; margin-bottom: 72px; }
+    .acts-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .act {
+      background: var(--bg-2); padding: 48px 38px;
+      position: relative; overflow: hidden;
+      transition: background .28s;
+    }
+    .act:hover { background: var(--bg-3); }
+    .act::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .act:nth-child(1)::before { background: var(--gold); }
+    .act:nth-child(2)::before { background: var(--cream-ghost); }
+    .act:nth-child(3)::before { background: var(--gold); }
+    .act-roman {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 18px;
+    }
+    .act-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 30px; letter-spacing: .04em; color: var(--cream); margin-bottom: 14px;
+    }
+    .act-body { font-size: 16px; color: var(--cream-dim); line-height: 1.7; }
+    .act-chess {
+      position: absolute; bottom: 14px; right: 22px;
+      font-size: 72px; opacity: .035; pointer-events: none; line-height: 1;
+    }
+
+    /* ─── ILLUSTRATION BREAK ─────────────────────────── */
+    .illus-break {
+      position: relative; height: clamp(380px, 56vw, 580px);
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+    .illus-break img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      filter: brightness(.38) contrast(1.15);
+    }
+    .illus-break-fade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, var(--bg) 0%, transparent 18%, transparent 82%, var(--bg) 100%);
+    }
+    .illus-break-text {
+      position: absolute; z-index: 2; text-align: center;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .illus-break-q {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 4.5vw, 52px); font-weight: 300; font-style: italic;
+      color: var(--cream); line-height: 1.35; max-width: 820px;
+    }
+
+    /* ─── TEASE ─────────────────────────────────────── */
+    .tease { background: var(--bg); }
+    .tease-hd { margin-bottom: 56px; }
+    .tease-list {
+      border: 1px solid var(--border);
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .tease-item {
+      display: flex; align-items: baseline; gap: 22px;
+      padding: 26px 0; border-bottom: 1px solid var(--border);
+      transition: background .2s; cursor: default;
+    }
+    .tease-item:last-child { border-bottom: none; }
+    .tease-item:hover { padding-left: 6px; }
+    .tease-n {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22px; color: var(--gold); opacity: .55; min-width: 32px; flex-shrink: 0;
+    }
+    .tease-t {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(16px, 2vw, 19px); font-style: italic;
+      color: var(--cream-dim); line-height: 1.45;
+    }
+    .tease-t strong { color: var(--cream); font-style: normal; font-weight: 400; }
+    .tease-arr {
+      margin-left: auto; color: var(--gold); opacity: 0;
+      transition: opacity .2s, transform .2s; flex-shrink: 0; font-size: 17px;
+    }
+    .tease-item:hover .tease-arr { opacity: 1; transform: translateX(4px); }
+
+    /* ─── TESTIMONIALS ──────────────────────────────── */
+    .testimonials { background: var(--bg-2); position: relative; overflow: hidden; }
+    .testimonials::before {
+      content: '';
+      position: absolute; top: 0; right: 0; width: 360px; height: 100%;
+      background: repeating-conic-gradient(rgba(232,220,200,.018) 0% 25%, transparent 0% 50%) 0 0 / 36px 36px;
+      pointer-events: none;
+    }
+    .testimonials-hd { text-align: center; margin-bottom: 68px; }
+    .t-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .t-card {
+      background: var(--bg-3); padding: 38px 32px;
+      position: relative; overflow: hidden;
+    }
+    .t-qmark {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 88px; line-height: .75; color: var(--gold); opacity: .18;
+      position: absolute; top: 18px; left: 24px; pointer-events: none;
+    }
+    .t-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px; font-style: italic; color: var(--cream-dim); line-height: 1.7;
+      margin-bottom: 26px; position: relative; z-index: 1; padding-top: 22px;
+    }
+    .t-text em { color: var(--cream); }
+    .t-author { display: flex; align-items: center; gap: 12px; }
+    .t-avatar {
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold-ghost); border: 1px solid var(--border-md);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 16px; color: var(--gold); flex-shrink: 0;
+    }
+    .t-name {
+      font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--cream-dim);
+    }
+    .t-detail {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 13px; color: var(--gold); opacity: .7;
+    }
+    /* Featured: spans all 3 columns */
+    .t-card--feat {
+      grid-column: 1 / -1;
+      display: grid; grid-template-columns: 1fr auto;
+      gap: 48px; align-items: center;
+      background: var(--bg-2); border: 1px solid var(--border-md);
+    }
+    .t-card--feat .t-text { font-size: clamp(18px, 2.2vw, 22px); }
+    .t-feat-img {
+      width: 160px;
+      filter: drop-shadow(0 20px 44px rgba(0,0,0,.65));
+    }
+
+    /* ─── AUTHOR ────────────────────────────────────── */
+    .author { background: var(--bg); }
+    .author-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .author-img-wrap {
+      background: var(--bg-2); border: 1px solid var(--border);
+      padding: 48px; display: flex; flex-direction: column;
+      align-items: center; gap: 20px;
+    }
+    .author-book-img {
+      width: 100%; max-width: 380px;
+      filter: drop-shadow(0 24px 48px rgba(0,0,0,.65));
+      transition: transform .3s;
+    }
+    .author-book-img:hover { transform: scale(1.02) rotate(-.5deg); }
+    .author-caption {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 13px; color: var(--gold); text-align: center; letter-spacing: .1em;
+    }
+    .author-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(38px, 5vw, 56px); letter-spacing: .04em; line-height: .95;
+      margin-bottom: 8px;
+    }
+    .author-role {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 14px; letter-spacing: .16em; color: var(--gold); margin-bottom: 30px;
+    }
+    .author-p {
+      font-size: 17px; color: var(--cream-dim); line-height: 1.75; margin-bottom: 20px;
+    }
+    .author-p strong { color: var(--cream); font-weight: 400; }
+
+    /* ─── BUY ───────────────────────────────────────── */
+    .buy { background: var(--bg-2); position: relative; overflow: hidden; }
+    .buy::before {
+      content: 'LIBERTAD EN JAQUE';
+      position: absolute; font-family: 'Bebas Neue', sans-serif;
+      font-size: 190px; letter-spacing: .04em; white-space: nowrap;
+      color: rgba(232,220,200,.012); bottom: -10px; left: -10px; pointer-events: none;
+    }
+    .buy-hd { text-align: center; margin-bottom: 68px; }
+    .buy-hd .sec-title { font-size: clamp(52px, 8vw, 100px); }
+    .buy-hd p {
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 18px; color: var(--cream-dim); margin-top: 10px;
+    }
+    .buy-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      max-width: 880px; margin: 0 auto;
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+    .buy-card {
+      background: var(--bg-3); padding: 48px 40px;
+      display: flex; flex-direction: column; gap: 24px;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      transition: border-color .28s;
+    }
+    .buy-card:hover { border-color: var(--border-md); }
+    .buy-card--star { border-color: rgba(196,154,42,.4); }
+    .buy-card--star:hover { border-color: var(--gold); }
+    .buy-badge {
+      position: absolute; top: 0; right: 0;
+      background: var(--gold); color: var(--bg);
+      font-family: 'Crimson Pro', serif;
+      font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+      padding: 5px 14px;
+    }
+    .buy-fmt {
+      font-size: 11px; letter-spacing: .28em; text-transform: uppercase; color: var(--gold);
+    }
+    .buy-img {
+      width: 140px; margin: 0 auto;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,.6));
+    }
+    .buy-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 44px; letter-spacing: .04em; color: var(--cream); line-height: 1;
+    }
+    .buy-desc { font-size: 16px; color: var(--cream-dim); line-height: 1.6; }
+    .buy-ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+    .buy-ul li {
+      display: flex; align-items: baseline; gap: 11px;
+      font-size: 15px; color: var(--cream-dim);
+    }
+    .buy-ul li::before { content: '—'; color: var(--gold); font-family: 'Cormorant Garamond', serif; }
+    .buy-btn {
+      display: block; text-align: center;
+      font-family: 'Crimson Pro', serif; font-size: 13px;
+      letter-spacing: .2em; text-transform: uppercase;
+      padding: 16px; cursor: pointer; transition: all .22s;
+    }
+    .buy-btn--gold { background: var(--gold); color: var(--bg); border: 1px solid var(--gold); }
+    .buy-btn--gold:hover { background: var(--gold-bright); border-color: var(--gold-bright); }
+    .buy-btn--out  { background: transparent; color: var(--cream-dim); border: 1px solid var(--border-md); }
+    .buy-btn--out:hover { color: var(--cream); border-color: var(--cream-dim); }
+
+    .buy-social {
+      text-align: center; margin-top: 52px;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 16px; color: var(--cream-dim);
+      padding: 0 clamp(24px, 5vw, 72px);
+    }
+
+    /* ─── FOOTER ────────────────────────────────────── */
+    .footer {
+      padding: 36px clamp(24px, 5vw, 72px);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-brand {
+      display: flex; align-items: center; gap: 10px;
+      font-family: 'Cormorant Garamond', serif; font-style: italic;
+      font-size: 15px; color: var(--cream-dim);
+    }
+    .footer-brand img { width: 26px; height: 26px; object-fit: contain; opacity: 0.65; }
+    .footer-ig {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--cream-dim); font-size: 13px;
+      transition: color .2s;
+    }
+    .footer-ig:hover { color: var(--cream); }
+    .footer-copy { font-size: 12px; color: var(--cream-ghost); letter-spacing: .05em; }
+
+    /* ─── LOAD ANIMATIONS ───────────────────────────── */
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:none; } }
+    @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+
+    /* ─── RESPONSIVE ────────────────────────────────── */
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding-top: 100px; }
+      .hero-eyebrow { justify-content: center; }
+      .hero-sub { margin: 0 auto 40px; }
+      .hero-btns { justify-content: center; }
+      .hero-book-wrap { order: -1; }
+      .hero-book { width: min(260px, 72%); }
+      .stats-bar { gap: 32px; }
+      .contrast-grid { grid-template-columns: 1fr; text-align: center; gap: 28px; }
+      .contrast-mid { flex-direction: row; justify-content: center; }
+      .contrast-mid-line { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+      .acts-grid { grid-template-columns: 1fr; }
+      .t-grid { grid-template-columns: 1fr; }
+      .t-card--feat { grid-template-columns: 1fr; gap: 20px; }
+      .t-feat-img { display: none; }
+      .author-grid { grid-template-columns: 1fr; gap: 44px; }
+      .buy-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 520px) {
+      .tease-item { gap: 14px; }
+      .acts-grid { padding: 0 clamp(16px, 4vw, 32px); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Tincho Libre</a>
+  <a href="#conseguir" class="nav-btn">Conseguir el libro</a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════ HERO -->
+<section>
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">Historia real · Colombia · Argentina</div>
+      <h1 class="hero-h1">
+        Libertad<br>
+        <em>en Jaque</em>
+      </h1>
+      <p class="hero-sub">
+        La crónica del hombre que pedaleó 30.000 kilómetros para ser libre…
+        y terminó descubriendo la verdadera libertad dentro de una celda.
+      </p>
+      <div class="hero-btns">
+        <a href="#conseguir" class="btn-gold">Quiero el libro →</a>
+        <a href="#historia" class="btn-ghost">Leer la historia</a>
+      </div>
+    </div>
+    <div class="hero-book-wrap">
+      <img
+        src="Libertad%20en%20Jaque/Mockups/smartmockups_kp4lu5ol-min.png"
+        alt="Libertad en Jaque — libro de Juan Martín Pérez Tobón"
+        class="hero-book"
+        loading="eager"
+      >
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="r">
+      <div class="stat-n">30.000</div>
+      <div class="stat-l">Kilómetros en bicicleta</div>
+    </div>
+    <div class="r r1">
+      <div class="stat-n">17</div>
+      <div class="stat-l">Países recorridos</div>
+    </div>
+    <div class="r r2">
+      <div class="stat-n">1</div>
+      <div class="stat-l">Acusación falsa</div>
+    </div>
+    <div class="r r3">
+      <div class="stat-n">∞</div>
+      <div class="stat-l">Lo que encontró adentro</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════ CONTRAST -->
+<section class="contrast" id="historia">
+  <div class="contrast-grid">
+    <div class="contrast-side r">
+      <div class="contrast-big">30.000</div>
+      <div class="contrast-unit">kilómetros</div>
+      <p class="contrast-desc">
+        17 países. El viento en la cara.<br>
+        El mundo entero como hogar.<br>
+        La libertad en su forma más pura.
+      </p>
+    </div>
+
+    <div class="contrast-mid r r1">
+      <div class="contrast-mid-line"></div>
+      <span class="contrast-chess">♚</span>
+      <div class="contrast-mid-line"></div>
+    </div>
+
+    <div class="contrast-side r r2">
+      <div class="contrast-big contrast-big--dim">1</div>
+      <div class="contrast-unit contrast-unit--faded">celda</div>
+      <p class="contrast-desc">
+        Acusaciones falsas. Rejas.<br>
+        Un país extranjero.<br>
+        Donde descubrió la libertad real.
+      </p>
+    </div>
+  </div>
+
+  <div class="contrast-pull r">
+    <blockquote>
+      "Y fue en el lugar más oscuro<br>donde entendió que la libertad
+      nunca estuvo afuera."
+    </blockquote>
+    <cite>— Juan Martín Pérez Tobón · Libertad en Jaque</cite>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════ THREE ACTS -->
+<section class="acts sec">
+  <div class="wrap">
+    <div class="acts-hd r">
+      <div class="sec-label">La historia</div>
+      <h2 class="sec-title">Tres actos.<br>Una revelación.</h2>
+    </div>
+  </div>
+
+  <div class="acts-grid">
+    <div class="act r">
+      <div class="act-roman">Acto I</div>
+      <div class="act-title">La aventura como forma de vida</div>
+      <p class="act-body">
+        A los 20 años, Juan Martín eligió una bicicleta sobre cualquier comodidad.
+        Cruzó fronteras, durmió bajo estrellas, pedaleó dos continentes.
+        Después de 30.000 kilómetros y 17 países, creía conocer la libertad
+        mejor que nadie. O eso pensaba.
+      </p>
+      <div class="act-chess">♖</div>
+    </div>
+
+    <div class="act r r1">
+      <div class="act-roman">Acto II</div>
+      <div class="act-title">La noche que cambió todo</div>
+      <p class="act-body">
+        Una acusación falsa. Una celda en Argentina.
+        Las mismas manos que habían empuñado el manillar por dos continentes,
+        esposadas. El hombre más libre del mundo, preso en un país extranjero.
+        Junto a él: Jorge "Noala", su amigo cicloviajero mexicano.
+      </p>
+      <div class="act-chess">♚</div>
+    </div>
+
+    <div class="act r r2">
+      <div class="act-roman">Acto III</div>
+      <div class="act-title">Lo que ninguna reja puede quitar</div>
+      <p class="act-body">
+        En la celda encontraron un tablero de ajedrez improvisado.
+        Y descubrieron que la mente podía moverse libre aunque el cuerpo no lo estuviera.
+        Cada partida, cada respiro con intención, cada momento de silencio elegido
+        se convirtió en una práctica. La misma que Tincho enseña hoy.
+      </p>
+      <div class="act-chess">♕</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ ILLUSTRATION BREAK -->
+<div class="illus-break">
+  <img
+    src="Libertad%20en%20Jaque/Mockups/LeJ%20sinfondo-min.png"
+    alt="Manos encadenadas sosteniendo el rey de ajedrez — ilustración de portada"
+    loading="lazy"
+  >
+  <div class="illus-break-fade"></div>
+  <div class="illus-break-text">
+    <p class="illus-break-q r">
+      "Libertad en Jaque no es el final de la partida.<br>
+      Es el momento en que realmente empieza."
+    </p>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════════ CONTENT TEASE -->
+<section class="tease sec">
+  <div class="wrap">
+    <div class="tease-hd r">
+      <div class="sec-label">Dentro del libro</div>
+      <h2 class="sec-title">Lo que vas a<br>encontrar</h2>
+    </div>
+  </div>
+
+  <div class="tease-list r wrap">
+      <div class="tease-item">
+        <span class="tease-n">01</span>
+        <span class="tease-t">
+          <strong>Los primeros minutos de la detención.</strong>
+          Lo que pasa, por dentro y por fuera, cuando te esposan
+          y no entiendes por qué.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-n">02</span>
+        <span class="tease-t">
+          <strong>El sistema desde adentro.</strong>
+          Cómo funciona realmente una cárcel argentina.
+          Lo que ningún documental te muestra.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-n">03</span>
+        <span class="tease-t">
+          <strong>El tablero de ajedrez improvisado</strong>
+          que se convirtió en el único mundo donde la mente podía
+          ser absolutamente libre.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-n">04</span>
+        <span class="tease-t">
+          <strong>Las conversaciones que no olvida.</strong>
+          Lo que le dijeron sus compañeros de celda
+          y que le cambió la forma de ver la vida.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-n">05</span>
+        <span class="tease-t">
+          El momento en que <strong>dejó de pedir que lo liberaran</strong>…
+          y por qué ese fue el instante más importante de toda la historia.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+      <div class="tease-item">
+        <span class="tease-n">06</span>
+        <span class="tease-t">
+          <strong>Lo que aprendió sobre la libertad</strong>
+          que nunca hubiera descubierto en la ruta.
+          La revelación que lo convirtió en quien es hoy.
+        </span>
+        <span class="tease-arr">→</span>
+      </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════ TESTIMONIALS -->
+<section class="testimonials sec">
+  <div class="wrap">
+    <div class="testimonials-hd r">
+      <div class="sec-label">Lectores reales</div>
+      <h2 class="sec-title">Lo que dicen<br>quienes lo leyeron</h2>
+    </div>
+  </div>
+
+  <div class="t-grid">
+
+    <!-- Featured -->
+    <div class="t-card t-card--feat r">
+      <div>
+        <div class="t-qmark">"</div>
+        <p class="t-text">
+          Estoy en un avión rumbo a México y
+          <em>me voy devorando tu libro.</em>
+          Se me han caído algunas lágrimas.
+          Tu historia me interpela muchísimo y puedo empatizar con vos,
+          en lo horrible que tuviste que pasar.
+        </p>
+        <div class="t-author">
+          <div class="t-avatar">F</div>
+          <div>
+            <div class="t-name">Fer Gutiérrez</div>
+            <div class="t-detail">@libreyapedal · Cicloviajera</div>
+          </div>
+        </div>
+      </div>
+      <img
+        src="Libertad%20en%20Jaque/Mockups/smartmockups_kp4lu5ol-min.png"
+        alt="Libro físico Libertad en Jaque"
+        class="t-feat-img"
+        loading="lazy"
+      >
+    </div>
+
+    <div class="t-card r">
+      <div class="t-qmark">"</div>
+      <p class="t-text">
+        <em>Me lo comí en dos días.</em>
+        Muy interesante y sorprendido con la calidad narrativa
+        y cómo transmitís al lector las situaciones
+        y sentimientos en todo momento.
+      </p>
+      <div class="t-author">
+        <div class="t-avatar">F</div>
+        <div>
+          <div class="t-name">Fer Sanchis</div>
+          <div class="t-detail">@fersanchiss</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card r r1">
+      <div class="t-qmark">"</div>
+      <p class="t-text">
+        La forma como lo redactas hace que se sienta
+        <em>como si fuera el lector quien estuviera viviendo esa tragedia.</em>
+        Eres muy buen escritor.
+      </p>
+      <div class="t-author">
+        <div class="t-avatar">M</div>
+        <div>
+          <div class="t-name">Marina Lopera V.</div>
+          <div class="t-detail">Lectora</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card r r2">
+      <div class="t-qmark">"</div>
+      <p class="t-text">
+        He leído tu libro, <em>tantas emociones.</em>
+        Cuánto lo siento todo lo que viviste.
+        Sufrí y en ocasiones también
+        <em>lloré en mi silencio</em> junto a mi imaginación.
+      </p>
+      <div class="t-author">
+        <div class="t-avatar">J</div>
+        <div>
+          <div class="t-name">Joseph Mtaña</div>
+          <div class="t-detail">Desde Roma, Italia</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card r">
+      <div class="t-qmark">"</div>
+      <p class="t-text">
+        <em>El libro está una nota. Muy digerible. Muy emotivo.</em>
+        Ha sido rarísimo como todo pasa tan rápido,
+        pero cada día era una eternidad para nosotros
+        que estábamos del otro lado.
+      </p>
+      <div class="t-author">
+        <div class="t-avatar">L</div>
+        <div>
+          <div class="t-name">Luna A. Cubillos</div>
+          <div class="t-detail">Lectora</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="t-card r r1">
+      <div class="t-qmark">"</div>
+      <p class="t-text">
+        Un lenguaje bastante cotidiano así que se siente muy familiar.
+        <em>Como charlando con el guión,
+        me parecía estar escuchándote</em>
+        cuando me estabas contando la historia.
+      </p>
+      <div class="t-author">
+        <div class="t-avatar">A</div>
+        <div>
+          <div class="t-name">Angélica Reyes</div>
+          <div class="t-detail">Lectora</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════ AUTHOR -->
+<section class="author sec" id="autor">
+  <div class="author-grid">
+    <div class="author-img-wrap r">
+      <img
+        src="Libertad%20en%20Jaque/Mockups/Librofisico.png"
+        alt="Libertad en Jaque — edición física completa"
+        class="author-book-img"
+        loading="lazy"
+      >
+      <div class="author-caption">Disponible en físico y digital</div>
+    </div>
+
+    <div class="r r1">
+      <div class="sec-label">El autor</div>
+      <h2 class="author-name">Juan Martín<br>Pérez Tobón</h2>
+      <p class="author-role">Tincho · Cicloviajero · Instructor de yoga · Autor</p>
+
+      <p class="author-p">
+        Nació en Colombia. Eligió la bicicleta como estilo de vida y recorrió
+        más de <strong>30.000 kilómetros por 17 países</strong>.
+        En ese camino vivió la libertad en su forma más cruda,
+        hasta que una acusación falsa lo llevó a una celda en Argentina.
+      </p>
+      <p class="author-p">
+        Esa experiencia, perder todo lo exterior, lo llevó a descubrir algo
+        que no aparece en ningún mapa: la <strong>libertad interna</strong>.
+        Hoy es instructor certificado de yoga, pranayama y neurociencia aplicada,
+        y acompaña a profesionales y emprendedores a encontrar calma real
+        en medio del caos. La historia del libro <em>es</em> la historia de la marca.
+      </p>
+      <p class="author-p">
+        Vive en Colombia. 13.000+ seguidores en Instagram.
+        Sigue pedaleando — ahora también hacia adentro.
+      </p>
+
+      <div class="btn-group">
+        <a href="#conseguir" class="btn-gold">Conseguir el libro →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════════════════ BUY -->
+<section class="buy sec" id="conseguir">
+  <div class="wrap">
+    <div class="buy-hd r">
+      <div class="sec-label sec-label--center">Conseguir el libro</div>
+      <h2 class="sec-title">ELIGE TU<br>FORMATO</h2>
+      <p>Una historia que se lee en horas. Que se recuerda para siempre.</p>
+    </div>
+  </div>
+
+  <div class="buy-grid">
+    <div class="buy-card buy-card--star r">
+      <div class="buy-badge">Más elegido</div>
+      <div class="buy-fmt">Libro Impreso</div>
+
+      <img
+        src="Libertad%20en%20Jaque/Mockups/smartmockups_kp4lu5ol-min.png"
+        alt="Libro físico Libertad en Jaque"
+        class="buy-img"
+        loading="lazy"
+      >
+
+      <h3 class="buy-title">Físico</h3>
+      <p class="buy-desc">
+        La experiencia completa. Tener en tus manos la historia
+        de manos que estuvieron esposadas. Hay algo profundo en eso.
+      </p>
+
+      <ul class="buy-ul">
+        <li>Libro de tapa blanda, impresión de calidad</li>
+        <li>Perfecto para regalar</li>
+        <li>Envíos disponibles</li>
+      </ul>
+
+      <a href="#" class="buy-btn buy-btn--gold">Conseguir el físico →</a>
+    </div>
+
+    <div class="buy-card r r1">
+      <div class="buy-fmt">Versión Digital</div>
+
+      <img
+        src="Libertad%20en%20Jaque/Mockups/smartmockups_kpohydew-min.png"
+        alt="Libro digital Libertad en Jaque en tablet"
+        class="buy-img"
+        loading="lazy"
+      >
+
+      <h3 class="buy-title">Digital</h3>
+      <p class="buy-desc">
+        Disponible en todos tus dispositivos. Empieza a leerlo
+        en el próximo vuelo, en el metro, o esta noche mismo.
+      </p>
+
+      <ul class="buy-ul">
+        <li>Formatos EPUB · PDF · MOBI</li>
+        <li>Compatible con Kindle, iPad, cualquier lector</li>
+        <li>Descarga inmediata</li>
+      </ul>
+
+      <a href="#" class="buy-btn buy-btn--out">Conseguir el digital →</a>
+    </div>
+  </div>
+
+  <p class="buy-social r">
+    "Me lo comí en dos días." — Fer Sanchis &nbsp;·&nbsp;
+    "Tantas emociones." — Joseph Mtaña &nbsp;·&nbsp;
+    "Muy emotivo." — Luna Cubillos
+  </p>
+</section>
+
+
+<!-- ══════════════════════════════════════════════ FOOTER -->
+<footer class="footer">
+  <a href="index.html" class="footer-brand" aria-label="Tincho — Inicio">
+    <img src="Documentos Pagina web/Logo.png" alt="">
+    <span>Tincho</span>
+  </a>
+  <a href="https://instagram.com/tincholibre" class="footer-ig" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Tincho — @tincholibre">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+    @tincholibre
+  </a>
+  <div class="footer-copy">© 2026 Juan Martín Pérez Tobón</div>
+</footer>
+
+
+<script>
+  // Scroll-reveal via IntersectionObserver
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); }
+    }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.r').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
