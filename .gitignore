@@ -9,8 +9,9 @@ LANDING.md
 PROMPTS.md
 ROADMAP.md
 
-# Book files (manuscript - not public)
-Libertad en Jaque/
+# Book files (manuscript - not public, pero mockups sí son públicos)
+Libertad en Jaque/*
+!Libertad en Jaque/Mockups/
 
 # Internal research
 Bibliografía/
