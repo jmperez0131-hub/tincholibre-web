@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias por tu compra! — Tincho</title>
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="icon" href="Brandkit%20ASSETS/assets/logo/tincho-mark-dark.svg" type="image/svg+xml">
+    <link rel="icon" href="Brandkit%20ASSETS/assets/logo/tincho-mark-dark-512.png" type="image/png">
+    <link rel="apple-touch-icon" href="Brandkit%20ASSETS/assets/logo/tincho-mark-dark-512.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="brandkit.css">
+
+    <style>
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: var(--papel-prof); }
+        ::-webkit-scrollbar-thumb { background: var(--lago); border-radius: 2px; }
+
+        img { display: block; max-width: 100%; }
+        a { color: inherit; text-decoration: none; }
+
+        /* ─── NAV ─────────────────────────────────────────── */
+        .nav {
+            position: fixed;
+            inset: 0 0 auto 0;
+            z-index: 200;
+            padding: 18px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--papel);
+            border-bottom: 1px solid var(--line);
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--tinta);
+        }
+
+        .nav-brand-mark {
+            width: 30px;
+            height: 30px;
+            flex-shrink: 0;
+            color: var(--tinta);
+        }
+
+        .nav-brand-name {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: var(--tinta);
+            letter-spacing: -0.02em;
+            line-height: 1;
+        }
+
+        .nav-link-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--bruma);
+            font-size: 0.875rem;
+            font-weight: 400;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .nav-link-back:hover { color: var(--tinta); }
+
+        /* ─── MAIN ────────────────────────────────────────── */
+        .hero-gracias {
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 48px 96px;
+            background: var(--papel);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Arc decorativo fondo */
+        .hero-gracias::after {
+            content: '';
+            position: absolute;
+            right: -4%;
+            bottom: -8%;
+            width: 44vw;
+            max-width: 540px;
+            aspect-ratio: 1;
+            background: radial-gradient(circle, var(--lago) 0%, transparent 70%);
+            opacity: 0.04;
+            pointer-events: none;
+        }
+
+        .gracias-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* ─── CHECK ICON ──────────────────────────────────── */
+        .check-wrap {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 76px;
+            height: 76px;
+            background: rgba(31, 77, 74, 0.08);
+            border: 1.5px solid rgba(31, 77, 74, 0.28);
+            border-radius: 50%;
+            margin: 0 auto 32px;
+            animation: pulse-ring 3s ease-out infinite;
+            color: var(--lago);
+        }
+
+        @keyframes pulse-ring {
+            0%   { box-shadow: 0 0 0 0 rgba(31, 77, 74, 0.2); }
+            60%  { box-shadow: 0 0 0 18px rgba(31, 77, 74, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(31, 77, 74, 0); }
+        }
+
+        /* ─── EYEBROW ─────────────────────────────────────── */
+        .eyebrow {
+            display: inline-block;
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--lago);
+            margin-bottom: 18px;
+        }
+
+        /* ─── HEADLINE ────────────────────────────────────── */
+        .gracias-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 400;
+            color: var(--tinta);
+            line-height: 1.1;
+            letter-spacing: -0.025em;
+            margin-bottom: 20px;
+        }
+
+        .gracias-title em {
+            font-style: italic;
+            color: var(--lago);
+        }
+
+        /* ─── SUBTITLE ────────────────────────────────────── */
+        .gracias-sub {
+            color: var(--bruma);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto 48px;
+        }
+
+        /* ─── STEPS BOX ───────────────────────────────────── */
+        .steps-box {
+            background: var(--papel-prof);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+            padding: 36px 40px;
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .steps-box-title {
+            font-family: var(--font-body);
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--tinta);
+            margin-bottom: 28px;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            list-style: none;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+
+        .step-num {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            background: var(--lago);
+            border-radius: 50%;
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: var(--papel);
+        }
+
+        .step-text { padding-top: 6px; }
+
+        .step-text strong {
+            display: block;
+            color: var(--tinta);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .step-text span {
+            color: var(--bruma);
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* ─── DIVIDER ─────────────────────────────────────── */
+        .divider {
+            width: 1px;
+            height: 36px;
+            background: linear-gradient(to bottom, var(--line-strong), transparent);
+            margin: 0 auto 36px;
+        }
+
+        /* ─── NEXT STEP ───────────────────────────────────── */
+        .next-step {
+            background: var(--papel-prof);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--tierra);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 36px;
+            text-align: left;
+        }
+
+        .next-step-label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--tierra);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .next-step p {
+            color: var(--bruma);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .next-step p strong { color: var(--tinta); font-weight: 500; }
+
+        .next-step a {
+            color: var(--lago);
+            font-weight: 500;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* ─── NEXT STEP ICONS ─────────────────────────── */
+        .next-step-icon {
+            color: var(--tierra);
+            margin-bottom: 12px;
+        }
+        .next-step-icon svg { width: 24px; height: 24px; display: block; }
+
+        /* ─── BUTTONS ─────────────────────────────────────── */
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        /* ─── FIRMA ───────────────────────────────────────── */
+        .firma {
+            margin-top: 48px;
+            border-top: 1px solid var(--line);
+            padding-top: 32px;
+            color: var(--bruma);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .firma-name {
+            display: block;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 1.2rem;
+            color: var(--tinta);
+            margin-bottom: 6px;
+            letter-spacing: -0.015em;
+        }
+
+        /* ─── FOOTER ──────────────────────────────────────── */
+        footer {
+            background: var(--tinta);
+            border-top: 1px solid rgba(244,239,230,0.06);
+            padding: 36px 48px;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand-mark { width: 26px; height: 26px; color: rgba(244,239,230,0.6); }
+
+        .footer-brand-name {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(244,239,230,0.55);
+            letter-spacing: -0.02em;
+        }
+
+        .footer-ig {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(244,239,230,0.45);
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            cursor: pointer;
+        }
+
+        .footer-ig:hover { color: var(--papel); }
+
+        .footer-copy {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.28);
+        }
+
+        /* ─── ANIMATIONS ──────────────────────────────────── */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.65s ease forwards;
+        }
+
+        .fade-in[data-delay="1"] { animation-delay: 0.10s; }
+        .fade-in[data-delay="2"] { animation-delay: 0.22s; }
+        .fade-in[data-delay="3"] { animation-delay: 0.36s; }
+        .fade-in[data-delay="4"] { animation-delay: 0.50s; }
+        .fade-in[data-delay="5"] { animation-delay: 0.64s; }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ─── RESPONSIVE ──────────────────────────────────── */
+        @media (max-width: 768px) {
+            .nav             { padding: 14px 24px; }
+            .hero-gracias    { padding: 100px 24px 72px; }
+            .steps-box       { padding: 28px 20px; }
+            .next-step       { padding: 20px 20px; }
+            .footer-inner    { flex-direction: column; align-items: flex-start; }
+            footer           { padding: 28px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .gracias-title { font-size: 1.85rem; }
+            .check-wrap    { width: 64px; height: 64px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, .fade-in { transition: none !important; animation-duration: 0.01ms !important; opacity: 1 !important; transform: none !important; }
+            .check-wrap { animation: none !important; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     NAV
+════════════════════════════════════════════════ -->
+<nav class="nav" role="navigation" aria-label="Navegación">
+    <a href="https://tincholibre.com" class="nav-brand" aria-label="Tincho — Inicio">
+        <svg class="nav-brand-mark" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 68 C 32 52, 88 52, 108 68"/>
+            <line x1="60" y1="30" x2="60" y2="98"/>
+            <line x1="34" y1="44" x2="86" y2="44"/>
+            <circle cx="60" cy="44" r="3.2" fill="#E4B363" stroke="none"/>
+        </svg>
+        <span class="nav-brand-name">TinchoLibre</span>
+    </a>
+    <a href="https://tincholibre.com" class="nav-link-back" aria-label="Volver al sitio principal">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Volver al sitio
+    </a>
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════
+     GRACIAS
+════════════════════════════════════════════════ -->
+<main class="hero-gracias" id="main" role="main">
+    <div class="gracias-inner">
+
+        <!-- Ícono de confirmación -->
+        <div class="check-wrap fade-in" aria-hidden="true">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+
+        <!-- Eyebrow -->
+        <span class="eyebrow fade-in" data-delay="1">Compra confirmada</span>
+
+        <!-- Headline -->
+        <h1 class="gracias-title fade-in" data-delay="2">
+            Tu guía está<br><em>en camino.</em>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="gracias-sub fade-in" data-delay="3">
+            Ahora mismo Hotmart está procesando tu acceso. En unos minutos recibes un correo con el enlace de descarga.
+        </p>
+
+        <!-- Instrucciones paso a paso -->
+        <div class="steps-box fade-in" data-delay="3">
+            <p class="steps-box-title">Qué hacer ahora mismo</p>
+            <ol class="step-list" role="list">
+
+                <li class="step-item">
+                    <div class="step-num" aria-label="Paso 1">1</div>
+                    <div class="step-text">
+                        <strong>Revisa tu correo</strong>
+                        <span>Hotmart envía un email con el enlace de descarga. Si no aparece en bandeja de entrada, revisa en Spam o Promociones.</span>
+                    </div>
+                </li>
+
+                <li class="step-item">
+                    <div class="step-num" aria-label="Paso 2">2</div>
+                    <div class="step-text">
+                        <strong>Descarga la Guía de Meditación</strong>
+                        <span>El PDF contiene el protocolo completo con instrucciones paso a paso. Puedes guardarlo en tu teléfono para tenerlo siempre a mano.</span>
+                    </div>
+                </li>
+
+                <li class="step-item">
+                    <div class="step-num" aria-label="Paso 3">3</div>
+                    <div class="step-text">
+                        <strong>Empieza esta noche</strong>
+                        <span>No lo dejes para después. La primera práctica toma 10 minutos y ya vas a sentir la diferencia antes de dormir.</span>
+                    </div>
+                </li>
+
+            </ol>
+        </div>
+
+        <!-- Divider -->
+        <div class="divider" aria-hidden="true"></div>
+
+        <!-- Siguiente paso / bonus -->
+        <div class="next-step fade-in" data-delay="4">
+            <div class="next-step-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18 C 10 10, 22 10, 28 18"/><path d="M4 18 C 10 26, 22 26, 28 18"/><circle cx="16" cy="18" r="1.2" fill="currentColor"/></svg></div>
+            <span class="next-step-label">Mientras esperas el correo</span>
+            <p>
+                <strong>Descarga el Protocolo 3 Respiraciones — gratis.</strong><br>
+                Es el primer paso del método: tres minutos antes de dormir que activan el freno natural de tu sistema nervioso. Perfecto para usar esta misma noche mientras llega tu guía completa.
+            </p>
+        </div>
+
+        <!-- CTAs -->
+        <div class="btn-stack fade-in" data-delay="4">
+            <a
+                href="https://tincholibre.com/#protocolo"
+                class="bk-btn bk-btn-lago bk-btn-full bk-btn-lg"
+                aria-label="Descargar el Protocolo 3 Respiraciones gratis"
+            >
+                Recibir el protocolo gratis
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </a>
+
+            <a
+                href="https://instagram.com/tincholibre"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="bk-btn bk-btn-secondary bk-btn-full"
+                aria-label="Seguir a Tincho en Instagram"
+            >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <circle cx="12" cy="12" r="4"/>
+                    <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+                </svg>
+                Seguirme en Instagram @tincholibre
+            </a>
+        </div>
+
+        <!-- Puente → Libertad en Jaque -->
+        <div class="next-step fade-in" data-delay="5" style="margin-top: 8px; margin-bottom: 0;">
+            <div class="next-step-icon" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 L16 9 L26 6 L26 26 L16 23 L6 26 Z"/><path d="M16 9 L16 23"/></svg></div>
+            <span class="next-step-label">¿Querés entender de dónde viene todo esto?</span>
+            <p>
+                El método que acabas de comprar nació de una experiencia límite. Si te interesa la historia detrás — el cicloviajero que pedaleó 30.000 km por 17 países y terminó preso en Argentina —
+                <a href="libertad-en-jaque.html">lee sobre <em>Libertad en Jaque</em></a>,
+                el libro donde todo empezó.
+            </p>
+        </div>
+
+        <!-- Firma -->
+        <div class="firma fade-in" data-delay="5">
+            <span class="firma-name">— Tincho</span>
+            Esto que empezás hoy no es solo una guía.<br>
+            Es aprender a bajar el interruptor cuando más lo necesitás.
+        </div>
+
+    </div>
+</main>
+
+
+<!-- ═══════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════════ -->
+<footer role="contentinfo">
+    <div class="footer-inner">
+
+        <a href="https://tincholibre.com" class="footer-brand" aria-label="Tincho — Volver al inicio">
+            <svg class="footer-brand-mark" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 68 C 32 52, 88 52, 108 68"/>
+                <line x1="60" y1="30" x2="60" y2="98"/>
+                <line x1="34" y1="44" x2="86" y2="44"/>
+                <circle cx="60" cy="44" r="3.2" fill="#E4B363" stroke="none"/>
+            </svg>
+            <span class="footer-brand-name">Tincho</span>
+        </a>
+
+        <a
+            href="https://instagram.com/tincholibre"
+            class="footer-ig"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram de Tincho"
+        >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            @tincholibre
+        </a>
+
+        <a
+            href="https://www.tiktok.com/@tincholibre"
+            class="footer-ig"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="TikTok de Tincho — @tincholibre"
+        >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/>
+            </svg>
+            @tincholibre
+        </a>
+
+        <p class="footer-copy">© 2026 Tincho. Todos los derechos reservados.</p>
+
+    </div>
+</footer>
+
+</body>
+</html>
