@@ -499,6 +499,54 @@
         }
         .step-icon svg { width: 28px; height: 28px; display: block; margin: 0 auto; }
 
+        /* ─── MINI CAPTURE ────────────────────────────── */
+        .mini-capture {
+            background: var(--lago-prof);
+            padding: 48px 48px;
+            border-top: 1px solid rgba(247,241,228,0.06);
+        }
+
+        .mini-capture-inner {
+            max-width: 560px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .mini-capture-hook {
+            font-size: 1.05rem;
+            color: var(--papel);
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .mini-capture-form {
+            display: flex;
+            gap: 12px;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .mini-capture-form .form-input {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(247,241,228,0.08);
+            border-color: rgba(247,241,228,0.2);
+            color: var(--papel);
+        }
+
+        .mini-capture-form .form-input::placeholder { color: rgba(247,241,228,0.4); }
+
+        @media (max-width: 768px) {
+            .mini-capture { padding: 40px 24px; }
+            .mini-capture-form { flex-direction: column; }
+            .mini-capture-form .form-input { min-width: 0; width: 100%; }
+        }
+
         /* ─── TRANSICIÓN ──────────────────────────────── */
         .transicion {
             background: var(--papel-prof);
@@ -1285,6 +1333,33 @@
 
 
 <!-- ═══════════════════════════════════════════════
+     MINI CAPTURE — CRO
+════════════════════════════════════════════════ -->
+<div class="mini-capture">
+    <div class="mini-capture-inner">
+        <p class="mini-capture-hook">
+            ¿Reconoces esto? El protocolo de 3 respiraciones es el primer paso.
+        </p>
+        <form class="mini-capture-form" id="form-mini" novalidate>
+            <label for="email-mini" class="sr-only">Tu email</label>
+            <input
+                type="email"
+                id="email-mini"
+                class="form-input"
+                placeholder="Tu email"
+                required
+                autocomplete="email"
+                aria-required="true"
+            >
+            <button type="submit" class="bk-btn bk-btn-amanecer" id="form-mini-btn">
+                Quiero el protocolo
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════
      TRANSICIÓN
 ════════════════════════════════════════════════ -->
 <div class="transicion" role="separator" aria-label="Cita">
@@ -1639,6 +1714,21 @@
         e.preventDefault();
         const input = this.querySelector('.form-input');
         const btn   = document.getElementById('form-btn');
+
+        if (!input.value || !input.validity.valid) {
+            input.focus();
+            return;
+        }
+
+        btn.disabled = true;
+        btn.textContent = '¡Listo! Revisa tu correo.';
+    });
+
+    /* ── Mini form ───────────────────────────────── */
+    document.getElementById('form-mini').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = this.querySelector('.form-input');
+        const btn   = document.getElementById('form-mini-btn');
 
         if (!input.value || !input.validity.valid) {
             input.focus();
