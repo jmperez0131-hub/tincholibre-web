@@ -46,11 +46,16 @@ Fuente autoritativa: `Brandkit ASSETS/assets/tokens/brand-tokens.css`.
 - Eyebrow: `— yoga · pranayama · neurociencia` (guión em, minúsculas, sin "aplicada")
 - Subtext actual se mantiene.
 
-**Foto (`IMG_1395.JPG`) — tratamiento estético:**
+**Foto hero — nueva selección (PNG sin fondo):**
+- Usar `Documentos Pagina web/fotos sin bg/61ccaa3b-1e15-4014-bb75-12a127cdbcd0.png` — manos en namaste, sonrisa cálida. Comunica el método antes de que el visitante lea una palabra.
+- Las otras dos fotos sin fondo quedan disponibles: brazos cruzados (`12fa3022`) para sección "Cómo Trabajo"; manos steepled (`def70fda`) para sección "Mi Camino".
+
+**Tratamiento estético:**
 - `object-position: center top` para centrar el rostro.
-- Reescribir los gradientes `::before` y `::after` usando `var(--papel)` en lugar de los valores RGBA hardcodeados de la paleta vieja (`rgba(244,239,230,...)`).
-- Agregar gradiente de fusión también en el borde derecho — actualmente solo tiene izquierda y abajo. La foto se disuelve en los 3 bordes (Seismic Calm: señal que se desvanece).
-- Agregar `filter: saturate(0.85) contrast(1.02)` a la foto — integra tonalmente con la paleta cálida sin afectar la legibilidad del rostro.
+- Reescribir los gradientes `::before` y `::after` usando `var(--papel)` en lugar de valores RGBA hardcodeados.
+- Agregar gradiente de fusión en borde derecho — la figura se disuelve en los 3 bordes (Seismic Calm).
+- `filter: saturate(0.85) contrast(1.02)` — integra tonalmente con la paleta cálida y atenúa el halo de luz del estudio.
+- Verificar en implementación: el halo azul/violeta del estudio en el hombro izquierdo puede necesitar retoque si resulta visible sobre `--papel`.
 
 **CTAs:**
 - Botón principal: se mantiene apuntando a `#protocolo`.
@@ -158,4 +163,5 @@ Agregar link e ícono de TikTok al footer de todas las páginas del sitio.
 - Logos: `Brandkit ASSETS/assets/logo/`
 - Iconos: `Brandkit ASSETS/assets/icons/`
 - Motifs: `Brandkit ASSETS/assets/motifs/`
-- Fotos: `Documentos Pagina web/Fotos Principales/IMG_1395.JPG` (hero), `Documentos Pagina web/Fotos/IMG_5794.jpg` (Mi Camino)
+- Fotos hero: `Documentos Pagina web/fotos sin bg/61ccaa3b-1e15-4014-bb75-12a127cdbcd0.png` (hero — namaste), `Documentos Pagina web/fotos sin bg/12fa3022-1669-40e0-8b30-02c1ce23dbaf.png` (alternativa autoridad), `Documentos Pagina web/fotos sin bg/def70fda-5f8c-4eed-9084-824849f5c635.png` (alternativa contemplativa)
+- Foto Mi Camino: `Documentos Pagina web/Fotos/IMG_5794.jpg` (sin cambios)
