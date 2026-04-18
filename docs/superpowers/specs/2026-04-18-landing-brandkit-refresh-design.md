@@ -1,6 +1,6 @@
 # Landing Page — Brandkit Refresh (Opción B)
 **Fecha:** 2026-04-18  
-**Alcance:** `index.html` + `brandkit.css`  
+**Alcance:** `index.html` + `brandkit.css` + footer de todas las páginas del sitio  
 **Objetivo:** Migrar la landing a la paleta Amanecer oficial, incorporar assets del brandkit, y mejorar conversión con un segundo punto de captura y prueba social anticipada.
 
 ---
@@ -46,9 +46,11 @@ Fuente autoritativa: `Brandkit ASSETS/assets/tokens/brand-tokens.css`.
 - Eyebrow: `— yoga · pranayama · neurociencia` (guión em, minúsculas, sin "aplicada")
 - Subtext actual se mantiene.
 
-**Foto (`IMG_1395.JPG`):**
-- Agregar `object-position: center top` para centrar el rostro.
-- Gradiente en borde inferior del wrapper para fundir la foto con el fondo (sin corte duro).
+**Foto (`IMG_1395.JPG`) — tratamiento estético:**
+- `object-position: center top` para centrar el rostro.
+- Reescribir los gradientes `::before` y `::after` usando `var(--papel)` en lugar de los valores RGBA hardcodeados de la paleta vieja (`rgba(244,239,230,...)`).
+- Agregar gradiente de fusión también en el borde derecho — actualmente solo tiene izquierda y abajo. La foto se disuelve en los 3 bordes (Seismic Calm: señal que se desvanece).
+- Agregar `filter: saturate(0.85) contrast(1.02)` a la foto — integra tonalmente con la paleta cálida sin afectar la legibilidad del rostro.
 
 **CTAs:**
 - Botón principal: se mantiene apuntando a `#protocolo`.
@@ -96,10 +98,13 @@ Agregar **barra compacta de credibilidad** inmediatamente después del Hero.
 
 **Contenido:**
 ```
-+20,000 seguidores (Instagram + TikTok)  ·  +150 personas en comunidad  ·  Autor de Libertad en Jaque
++20,000 en redes sociales  ·  +2,000 emprendedores en bootcamps presenciales  ·  Autor de Libertad en Jaque
 
 "Lo que Tincho enseña funciona porque él lo vivió."
 ```
+
+- "+20,000 en redes sociales" = Instagram (13.3K) + TikTok (6.5K+), sin nombrar plataformas específicas.
+- "+2,000 emprendedores en bootcamps presenciales" reemplaza "+150 en comunidad" — más impactante y específico al ICP. Refiere al trabajo en vivo en Silicon Valley de Latam, que es un diferenciador real (no es reach online, es presencia física).
 
 - La sección completa de testimonios permanece en su posición actual (cierre antes del CTA final).
 - La barra no es una sección — es un elemento visual compacto entre Hero y Problema.
@@ -122,16 +127,28 @@ Agregar **barra compacta de credibilidad** inmediatamente después del Hero.
 
 ---
 
+## Sección 8: Footer — TikTok
+
+Agregar link e ícono de TikTok al footer de todas las páginas del sitio.
+
+- URL: `https://www.tiktok.com/@tincholibre`
+- Ícono SVG inline (mismo estilo que el ícono de Instagram existente: `stroke="currentColor"`, 16×16)
+- Posición: junto al link de Instagram existente
+- Clase reutiliza `.footer-ig` (estilos ya correctos)
+- Actualizar JSON-LD `sameAs` en `index.html` para incluir TikTok: `["https://instagram.com/tincholibre", "https://www.tiktok.com/@tincholibre"]`
+- Páginas afectadas: `index.html`, `libertad-en-jaque.html`, `gracias-guia.html`, `gracias-libro.html`
+
+---
+
 ## Archivos modificados
 
 | Archivo | Tipo de cambio |
 |---|---|
 | `brandkit.css` | Actualizar 8 valores de color en `:root` |
-| `index.html` | Copy hero, nav logo, iconos, formulario inline, barra social proof, motifs, espaciado |
-
-## Archivos sin cambios (HTML)
-
-- `libertad-en-jaque.html`, `gracias-guia.html`, `gracias-libro.html` — el cambio de paleta en `brandkit.css` los actualiza automáticamente sin tocar su HTML.
+| `index.html` | Copy hero, nav logo, foto tratamiento, iconos, formulario inline, barra social proof, motifs, espaciado, footer TikTok, JSON-LD sameAs |
+| `libertad-en-jaque.html` | Footer TikTok |
+| `gracias-guia.html` | Footer TikTok |
+| `gracias-libro.html` | Footer TikTok |
 
 ---
 
