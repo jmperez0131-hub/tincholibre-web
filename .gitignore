@@ -4,60 +4,73 @@
 # Superpowers plugin cache
 .superpowers/
 
-# Internal planning docs
-LANDING.md
-PROMPTS.md
-ROADMAP.md
-
-# Book files (manuscript - not public, pero mockups sí son públicos)
-Libertad en Jaque/*
-!Libertad en Jaque/Mockups/
-
-# Internal research
-Bibliografía/
-
-# Testimonials (private)
-Testimonios/
-
-# Extra photos (solo las usadas por index.html están en el repo)
-Documentos Pagina web/Fotos/*
-!Documentos Pagina web/Fotos/IMG_5794.jpg
-Documentos Pagina web/Fotos Principales/*
-!Documentos Pagina web/Fotos Principales/IMG_1395.JPG
-
-# Internal strategy documents
-Curaduria_YouTube_Tincho.docx
-Estrategia_Contenido_Tincho.docx
-Mapa_Bibliografico_Tincho.docx
-Oferta_Tincho.docx
-Oferta_Tincho_v2.docx
-Guia Para Definir un Nicho.pdf
-Guia de meditación - Tincho (5).pdf
-Guia-para-Crear-una-Oferta.pdf
-Guía para Definir tus Puertas de Comunicación.pdf
-Guía para definir un Nicho (Tincho).docx
 # Added by code-review-graph
 .code-review-graph/
 
-# Product files (private — distributed via Hotmart, not repo)
+# Internal config
+.mcp.json
+skills-lock.json
+CLAUDE.backup.md
+
+# ─── web/ subproject ───────────────────────────────────────────────────────
+
+# Internal planning docs (now in web/)
+web/LANDING.md
+web/design-philosophy-seismic-calm.md
+
+# Brandkit source components (page HTML is public)
+web/Brandkit/
+
+# Extra photos (only select photos are tracked)
+web/Documentos Pagina web/Fotos/*
+!web/Documentos Pagina web/Fotos/IMG_5794.jpg
+web/Documentos Pagina web/Fotos Principales/*
+!web/Documentos Pagina web/Fotos Principales/IMG_1395.JPG
+
+# ─── libro/ subproject ─────────────────────────────────────────────────────
+
+# Book manuscript and print files (private)
+libro/Epub/
+libro/REIMPRESION/
+
+# ─── productos/ subproject ─────────────────────────────────────────────────
+
+# Product files (distributed via Hotmart, not in repo)
 La mente que no para tincho hotmart.pdf
 La mente que no para - portrait.html
 La mente que no para - standalone.html
 portada-hotmart.png
 tincho-portrait-extracted.png
 template_extracted.html
-
-# Utility/generation scripts
 extract_slides.js
 gen_portada.py
 slides_content.txt
 
-# Internal config
-.mcp.json
-skills-lock.json
-CLAUDE.backup.md
-design-philosophy-seismic-calm.md
+# ─── contenido/ subproject ─────────────────────────────────────────────────
+
+# Internal planning docs (now in contenido/)
+contenido/PROMPTS.md
+contenido/ROADMAP.md
 docs/
 
-# Brandkit source (components — la página HTML sí es pública)
-Brandkit/
+# Internal strategy documents
+Curaduria_YouTube_Tincho.docx
+Estrategia_Contenido_Tincho.docx
+Oferta_Tincho.docx
+Oferta_Tincho_v2.docx
+Guia Para Definir un Nicho.pdf
+Guia-para-Crear-una-Oferta.pdf
+Guía para Definir tus Puertas de Comunicación.pdf
+Guía para definir un Nicho (Tincho).docx
+
+# ─── referencias/ subproject ───────────────────────────────────────────────
+
+# Research bibliography (private)
+Bibliografía/
+Mapa_Bibliografico_Tincho.docx
+Guia de meditación - Tincho (5).pdf
+
+# ─── testimonios/ subproject ───────────────────────────────────────────────
+
+# Testimonials (private)
+Testimonios/
