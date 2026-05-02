@@ -53,17 +53,31 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: var(--papel);
             border-bottom: 1px solid transparent;
             transition: border-color 0.3s ease, padding 0.3s ease;
+        }
+
+        /* backdrop-filter en ::before evita romper position:fixed de hijos
+           (backdrop-filter en el padre convierte children fixed en relativos al padre) */
+        .nav::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--papel);
+            transition: background 0.3s ease;
+            pointer-events: none;
         }
 
         .nav.scrolled {
             border-bottom-color: var(--line);
             padding: 14px 48px;
+        }
+
+        .nav.scrolled::before {
+            background: color-mix(in srgb, var(--papel) 94%, transparent);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            background: color-mix(in srgb, var(--papel) 94%, transparent);
         }
 
         .nav-brand {
@@ -1099,9 +1113,112 @@
             .t-grid       { grid-template-columns: 1fr; }
         }
 
+        /* ─── GUÍA DIGITAL ───────────────────────────── */
+        .guia {
+            background: var(--lago-prof);
+            border-top: 1px solid rgba(244,239,230,0.06);
+            border-bottom: 1px solid rgba(244,239,230,0.06);
+        }
+
+        .guia-inner {
+            display: flex;
+            align-items: center;
+            gap: 72px;
+        }
+
+        .guia-mockup {
+            flex-shrink: 0;
+            width: min(200px, 36vw);
+            aspect-ratio: 2 / 3;
+            background: linear-gradient(145deg, #1F3D30 0%, #0F2219 100%);
+            border: 1px solid rgba(237,188,106,0.25);
+            border-radius: 4px;
+            padding: 28px 22px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(237,188,106,0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guia-mockup::after {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -20%;
+            width: 80%;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(237,188,106,0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .guia-mockup-label {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amanecer);
+            opacity: 0.8;
+        }
+
+        .guia-mockup-title {
+            font-family: var(--font-display);
+            font-size: clamp(18px, 2.4vw, 24px);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: var(--papel);
+            font-style: italic;
+        }
+
+        .guia-mockup-pages {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.35);
+        }
+
+        .guia .label { color: rgba(244,239,230,0.45); }
+        .guia .h2    { color: var(--papel); }
+
+        .guia-p {
+            color: rgba(244,239,230,0.7);
+            font-size: 1.02rem;
+            line-height: 1.85;
+            font-weight: 300;
+            max-width: 440px;
+            margin-bottom: 28px;
+        }
+
+        .guia-price {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+            margin-bottom: 28px;
+        }
+
+        .guia-price-num {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 400;
+            color: var(--amanecer);
+            letter-spacing: -0.02em;
+        }
+
+        .guia-price-desc {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: rgba(244,239,230,0.4);
+        }
+
         @media (max-width: 768px) {
             .nav            { padding: 16px 24px; }
             .nav.scrolled   { padding: 12px 24px; }
+            .nav-cta        { display: none; }
             .nav-toggle     { display: flex; }
             .nav-links {
                 position: fixed;
@@ -1142,6 +1259,8 @@
             footer           { padding: 36px 24px; }
             .libro-inner     { flex-direction: column; gap: 32px; }
             .libro-img-wrap  { width: min(180px, 52vw); }
+            .guia-inner      { flex-direction: column; gap: 32px; }
+            .guia-mockup     { width: min(160px, 48vw); }
         }
 
         @media (max-width: 480px) {
@@ -1455,6 +1574,42 @@
             </p>
             <a href="libertad-en-jaque.html" class="bk-btn bk-btn-primary" aria-label="Ver página del libro Libertad en Jaque">
                 Leer la historia
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     LA MENTE QUE NO PARA — GUÍA DIGITAL
+════════════════════════════════════════════════ -->
+<section class="section guia" id="guia" aria-labelledby="guia-title">
+    <div class="section-inner guia-inner">
+
+        <div class="guia-mockup reveal" aria-hidden="true">
+            <span class="guia-mockup-label">Guía Digital</span>
+            <div class="guia-mockup-title">La mente<br>que no<br>para</div>
+            <span class="guia-mockup-pages">26 páginas · 5 min/día</span>
+        </div>
+
+        <div class="reveal" data-delay="1">
+            <span class="label">La guía</span>
+            <h2 class="h2" id="guia-title">La mente que no para</h2>
+            <p class="guia-p">
+                26 páginas que explican por qué tu mente no puede parar aunque quieras —
+                y qué hacer con eso desde esta noche. Sin terminología, sin rutinas imposibles.
+                Solo el mecanismo real y la primera técnica que funciona en tres minutos.
+            </p>
+            <div class="guia-price reveal" data-delay="2">
+                <span class="guia-price-num">$12</span>
+                <span class="guia-price-desc">USD · Acceso inmediato</span>
+            </div>
+            <a href="la-mente-que-no-para.html" class="bk-btn bk-btn-amanecer" aria-label="Ver la guía La mente que no para">
+                Ver la guía
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
