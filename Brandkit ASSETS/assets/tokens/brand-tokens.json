@@ -1,0 +1,36 @@
+{
+  "$schema": "https://tr.designtokens.org/format/",
+  "brand": "Tincho",
+  "version": "1.0",
+  "palette": "amanecer",
+  "color": {
+    "lago":           { "value": "#2D4A3E", "role": "Primario" },
+    "lago-deep":      { "value": "#162B23", "role": "Dark mode" },
+    "tierra":         { "value": "#C96F3D", "role": "Secundario" },
+    "tierra-soft":    { "value": "#E08C5E", "role": "Secundario soft" },
+    "amanecer":       { "value": "#EDBC6A", "role": "Acento" },
+    "bruma":          { "value": "#9B9583", "role": "Neutro medio" },
+    "papel":          { "value": "#F7F1E4", "role": "Fondo claro" },
+    "papel-profundo": { "value": "#EEE4CE", "role": "Fondo 2" },
+    "tinta":          { "value": "#1A1712", "role": "Texto" }
+  },
+  "font": {
+    "display": { "family": "Instrument Serif", "fallback": "Georgia, serif" },
+    "body":    { "family": "Geist", "fallback": "system-ui, sans-serif" },
+    "mono":    { "family": "JetBrains Mono", "fallback": "ui-monospace, monospace" }
+  },
+  "scale": {
+    "h1": "clamp(72px, 10vw, 164px)",
+    "h2": "clamp(44px, 5.2vw, 76px)",
+    "h3": "clamp(32px, 3.6vw, 52px)",
+    "body-lg": "17px",
+    "body":    "15px",
+    "body-sm": "13px",
+    "eyebrow": "11px"
+  },
+  "taglines": {
+    "primary":   "Acceder a un oasis de calma en medio del caos.",
+    "secondary": "La libertad está en tu equilibrio.",
+    "short":     "Regulación aterrizada. Sin misticismo."
+  }
+}

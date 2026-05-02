@@ -1,0 +1,50 @@
+/*
+ * Tincho Brand Tokens — Amanecer palette
+ * tincholibre.com · Brandkit v1.0 · Abril 2026
+ */
+
+:root {
+  /* Colors */
+  --tincho-lago:           #2D4A3E;   /* Primario · deep teal-green */
+  --tincho-lago-deep:      #162B23;   /* Dark mode base */
+  --tincho-tierra:         #C96F3D;   /* Secundario · terracotta */
+  --tincho-tierra-soft:    #E08C5E;
+  --tincho-amanecer:       #EDBC6A;   /* Acento · amber dawn */
+  --tincho-bruma:          #9B9583;   /* Neutro medio */
+  --tincho-papel:          #F7F1E4;   /* Fondo claro */
+  --tincho-papel-profundo: #EEE4CE;   /* Fondo 2 */
+  --tincho-tinta:          #1A1712;   /* Texto / ink */
+
+  /* Typography */
+  --tincho-font-display: "Instrument Serif", Georgia, serif;
+  --tincho-font-body:    "Geist", -apple-system, system-ui, sans-serif;
+  --tincho-font-mono:    "JetBrains Mono", ui-monospace, monospace;
+
+  /* Scale — display */
+  --tincho-h1: clamp(72px, 10vw, 164px);
+  --tincho-h2: clamp(44px, 5.2vw, 76px);
+  --tincho-h3: clamp(32px, 3.6vw, 52px);
+
+  /* Scale — body */
+  --tincho-body-lg: 17px;
+  --tincho-body:    15px;
+  --tincho-body-sm: 13px;
+
+  /* Scale — mono / eyebrows */
+  --tincho-eyebrow: 11px;
+  --tincho-caption: 10px;
+
+  /* Tracking */
+  --tincho-track-display: -0.025em;
+  --tincho-track-mono:     0.14em;
+
+  /* Line heights */
+  --tincho-lh-tight: 0.9;
+  --tincho-lh-body:  1.5;
+
+  /* Radius · minimal */
+  --tincho-radius: 2px;
+
+  /* Border */
+  --tincho-line: rgba(26, 23, 18, 0.14);
+}

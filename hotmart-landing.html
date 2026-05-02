@@ -1,0 +1,1126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La mente que no para · Tincho — Guía de meditación $12</title>
+<meta name="description" content="Guía práctica para empezar a meditar cuando el silencio se siente imposible. Para profesionales y emprendedores con el sistema nervioso siempre encendido.">
+
+<link rel="icon" href="Brandkit ASSETS/assets/logo/tincho-mark-dark.svg" type="image/svg+xml">
+<link rel="icon" href="Brandkit ASSETS/assets/logo/tincho-mark-dark-512.png" type="image/png">
+<link rel="apple-touch-icon" href="Brandkit ASSETS/assets/logo/tincho-mark-dark-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&family=Geist:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── TOKENS ────────────────────────────────────────── */
+:root {
+  --ink:     #1A1712;
+  --paper:   #F4EFE6;
+  --p2:      #EBE3D4;
+  --lago:    #1F4D4A;
+  --deep:    #0C1810;
+  --tierra:  #C96F3D;
+  --tierra-s:#D98A5C;
+  --gold:    #EDBC6A;
+  --line:    rgba(26,23,18,0.14);
+  --fd: "Instrument Serif", Georgia, serif;
+  --fb: "Geist", -apple-system, system-ui, sans-serif;
+  --fm: "JetBrains Mono", ui-monospace, monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--fb);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── NAV ────────────────────────────────────────────── */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(12,24,16,0.94);
+  backdrop-filter: blur(14px);
+  padding: 14px 48px;
+  display: flex; justify-content: space-between; align-items: center;
+  border-bottom: 1px solid rgba(237,188,106,0.12);
+}
+.nav-logo {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--fm); font-size: 12px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(244,239,230,0.8);
+  text-decoration: none;
+}
+.nav-home {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(244,239,230,0.45);
+  text-decoration: none; transition: color 200ms;
+}
+.nav-home:hover { color: rgba(244,239,230,0.8); }
+.nav-cta {
+  background: var(--tierra); color: #fff;
+  font-family: var(--fm); font-size: 11px;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: 10px 24px; text-decoration: none;
+  transition: background 200ms, transform 150ms; cursor: pointer;
+  display: inline-block;
+}
+.nav-cta:hover { background: var(--tierra-s); transform: translateY(-1px); }
+
+/* ── HERO ───────────────────────────────────────────── */
+.hero {
+  background: var(--deep);
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 68px;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 65% 45%, rgba(31,77,74,0.32) 0%, transparent 60%);
+  pointer-events: none; z-index: 0;
+}
+.hero-photo-wrap {
+  position: absolute;
+  right: 0; top: 0; bottom: 0;
+  width: 62%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 0;
+}
+.hero-photo-wrap img {
+  height: min(860px, 96vh);
+  width: auto;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 20px 100px rgba(31,77,74,0.5));
+  position: relative; z-index: 1;
+}
+.hero-photo-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, var(--deep) 0%, rgba(12,24,16,0.7) 28%, rgba(12,24,16,0.1) 52%, transparent 68%);
+  z-index: 2; pointer-events: none;
+}
+.hero-photo-wrap::after {
+  content: '';
+  position: absolute; left: 0; right: 0; bottom: 0;
+  height: 140px;
+  background: linear-gradient(180deg, transparent 0%, var(--deep) 100%);
+  z-index: 2; pointer-events: none;
+}
+.hero-content {
+  position: relative; z-index: 3;
+  width: 100%;
+  padding: 130px 0 120px 80px;
+  max-width: 500px;
+}
+.hero-wave {
+  position: absolute; bottom: 0; left: 0; width: 100%;
+  pointer-events: none; opacity: 0.12; z-index: 0;
+}
+.hero-stats-bar {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid rgba(244,239,230,0.08);
+  z-index: 3;
+}
+.hero-stat {
+  padding: 18px 32px;
+  border-right: 1px solid rgba(244,239,230,0.06);
+}
+.hero-stat:last-child { border-right: none; }
+.stat-n {
+  font-family: var(--fd); font-style: italic; font-size: 32px;
+  color: var(--gold); letter-spacing: -0.02em; line-height: 1;
+  display: block;
+}
+.stat-l {
+  font-family: var(--fm); font-size: 9.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(244,239,230,0.4);
+  margin-top: 3px; display: block;
+}
+
+/* ── TYPE HELPERS ───────────────────────────────────── */
+.eyebrow {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 24px;
+}
+.eyebrow::before {
+  content: ''; width: 28px; height: 1px;
+  background: currentColor; flex-shrink: 0;
+}
+.eyebrow.ink { color: rgba(26,23,18,0.55); }
+.eyebrow.ink::before { background: var(--tierra); }
+
+.hero-title {
+  font-family: var(--fd); font-style: italic; font-weight: 400;
+  font-size: clamp(48px, 5.8vw, 80px);
+  line-height: 0.88; letter-spacing: -0.035em;
+  color: var(--paper); margin-bottom: 20px;
+}
+.hero-title em { font-style: normal; color: var(--gold); }
+.hero-subtitle {
+  font-size: 15px; line-height: 1.6;
+  color: rgba(244,239,230,0.65); max-width: 34ch; margin-bottom: 32px;
+}
+.hero-price {
+  display: flex; align-items: baseline; gap: 16px; margin-bottom: 28px;
+}
+.p-old {
+  font-family: var(--fm); font-size: 13px; letter-spacing: 0.06em;
+  color: rgba(244,239,230,0.3); text-decoration: line-through;
+}
+.p-new {
+  font-family: var(--fd); font-style: italic; font-size: 52px;
+  color: var(--gold); letter-spacing: -0.03em; line-height: 1;
+}
+.p-note {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(244,239,230,0.4);
+  line-height: 1.7;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--tierra); color: #fff;
+  font-family: var(--fm); font-size: 13px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 18px 40px; text-decoration: none; cursor: pointer;
+  border: none; transition: all 200ms;
+}
+.btn-primary::after { content: '→'; transition: transform 200ms; }
+.btn-primary:hover {
+  background: var(--tierra-s); transform: translateY(-2px);
+  box-shadow: 0 14px 44px rgba(201,111,61,0.38);
+}
+.btn-primary:hover::after { transform: translateX(4px); }
+.hero-sub {
+  margin-top: 14px; font-family: var(--fm);
+  font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(244,239,230,0.3);
+}
+
+/* ── SECTION SHELL ──────────────────────────────────── */
+.sec { padding: 120px 0; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 0 80px; }
+.sec-title {
+  font-family: var(--fd); font-style: italic; font-weight: 400;
+  font-size: clamp(38px, 4.5vw, 62px);
+  line-height: 0.94; letter-spacing: -0.025em; margin-bottom: 16px;
+}
+.sec-title em { font-style: normal; color: var(--tierra); }
+.sec-title.on-dark { color: var(--paper); }
+.sec-title.on-dark em { color: var(--gold); }
+
+/* ── DOLOR ──────────────────────────────────────────── */
+.dolor-sec { background: var(--p2); }
+.signals {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3px; margin-top: 60px;
+}
+.signal {
+  background: var(--paper); padding: 40px 40px 36px;
+  display: grid; grid-template-columns: 52px 1fr; gap: 16px;
+  align-items: flex-start; border: 1px solid transparent;
+  transition: all 200ms;
+}
+.signal:hover { background: #fff; border-color: var(--tierra); }
+.sig-n {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.18em;
+  color: var(--tierra); opacity: 0.65; padding-top: 4px;
+}
+.sig-t {
+  font-family: var(--fd); font-style: italic;
+  font-size: 18px; line-height: 1.38; letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.sig-s { font-size: 13.5px; line-height: 1.6; opacity: 0.68; }
+.dolor-close {
+  grid-column: 1 / -1; background: var(--lago); padding: 40px 48px;
+  margin-top: 3px;
+}
+.dolor-close p {
+  font-family: var(--fd); font-style: italic;
+  font-size: 20px; line-height: 1.5; color: var(--paper); max-width: 64ch;
+}
+.dolor-close em { font-style: normal; color: var(--gold); }
+
+/* ── REFRAME ────────────────────────────────────────── */
+.reframe-sec { background: var(--deep); position: relative; overflow: hidden; }
+.reframe-wave {
+  position: absolute; bottom: -20px; left: -5%; width: 110%;
+  opacity: 0.1; pointer-events: none;
+}
+.reframe-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 3px; margin-top: 60px;
+}
+.r-col { padding: 44px 40px; }
+.r-col.yes { background: rgba(31,77,74,0.42); border-top: 2px solid var(--lago); }
+.r-col.no  { background: rgba(201,111,61,0.12); border-top: 2px solid var(--tierra); }
+.r-col-label {
+  font-family: var(--fm); font-size: 10px;
+  letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 28px;
+}
+.r-col.yes .r-col-label { color: var(--gold); }
+.r-col.no  .r-col-label { color: var(--tierra); }
+.r-item {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding: 11px 0; border-bottom: 1px solid rgba(244,239,230,0.08);
+  font-size: 14px; line-height: 1.58; color: rgba(244,239,230,0.82);
+}
+.r-item:last-child { border-bottom: none; }
+.r-mark { font-family: var(--fm); font-size: 12px; flex-shrink: 0; margin-top: 1px; }
+.r-col.yes .r-mark { color: var(--gold); }
+.r-col.no  .r-mark { color: var(--tierra); }
+.reframe-quote {
+  margin-top: 3px; padding: 36px 44px;
+  background: rgba(237,188,106,0.07);
+  border-left: 3px solid var(--gold);
+}
+.reframe-quote p {
+  font-family: var(--fd); font-style: italic;
+  font-size: 20px; line-height: 1.5; color: rgba(244,239,230,0.88);
+  max-width: 64ch;
+}
+.reframe-quote em { font-style: normal; color: var(--gold); }
+
+/* ── CHAPTERS ───────────────────────────────────────── */
+.ch-sec { background: var(--paper); }
+.ch-header {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: end; margin-bottom: 72px;
+}
+.ch-intro { font-size: 15px; line-height: 1.7; color: rgba(26,23,18,0.68); }
+.ch-list { display: flex; flex-direction: column; gap: 3px; }
+.chapter {
+  display: grid; grid-template-columns: 72px 1fr auto;
+  gap: 24px; align-items: center;
+  padding: 30px 36px; background: #fff;
+  border: 1px solid var(--line);
+  transition: all 200ms; cursor: default;
+}
+.chapter:hover {
+  background: var(--p2); border-color: var(--tierra);
+  transform: translateX(6px);
+}
+.ch-n {
+  font-family: var(--fd); font-style: italic; font-size: 44px;
+  color: var(--tierra); letter-spacing: -0.04em;
+  line-height: 1; opacity: 0.45;
+}
+.ch-t {
+  font-family: var(--fd); font-style: italic;
+  font-size: 19px; letter-spacing: -0.01em; margin-bottom: 5px;
+}
+.ch-d { font-size: 13.5px; line-height: 1.55; opacity: 0.62; }
+.ch-tag {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 5px 12px;
+  border: 1px solid var(--line); color: var(--lago);
+  white-space: nowrap; flex-shrink: 0;
+}
+.ch-tag.hot { background: var(--tierra); border-color: var(--tierra); color: #fff; }
+.chapter.featured { background: var(--lago); border-color: var(--lago); }
+.chapter.featured:hover { background: #184039; transform: translateX(6px); }
+.chapter.featured .ch-n { color: var(--gold); opacity: 0.6; }
+.chapter.featured .ch-t { color: var(--paper); }
+.chapter.featured .ch-d { color: rgba(244,239,230,0.65); }
+.chapter.featured .ch-tag { border-color: rgba(237,188,106,0.35); color: var(--gold); }
+
+/* ── CREDIBILITY ────────────────────────────────────── */
+.cred-sec { background: var(--lago); position: relative; overflow: hidden; }
+.cred-grid {
+  display: grid; grid-template-columns: 1fr 1.15fr;
+  gap: 80px; align-items: center;
+}
+.cred-img { position: relative; }
+.cred-img img {
+  width: 100%; max-width: 360px; display: block;
+  filter: drop-shadow(0 40px 100px rgba(0,0,0,0.5));
+}
+.cred-badge {
+  position: absolute; bottom: 32px; right: -16px;
+  background: var(--gold); color: var(--deep);
+  padding: 14px 18px; font-family: var(--fm);
+  font-size: 9.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; line-height: 1.7;
+  max-width: 160px;
+}
+.cred-content { color: var(--paper); }
+.cred-title {
+  font-family: var(--fd); font-style: italic;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 0.92; letter-spacing: -0.025em;
+  color: var(--paper); margin-bottom: 28px;
+}
+.cred-title em { font-style: normal; color: var(--gold); }
+.cred-body {
+  font-size: 15.5px; line-height: 1.7;
+  color: rgba(244,239,230,0.78); margin-bottom: 44px;
+}
+.cred-body p + p { margin-top: 14px; }
+.cred-body em {
+  font-family: var(--fd); font-style: italic;
+  font-size: 17px; color: var(--gold);
+}
+.cred-metrics {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 24px; padding-top: 36px;
+  border-top: 1px solid rgba(244,239,230,0.14);
+}
+.metric-n {
+  font-family: var(--fd); font-style: italic; font-size: 38px;
+  color: var(--gold); letter-spacing: -0.02em; line-height: 1; display: block;
+}
+.metric-l {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(244,239,230,0.45);
+  margin-top: 4px; display: block;
+}
+.cred-wave {
+  position: absolute; bottom: -10px; right: -5%;
+  width: 55%; opacity: 0.1; pointer-events: none;
+}
+
+/* ── BENEFITS ───────────────────────────────────────── */
+.ben-sec { background: var(--p2); }
+.ben-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 3px; margin-top: 60px;
+}
+.ben-col { background: var(--paper); padding: 48px 40px; }
+.ben-col:nth-child(2) { background: var(--deep); }
+.ben-col-n {
+  font-family: var(--fd); font-style: italic;
+  font-size: 72px; letter-spacing: -0.04em;
+  line-height: 0.9; margin-bottom: 20px; opacity: 0.25;
+}
+.ben-col:nth-child(1) .ben-col-n { color: var(--lago); }
+.ben-col:nth-child(2) .ben-col-n { color: var(--gold); opacity: 0.45; }
+.ben-col:nth-child(3) .ben-col-n { color: var(--tierra); }
+.ben-col-title {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 32px;
+  padding-bottom: 16px; border-bottom: 2px solid;
+}
+.ben-col:nth-child(1) .ben-col-title { color: var(--lago);   border-color: var(--lago); }
+.ben-col:nth-child(2) .ben-col-title { color: var(--gold);   border-color: var(--gold); }
+.ben-col:nth-child(3) .ben-col-title { color: var(--tierra); border-color: var(--tierra); }
+.ben-item {
+  display: flex; gap: 12px; margin-bottom: 18px;
+  font-size: 14px; line-height: 1.6;
+}
+.ben-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  flex-shrink: 0; margin-top: 7px;
+}
+.ben-col:nth-child(1) .ben-dot { background: var(--lago); }
+.ben-col:nth-child(2) .ben-dot { background: var(--gold); }
+.ben-col:nth-child(3) .ben-dot { background: var(--tierra); }
+.ben-col:nth-child(2) .ben-item { color: rgba(244,239,230,0.82); }
+
+/* ── OBJECIONES ─────────────────────────────────────── */
+.obj-sec { background: var(--paper); }
+.obj-list { display: flex; flex-direction: column; gap: 3px; margin-top: 60px; }
+.obj-item { display: grid; grid-template-columns: 1fr 1fr; }
+.obj-q {
+  background: var(--p2); padding: 36px 40px;
+  display: flex; gap: 14px; align-items: flex-start;
+  border-left: 3px solid var(--tierra);
+}
+.obj-mark {
+  font-family: var(--fd); font-style: italic; font-size: 36px;
+  color: var(--tierra); line-height: 0.9; flex-shrink: 0; margin-top: -4px;
+}
+.obj-qt {
+  font-family: var(--fd); font-style: italic;
+  font-size: 17px; line-height: 1.42; letter-spacing: -0.01em;
+}
+.obj-a {
+  background: #fff; padding: 36px 40px;
+  border-left: 3px solid var(--lago);
+}
+.obj-at { font-size: 14.5px; line-height: 1.7; color: rgba(26,23,18,0.78); }
+.obj-at strong { color: var(--lago); font-weight: 600; }
+
+/* ── PRECIO ─────────────────────────────────────────── */
+.price-sec { background: var(--deep); position: relative; overflow: hidden; }
+.price-wave {
+  position: absolute; top: 0; left: 0; width: 100%;
+  opacity: 0.1; transform: scaleY(-1); pointer-events: none;
+}
+.price-grid {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  gap: 80px; align-items: center;
+  position: relative; z-index: 1;
+}
+.price-what { color: var(--paper); }
+.price-includes { display: flex; flex-direction: column; gap: 0; margin-top: 48px; }
+.inc-item {
+  display: flex; gap: 18px; align-items: flex-start;
+  padding: 20px 0; border-bottom: 1px solid rgba(244,239,230,0.08);
+}
+.inc-item:last-child { border-bottom: none; }
+.inc-icon {
+  width: 36px; height: 36px; flex-shrink: 0;
+  background: rgba(237,188,106,0.08);
+  border: 1px solid rgba(237,188,106,0.18);
+  display: flex; align-items: center; justify-content: center;
+}
+.inc-t {
+  font-family: var(--fd); font-style: italic;
+  font-size: 16px; letter-spacing: -0.01em;
+  color: var(--paper); margin-bottom: 3px;
+}
+.inc-d { font-size: 13px; line-height: 1.55; color: rgba(244,239,230,0.5); }
+.price-card { background: var(--paper); padding: 56px 48px; position: relative; }
+.price-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0;
+  height: 3px; background: linear-gradient(90deg, var(--gold), var(--tierra));
+}
+.pc-eyebrow {
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--tierra); margin-bottom: 14px;
+}
+.pc-old {
+  font-family: var(--fm); font-size: 13px; letter-spacing: 0.06em;
+  color: rgba(26,23,18,0.32); text-decoration: line-through; margin-bottom: 4px;
+}
+.pc-new {
+  font-family: var(--fd); font-style: italic; font-size: 88px;
+  line-height: 0.88; letter-spacing: -0.045em; color: var(--ink);
+  margin-bottom: 6px;
+}
+.pc-note {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(26,23,18,0.45); margin-bottom: 36px;
+}
+.buy-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; background: var(--tierra); color: #fff;
+  font-family: var(--fm); font-size: 13px;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 20px 28px; text-decoration: none; cursor: pointer;
+  border: none; transition: all 200ms; margin-bottom: 20px;
+}
+.buy-btn:hover {
+  background: var(--tierra-s); transform: translateY(-2px);
+  box-shadow: 0 14px 44px rgba(201,111,61,0.35);
+}
+.buy-btn-sub { font-size: 10px; opacity: 0.65; letter-spacing: 0.06em; }
+.guarantee {
+  display: flex; gap: 12px; align-items: flex-start;
+  padding-top: 20px; border-top: 1px solid var(--line);
+}
+.guarantee-text { font-size: 12.5px; line-height: 1.6; opacity: 0.62; }
+.guarantee-text strong { display: block; color: var(--lago); font-weight: 600; margin-bottom: 2px; }
+
+/* ── ANIMATIONS ─────────────────────────────────────── */
+.fu {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity 580ms ease, transform 580ms ease;
+}
+.fu.vis { opacity: 1; transform: translateY(0); }
+.d1 { transition-delay: 80ms; }
+.d2 { transition-delay: 160ms; }
+.d3 { transition-delay: 240ms; }
+.d4 { transition-delay: 320ms; }
+@media (prefers-reduced-motion: reduce) {
+  .fu { opacity: 1; transform: none; transition: none; }
+}
+
+/* ── FOOTER ─────────────────────────────────────────── */
+.footer {
+  background: var(--deep); padding: 40px 80px;
+  border-top: 1px solid rgba(244,239,230,0.07);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-brand {
+  display: flex; align-items: center; gap: 10px;
+  font-family: var(--fm); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: rgba(244,239,230,0.45);
+}
+.footer-links { display: flex; gap: 32px; }
+.footer-link {
+  font-family: var(--fm); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(244,239,230,0.35);
+  text-decoration: none; transition: color 200ms;
+}
+.footer-link:hover { color: var(--gold); }
+
+/* ── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 1100px) {
+  .hero-photo-wrap { width: 48%; }
+  .hero-content { max-width: none; padding: 100px 48px 120px; }
+  .hero-stats-bar { grid-template-columns: repeat(3,1fr); }
+  .wrap { padding: 0 48px; }
+  .sec { padding: 100px 0; }
+  .ch-header,
+  .cred-grid,
+  .price-grid { grid-template-columns: 1fr; gap: 56px; }
+  .cred-img img { max-width: 280px; }
+  .cred-badge { right: 0; }
+  .ben-grid,
+  .signals { grid-template-columns: 1fr; }
+  .dolor-close { grid-column: 1; }
+  .reframe-grid { grid-template-columns: 1fr; }
+  .obj-item { grid-template-columns: 1fr; }
+  .footer { padding: 40px 48px; }
+}
+@media (max-width: 768px) {
+  .nav { padding: 14px 24px; }
+  .hero-photo-wrap { width: 100%; opacity: 0.35; }
+  .hero-photo-wrap::before { background: linear-gradient(180deg, var(--deep) 0%, rgba(12,24,16,0.7) 50%, transparent 100%); }
+  .hero-content { padding: 80px 24px 110px; max-width: none; }
+  .hero-stats-bar { grid-template-columns: 1fr 1fr; position: static; }
+  .wrap { padding: 0 24px; }
+  .sec { padding: 80px 0; }
+  .chapter { grid-template-columns: 52px 1fr; padding: 24px; }
+  .ch-tag { display: none; }
+  .price-card { padding: 40px 28px; }
+  .footer { flex-direction: column; gap: 24px; padding: 40px 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div style="display:flex;align-items:center;gap:24px;">
+    <a href="index.html" class="nav-logo">
+      <svg width="20" height="20" viewBox="0 0 120 120" fill="none">
+        <path d="M12 68 C32 52,88 52,108 68" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M60 30 L60 98" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <path d="M34 44 L86 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="60" cy="44" r="4" fill="#EDBC6A"/>
+      </svg>
+      TinchoLibre
+    </a>
+    <a href="index.html" class="nav-home">← Inicio</a>
+  </div>
+  <!-- REEMPLAZAR # con tu link de checkout de Hotmart -->
+  <a href="#precio" class="nav-cta">Obtener la guía — $12 USD</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+
+  <div class="hero-photo-wrap">
+    <img
+      src="Documentos Pagina web/Fotos sin bg/Screenshot - Edited.png"
+      alt="Tincho meditando"
+    >
+  </div>
+
+  <div class="hero-content">
+    <div class="eyebrow">Guía de meditación · regulación nerviosa</div>
+
+    <h1 class="hero-title">
+      La mente<br>
+      que <em>no para</em>
+    </h1>
+
+    <p class="hero-subtitle">
+      Para el profesional que termina el día agotado
+      y sigue sin poder apagar la cabeza.
+    </p>
+
+    <div class="hero-price">
+      <span class="p-old">USD $47</span>
+      <span class="p-new">$12</span>
+      <span class="p-note">USD · Pago único<br>Acceso inmediato</span>
+    </div>
+
+    <!-- REEMPLAZAR # con tu link de checkout de Hotmart -->
+    <a href="#precio" class="btn-primary">Quiero esta guía</a>
+    <p class="hero-sub">PDF en español · Descarga segura por Hotmart</p>
+  </div>
+
+  <div class="hero-stats-bar">
+    <div class="hero-stat">
+      <span class="stat-n">26</span>
+      <span class="stat-l">Páginas de práctica real</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n">5 min</span>
+      <span class="stat-l">Para notar el primer cambio</span>
+    </div>
+    <div class="hero-stat">
+      <span class="stat-n">+20K</span>
+      <span class="stat-l">Comunidad en redes</span>
+    </div>
+  </div>
+
+  <svg class="hero-wave" viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none">
+    <path d="M-100 70 C200 20,600 120,900 70 S1200 20,1540 70" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-100 100 C200 50,600 150,900 100 S1200 50,1540 100" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round" opacity=".55"/>
+  </svg>
+</section>
+
+
+<!-- DOLOR -->
+<section class="sec dolor-sec" id="dolor">
+  <div class="wrap">
+    <div class="eyebrow ink fu">¿Te reconoces aquí?</div>
+    <h2 class="sec-title fu d1">
+      Esta guía es para ti<br>
+      si cualquiera de <em>esto</em><br>
+      te suena familiar
+    </h2>
+
+    <div class="signals">
+      <div class="signal fu d1">
+        <span class="sig-n">01</span>
+        <div>
+          <p class="sig-t">Te acuestas cansado pero tu cabeza sigue trabajando sola — revisando el día, anticipando el siguiente.</p>
+          <p class="sig-s">El cuerpo para. La mente no. Y así pasan las noches.</p>
+        </div>
+      </div>
+
+      <div class="signal fu d2">
+        <span class="sig-n">02</span>
+        <div>
+          <p class="sig-t">Ya intentaste meditar y sentiste que "no es para ti" porque tu mente no para ni treinta segundos.</p>
+          <p class="sig-s">Conclusión equivocada. El problema no es tu mente — es el método que usaste.</p>
+        </div>
+      </div>
+
+      <div class="signal fu d3">
+        <span class="sig-n">03</span>
+        <div>
+          <p class="sig-t">Terminas el día agotado pero no logras desconectarte de verdad. Scrolleas, pero no descansas.</p>
+          <p class="sig-s">La distracción no es descanso. El sistema nervioso sigue en alerta aunque la pantalla diga otra cosa.</p>
+        </div>
+      </div>
+
+      <div class="signal fu d4">
+        <span class="sig-n">04</span>
+        <div>
+          <p class="sig-t">Sabes que necesitas bajar el ritmo, pero la idea de sentarte en silencio te genera más ansiedad que calma.</p>
+          <p class="sig-s">Normal. Tu sistema nervioso aprendió que parar es peligroso. Hay que re-enseñarle.</p>
+        </div>
+      </div>
+
+      <div class="dolor-close fu">
+        <p>Si te identificaste con alguno, estás exactamente donde debes estar.<br>No necesitas experiencia. No necesitas tiempo. <em>Solo necesitas el método correcto.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- REFRAME -->
+<section class="sec reframe-sec" id="que-es">
+  <div class="wrap">
+    <div class="eyebrow fu">El reencuadre necesario</div>
+    <h2 class="sec-title on-dark fu d1">
+      La meditación no es<br>
+      lo que <em>te contaron</em>
+    </h2>
+
+    <div class="reframe-grid">
+      <div class="r-col yes fu d2">
+        <div class="r-col-label">✓ Lo que sí es</div>
+        <div class="r-item"><span class="r-mark">✓</span><span>Una habilidad que se entrena, no un estado que se alcanza</span></div>
+        <div class="r-item"><span class="r-mark">✓</span><span>El espacio entre lo que pasa y cómo respondes — eso que parece imposible</span></div>
+        <div class="r-item"><span class="r-mark">✓</span><span>Regulación fisiológica real y medible — neurociencia, no misticismo</span></div>
+        <div class="r-item"><span class="r-mark">✓</span><span>5 minutos pueden cambiar el estado de tu cuerpo ahora mismo</span></div>
+        <div class="r-item"><span class="r-mark">✓</span><span>Una herramienta disponible en cualquier lugar, sin equipo ni costo extra</span></div>
+      </div>
+
+      <div class="r-col no fu d3">
+        <div class="r-col-label">× Lo que no es</div>
+        <div class="r-item"><span class="r-mark">×</span><span>Poner la mente en blanco — eso no existe y nunca fue el objetivo</span></div>
+        <div class="r-item"><span class="r-mark">×</span><span>Necesitar horas, retiros o condiciones perfectas para empezar</span></div>
+        <div class="r-item"><span class="r-mark">×</span><span>Solo para personas "espirituales" o con tiempo de sobra</span></div>
+        <div class="r-item"><span class="r-mark">×</span><span>Un estado permanente de paz — es una práctica, no una identidad</span></div>
+        <div class="r-item"><span class="r-mark">×</span><span>Escapar de tus responsabilidades o de la realidad que vives</span></div>
+      </div>
+    </div>
+
+    <div class="reframe-quote fu">
+      <p>
+        "La respiración es el único mecanismo voluntario que tiene acceso directo
+        al sistema nervioso. Una respiración consciente le envía una señal directa al cuerpo:
+        <em>ya estás a salvo. Puedes soltar.</em>"
+      </p>
+    </div>
+  </div>
+
+  <svg class="reframe-wave" viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none">
+    <path d="M-100 70 C200 20,600 120,900 70 S1200 20,1540 70" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-100 105 C200 55,600 155,900 105 S1200 55,1540 105" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+  </svg>
+</section>
+
+
+<!-- CHAPTERS -->
+<section class="sec ch-sec" id="contenido">
+  <div class="wrap">
+    <div class="ch-header">
+      <div>
+        <div class="eyebrow ink fu">Lo que vas a descubrir</div>
+        <h2 class="sec-title fu d1">
+                    Un mapa claro para<br>
+          <em>empezar hoy.</em>
+        </h2>
+      </div>
+      <div class="fu d2">
+        <p class="ch-intro">No es teoría. No es relleno. Cada sección te lleva un paso más cerca de tener una herramienta real — algo que puedes usar esta noche, antes de dormir.</p>
+      </div>
+    </div>
+
+    <div class="ch-list">
+      <div class="chapter fu">
+        <div class="ch-n">01</div>
+        <div>
+          <div class="ch-t">Por qué tu mente no puede parar</div>
+          <div class="ch-d">Entiendes qué está pasando realmente — y por qué la fuerza de voluntad no es la solución.</div>
+        </div>
+        <div class="ch-tag">El diagnóstico</div>
+      </div>
+
+      <div class="chapter fu d1">
+        <div class="ch-n">02</div>
+        <div>
+          <div class="ch-t">El interruptor que tienes en el cuerpo</div>
+          <div class="ch-d">Descubres el mecanismo que puede bajar el nivel de alerta en minutos — y por qué nadie te lo había explicado así.</div>
+        </div>
+        <div class="ch-tag">La ciencia</div>
+      </div>
+
+      <div class="chapter fu d2">
+        <div class="ch-n">03</div>
+        <div>
+          <div class="ch-t">Cómo crear una práctica que no abandones</div>
+          <div class="ch-d">Lo que separa a quienes lo sostienen de quienes lo dejan en la segunda semana. No es disciplina — es diseño.</div>
+        </div>
+        <div class="ch-tag">El sistema</div>
+      </div>
+
+      <div class="chapter fu d3">
+        <div class="ch-n">04</div>
+        <div>
+          <div class="ch-t">Las técnicas que funcionan para una mente activa</div>
+          <div class="ch-d">No todas las técnicas son para todos. Estas están seleccionadas específicamente para quien vive acelerado.</div>
+        </div>
+        <div class="ch-tag hot">La práctica</div>
+      </div>
+
+      <div class="chapter fu d4">
+        <div class="ch-n">05</div>
+        <div>
+          <div class="ch-t">Por qué lo abandonaste antes — y cómo no repetirlo</div>
+          <div class="ch-d">Cada obstáculo que frenó los intentos anteriores, desmontado uno por uno. Si ya probaste y no funcionó, empieza aquí.</div>
+        </div>
+        <div class="ch-tag">El antídoto</div>
+      </div>
+
+      <div class="chapter featured fu">
+        <div class="ch-n" style="font-style:normal;font-size:28px;opacity:0.7;">★</div>
+        <div>
+          <div class="ch-t">Tu primera práctica — esta noche</div>
+          <div class="ch-d">Un protocolo de menos de 5 minutos que puedes hacer ahora mismo. Sin experiencia previa. Sin preparación especial.</div>
+        </div>
+        <div class="ch-tag">Empieza ya</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CREDIBILITY -->
+<section class="sec cred-sec" id="tincho">
+  <div class="wrap">
+    <div class="cred-grid">
+      <div class="cred-img fu">
+        <img
+          src="Documentos Pagina web/Fotos sin bg/def70fda-5f8c-4eed-9084-824849f5c635.png"
+          alt="Juan Martín Tincho Pérez — instructor de yoga y meditación"
+        >
+        <div class="cred-badge">
+          Instructor certificado<br>
+          Yoga · Pranayama<br>
+          Neurociencia aplicada
+        </div>
+      </div>
+
+      <div class="cred-content">
+        <div class="eyebrow fu">Quién soy</div>
+        <h2 class="cred-title fu d1">
+          Lo perdí todo<br>
+          <em>de golpe.</em>
+        </h2>
+        <div class="cred-body fu d2">
+          <p>Libertad, control, certeza. Estaba encerrado injustamente y mi mente no paraba. El ruido interno era insoportable.</p>
+          <p>Fue ahí, sin nada más, donde descubrí que la respiración y la meditación no son herramientas de lujo. Son <em>tecnología de supervivencia.</em></p>
+          <p>Hoy soy instructor certificado de yoga, pranayama y meditación, con formación en neurociencia aplicada. Pero más importante que los títulos: sé lo que es vivir con el sistema nervioso en llamas — y sé cómo salir.</p>
+        </div>
+
+        <div class="cred-metrics fu d3">
+          <div>
+            <span class="metric-n">13K+</span>
+            <span class="metric-l">En Instagram</span>
+          </div>
+          <div>
+            <span class="metric-n">6.5K</span>
+            <span class="metric-l">En TikTok</span>
+          </div>
+          <div>
+            <span class="metric-n">1</span>
+            <span class="metric-l">Libro publicado</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="cred-wave" viewBox="0 0 800 140" fill="none">
+    <path d="M-100 70 C100 20,300 120,500 70 S700 20,900 70" stroke="#EDBC6A" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-100 105 C100 55,300 155,500 105 S700 55,900 105" stroke="#EDBC6A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+  </svg>
+</section>
+
+
+<!-- BENEFITS -->
+<section class="sec ben-sec" id="resultados">
+  <div class="wrap">
+    <div class="eyebrow ink fu">Qué cambia cuando practicas</div>
+    <h2 class="sec-title fu d1">
+      No es solo calma.<br>
+      Es lo que la calma <em>hace posible.</em>
+    </h2>
+
+    <div class="ben-grid">
+      <div class="ben-col fu d1">
+        <div class="ben-col-n">01</div>
+        <div class="ben-col-title">En el cuerpo</div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Duermes mejor — el cuerpo aprende a soltar al final del día</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>La tensión cede — mandíbula, hombros y pecho se relajan</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Energía más estable — sin los picos y caídas del modo urgencia</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Tu cuerpo recupera el ritmo que tenía antes del estrés crónico</span></div>
+      </div>
+
+      <div class="ben-col fu d2">
+        <div class="ben-col-n">02</div>
+        <div class="ben-col-title">En la mente</div>
+        <div class="ben-item"><div class="ben-dot"></div><span>La cabeza deja de correr sola — puedes elegir dónde poner el foco</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Decisiones más claras — sin el ruido de fondo que lo distorsiona todo</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Menos reactividad — hay espacio entre lo que pasa y cómo respondes</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Concentración que vuelve — no todo requiere tu atención al máximo</span></div>
+      </div>
+
+      <div class="ben-col fu d3">
+        <div class="ben-col-n">03</div>
+        <div class="ben-col-title">En cómo te relacionas</div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Control interno real — no de las circunstancias, sino de tu respuesta</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Calma como punto de partida — no solo en momentos tranquilos</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Menos arrepentimiento — respondes más, reaccionas menos</span></div>
+        <div class="ben-item"><div class="ben-dot"></div><span>Autonomía real — ya no dependes de condiciones externas para regularte</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- OBJECIONES -->
+<section class="sec obj-sec" id="dudas">
+  <div class="wrap">
+    <div class="eyebrow ink fu">Las dudas más frecuentes</div>
+    <h2 class="sec-title fu d1">
+      Si algo te frena<br>
+      de <em>dar el paso</em>
+    </h2>
+
+    <div class="obj-list">
+      <div class="obj-item fu d1">
+        <div class="obj-q">
+          <div class="obj-mark">"</div>
+          <div class="obj-qt">Ya intenté meditar y no me funciona. Mi mente no para."</div>
+        </div>
+        <div class="obj-a">
+          <p class="obj-at">Tu mente no para <strong>porque el sistema nervioso aprendió a estar en alerta.</strong> No es un defecto tuyo — es una respuesta adaptativa. Esta guía trabaja con eso, no en su contra.</p>
+        </div>
+      </div>
+
+      <div class="obj-item fu d2">
+        <div class="obj-q">
+          <div class="obj-mark">"</div>
+          <div class="obj-qt">No tengo tiempo para meditar 30 minutos al día."</div>
+        </div>
+        <div class="obj-a">
+          <p class="obj-at">La práctica que te llevo <strong>empieza en menos de 5 minutos.</strong> No necesitas un retiro. Necesitas una herramienta que entre en tu vida real — eso es exactamente lo que hay aquí.</p>
+        </div>
+      </div>
+
+      <div class="obj-item fu d3">
+        <div class="obj-q">
+          <div class="obj-mark">"</div>
+          <div class="obj-qt">Esto es para personas espirituales. Yo soy muy racional."</div>
+        </div>
+        <div class="obj-a">
+          <p class="obj-at">Esta guía no habla de chakras ni de energías. Habla de <strong>fisiología, sistema nervioso y evidencia científica.</strong> La meditación tiene décadas de respaldo en neurociencia — es biología, no fe.</p>
+        </div>
+      </div>
+
+      <div class="obj-item fu d4">
+        <div class="obj-q">
+          <div class="obj-mark">"</div>
+          <div class="obj-qt">Doce dólares es poco. ¿Qué tan bueno puede ser?"</div>
+        </div>
+        <div class="obj-a">
+          <p class="obj-at">Es el precio de apertura. El objetivo es que lo pruebes sin riesgo. <strong>Si en una semana no notas un cambio real</strong> en cómo duermes o cómo respondes al estrés — escríbeme y lo hablamos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- PRECIO -->
+<section class="sec price-sec" id="precio">
+  <svg class="price-wave" viewBox="0 0 1440 140" fill="none" preserveAspectRatio="none">
+    <path d="M-100 70 C200 20,600 120,900 70 S1200 20,1540 70" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M-100 105 C200 55,600 155,900 105 S1200 55,1540 105" stroke="#EDBC6A" stroke-width="1.5" stroke-linecap="round" opacity=".5"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="price-grid">
+      <div class="price-what">
+        <div class="eyebrow fu">Tu inversión</div>
+        <h2 class="sec-title on-dark fu d1">
+          Todo lo que<br>
+          incluye <em>la guía</em>
+        </h2>
+
+        <div class="price-includes fu d2">
+          <div class="inc-item">
+            <div class="inc-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EDBC6A" stroke-width="1.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <div>
+              <div class="inc-t">Guía completa en PDF — 26 páginas</div>
+              <div class="inc-d">Acceso inmediato. Se descarga en cualquier dispositivo en segundos.</div>
+            </div>
+          </div>
+
+          <div class="inc-item">
+            <div class="inc-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EDBC6A" stroke-width="1.5">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12 6 12 12 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <div class="inc-t">Una técnica que puedes hacer esta noche</div>
+              <div class="inc-d">Protocolo completo de menos de 5 minutos. Paso a paso, sin experiencia previa.</div>
+            </div>
+          </div>
+
+          <div class="inc-item">
+            <div class="inc-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EDBC6A" stroke-width="1.5">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+              </svg>
+            </div>
+            <div>
+              <div class="inc-t">5 capítulos + apéndice de recursos</div>
+              <div class="inc-d">Un camino progresivo de la comprensión a la práctica. Nada de relleno.</div>
+            </div>
+          </div>
+
+          <div class="inc-item">
+            <div class="inc-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#EDBC6A" stroke-width="1.5">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="inc-t">Método diseñado para mentes activas</div>
+              <div class="inc-d">No es una guía genérica. Está escrita específicamente para quien vive acelerado.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="price-card fu d3">
+        <div class="pc-eyebrow">Precio de apertura</div>
+        <div class="pc-old">Valor normal USD $47</div>
+        <div class="pc-new">$12</div>
+        <div class="pc-note">USD · Pago único · Sin suscripción</div>
+
+        <!-- REEMPLAZAR href="#" con el link de checkout de Hotmart -->
+        <a href="https://pay.hotmart.com/C105555398E?bid=1777758194146" class="buy-btn">
+          <div>
+            <div>Obtener la guía ahora</div>
+            <div class="buy-btn-sub">Acceso inmediato · Descarga segura por Hotmart</div>
+          </div>
+          <span>→</span>
+        </a>
+
+        <div class="guarantee">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--lago)" stroke-width="1.5" style="flex-shrink:0;margin-top:1px">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+          <div class="guarantee-text">
+            <strong>Descarga segura a través de Hotmart</strong>
+            Plataforma de confianza con millones de usuarios en Latinoamérica. Pago seguro y acceso inmediato al PDF.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">
+    <svg width="18" height="18" viewBox="0 0 120 120" fill="none">
+      <path d="M12 68 C32 52,88 52,108 68" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M60 30 L60 98" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <path d="M34 44 L86 44" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
+      <circle cx="60" cy="44" r="4" fill="#EDBC6A"/>
+    </svg>
+    TinchoLibre · 2025
+  </div>
+  <div class="footer-links">
+    <a href="index.html" class="footer-link">Inicio</a>
+    <a href="https://instagram.com/tincholibre" class="footer-link" target="_blank" rel="noopener">@tincholibre</a>
+    <a href="#contenido" class="footer-link">Contenido</a>
+    <a href="#precio" class="footer-link">Obtener guía</a>
+  </div>
+</footer>
+
+
+<script>
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+  }, { threshold: 0.08, rootMargin: '0px 0px -32px 0px' });
+  document.querySelectorAll('.fu').forEach(el => obs.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    });
+  });
+</script>
+</body>
+</html>

@@ -36,3 +36,28 @@ Guia de meditación - Tincho (5).pdf
 Guia-para-Crear-una-Oferta.pdf
 Guía para Definir tus Puertas de Comunicación.pdf
 Guía para definir un Nicho (Tincho).docx
+# Added by code-review-graph
+.code-review-graph/
+
+# Product files (private — distributed via Hotmart, not repo)
+La mente que no para tincho hotmart.pdf
+La mente que no para - portrait.html
+La mente que no para - standalone.html
+portada-hotmart.png
+tincho-portrait-extracted.png
+template_extracted.html
+
+# Utility/generation scripts
+extract_slides.js
+gen_portada.py
+slides_content.txt
+
+# Internal config
+.mcp.json
+skills-lock.json
+CLAUDE.backup.md
+design-philosophy-seismic-calm.md
+docs/
+
+# Brandkit source (components — la página HTML sí es pública)
+Brandkit/

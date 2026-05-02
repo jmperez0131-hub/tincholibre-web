@@ -1,3 +1,18 @@
+## Approach
+- Think before acting. Read existing files before writing code.
+- Be concise in output but thorough in reasoning.
+- Prefer editing over rewriting whole files.
+- Do not re-read files you have already read unless the file may have changed.
+- Skip files over 100KB unless explicitly required.
+- Suggest running /cost when a session is running long to monitor cache ratio.
+- Recommend starting a new session when switching to an unrelated task.
+- Test your code before declaring done.
+- No sycophantic openers or closing fluff.
+- Keep solutions simple and direct.
+- User instructions always override this file.
+
+---
+
 # CLAUDE.md — Contexto de Marca Personal: Tincho
 
 > Archivo de contexto para Claude Code y sesiones de trabajo estratégico.
@@ -148,6 +163,11 @@ Las barreras reales que impiden actuar.
 - **Científico sin ser frío** — usa marcos de neurociencia pero habla como persona, no como paper
 - **Espiritual sin ser etéreo** — el yoga y el pranayama son tecnología, no magia
 - **Breve y denso** — hooks cortos, máximo impacto; el formato de dos líneas (hook + ancla) funciona mejor que párrafos largos
+
+### Tratamiento de segunda persona
+- Usar **tuteo (tú/te/tu)** como forma predeterminada — es cercano, directo y funciona bien en toda Latinoamérica.
+- El voseo (vos/tenés/podés) puede aparecer en contextos muy coloquiales de Colombia, pero NO es el estándar de la marca. Nunca asumir voseo como default.
+- Ejemplos correctos: "¿Cómo estás?", "¿Qué te frena?", "Si no lo intentas, no sabes." — NO: "¿Cómo estás?", "¿Qué te frena?", "Si no lo intentás, no sabés."
 
 ### Fórmula de contenido que funciona
 ```
