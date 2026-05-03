@@ -1185,60 +1185,18 @@
             display: flex;
             align-items: center;
             gap: 72px;
+            flex-direction: row-reverse;
         }
 
-        .guia-mockup {
+        .guia-img-wrap {
             flex-shrink: 0;
-            width: min(200px, 36vw);
-            aspect-ratio: 2 / 3;
-            background: linear-gradient(145deg, #1F3D30 0%, #0F2219 100%);
-            border: 1px solid rgba(237,188,106,0.25);
+            width: min(220px, 36vw);
+        }
+
+        .guia-img-wrap img {
+            width: 100%;
             border-radius: 4px;
-            padding: 28px 22px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            box-shadow: 0 24px 64px rgba(0,0,0,0.4), inset 0 1px 0 rgba(237,188,106,0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .guia-mockup::after {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -20%;
-            width: 80%;
-            aspect-ratio: 1;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(237,188,106,0.07) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        .guia-mockup-label {
-            font-family: var(--font-mono);
-            font-size: 9px;
-            letter-spacing: 0.18em;
-            text-transform: uppercase;
-            color: var(--amanecer);
-            opacity: 0.8;
-        }
-
-        .guia-mockup-title {
-            font-family: var(--font-display);
-            font-size: clamp(18px, 2.4vw, 24px);
-            line-height: 1.15;
-            letter-spacing: -0.02em;
-            color: var(--papel);
-            font-style: italic;
-        }
-
-        .guia-mockup-pages {
-            font-family: var(--font-mono);
-            font-size: 9px;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: rgba(244,239,230,0.35);
+            box-shadow: 0 32px 80px rgba(0,0,0,0.5);
         }
 
         .guia .label { color: rgba(244,239,230,0.45); }
@@ -1250,30 +1208,7 @@
             line-height: 1.85;
             font-weight: 300;
             max-width: 440px;
-            margin-bottom: 28px;
-        }
-
-        .guia-price {
-            display: flex;
-            align-items: baseline;
-            gap: 10px;
-            margin-bottom: 28px;
-        }
-
-        .guia-price-num {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--amanecer);
-            letter-spacing: -0.02em;
-        }
-
-        .guia-price-desc {
-            font-family: var(--font-mono);
-            font-size: 10px;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: rgba(244,239,230,0.4);
+            margin-bottom: 32px;
         }
 
         @media (max-width: 768px) {
@@ -1321,7 +1256,7 @@
             .libro-inner     { flex-direction: column; gap: 32px; }
             .libro-img-wrap  { width: min(180px, 52vw); }
             .guia-inner      { flex-direction: column; gap: 32px; }
-            .guia-mockup     { width: min(160px, 48vw); }
+            .guia-img-wrap   { width: min(180px, 52vw); }
         }
 
         @media (max-width: 480px) {
@@ -1688,10 +1623,11 @@
 <section class="section guia" id="guia" aria-labelledby="guia-title">
     <div class="section-inner guia-inner">
 
-        <div class="guia-mockup reveal" aria-hidden="true">
-            <span class="guia-mockup-label">Guía Digital</span>
-            <div class="guia-mockup-title">La mente<br>que no<br>para</div>
-            <span class="guia-mockup-pages">26 páginas · 5 min/día</span>
+        <div class="guia-img-wrap reveal">
+            <img
+                src="Documentos Pagina web/la mente que no para PORTADA HOTMART.png"
+                alt="La mente que no para — guía digital"
+            >
         </div>
 
         <div class="reveal" data-delay="1">
@@ -1702,10 +1638,6 @@
                 y qué hacer con eso desde esta noche. Sin terminología, sin rutinas imposibles.
                 Solo el mecanismo real y la primera técnica que funciona en tres minutos.
             </p>
-            <div class="guia-price reveal" data-delay="2">
-                <span class="guia-price-num">$12</span>
-                <span class="guia-price-desc">USD · Acceso inmediato</span>
-            </div>
             <a href="la-mente-que-no-para.html" class="bk-btn bk-btn-amanecer" aria-label="Ver la guía La mente que no para">
                 Ver la guía
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
