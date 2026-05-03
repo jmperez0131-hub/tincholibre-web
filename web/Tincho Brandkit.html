@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tincho · Brandkit v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,wght@0,400;0,500;1,400&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,wght@0,400;0,500;1,400&family=DM+Serif+Display:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* Tincho Brandkit — base styles */
+:root {
+  --ink: #15201c;
+  --paper: #f4efe6;
+  --paper-2: #ebe3d4;
+  --lago: #1f4d4a;
+  --lago-deep: #0f2e2c;
+  --tierra: #b4643f;
+  --tierra-soft: #d98a5c;
+  --amanecer: #e4b363;
+  --bruma: #8a9a95;
+  --line: rgba(21,32,28,0.14);
+  --line-strong: rgba(21,32,28,0.32);
+  --font-display: "Instrument Serif", "Newsreader", Georgia, serif;
+  --font-body: "Geist", -apple-system, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+  line-height: 1.5;
+}
+
+.page {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.serif { font-family: var(--font-display); font-weight: 400; letter-spacing: -0.01em; }
+.mono  { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+.sans  { font-family: var(--font-body); }
+
+.section {
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+  position: relative;
+}
+.section:first-of-type { border-top: 0; }
+
+.sec-head {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 48px;
+  align-items: baseline;
+  margin-bottom: 64px;
+}
+.sec-num {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink);
+  opacity: 0.55;
+}
+.sec-title {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 5.2vw, 76px);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-style: italic;
+  font-weight: 400;
+}
+.sec-title em { font-style: normal; color: var(--lago); }
+.sec-desc {
+  max-width: 44ch;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+  opacity: 0.78;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.hero {
+  min-height: 92vh;
+  padding: 48px 0 80px;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  position: relative;
+  overflow: hidden;
+}
+.hero-top {
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.12em;
+  text-transform: uppercase; opacity: 0.75;
+}
+.hero-main {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: end;
+  padding: 120px 0 0;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(72px, 10vw, 164px);
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+  margin: 0;
+  font-weight: 400;
+}
+.hero-title .italic { font-style: italic; color: var(--lago); }
+.hero-meta { padding-bottom: 12px; }
+.hero-meta p {
+  font-size: 17px; line-height: 1.45; max-width: 38ch;
+  color: var(--ink); margin: 0 0 24px;
+}
+.hero-bottom {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  padding-top: 64px; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.hero-bottom div span { display: block; opacity: 0.55; margin-bottom: 6px; }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 24px;
+}
+
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.swatch {
+  grid-column: span 3;
+  aspect-ratio: 3 / 4;
+  border-radius: 2px;
+  padding: 18px;
+  display: flex; flex-direction: column; justify-content: space-between;
+  position: relative;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+.swatch.large { grid-column: span 6; aspect-ratio: 3/2; }
+.swatch .role {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.85;
+}
+.swatch .name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 32px;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.swatch .codes {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+}
+.swatch .codes span { display: block; opacity: 0.8; }
+.swatch.dark { color: var(--paper); }
+.swatch.light { color: var(--ink); }
+
+.type-spec {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  padding: 48px 0;
+  border-top: 1px solid var(--line);
+}
+.type-spec:last-child { border-bottom: 1px solid var(--line); }
+.type-spec .meta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.8; }
+.type-spec .meta strong { display: block; font-size: 13px; color: var(--lago); margin-bottom: 4px; }
+.type-spec .demo { min-width: 0; }
+
+.logo-stage {
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  display: grid; place-items: center;
+  aspect-ratio: 1;
+  padding: 24px;
+  position: relative;
+}
+.logo-stage.dark { background: var(--lago-deep); border-color: transparent; }
+.logo-stage .tag {
+  position: absolute; top: 16px; left: 16px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.rule-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+.rule {
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  padding: 24px;
+  background: #fff;
+  position: relative;
+  min-height: 260px;
+  display: flex; flex-direction: column;
+}
+.rule .badge {
+  position: absolute; top: 16px; right: 16px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+  padding: 4px 10px; border-radius: 999px;
+}
+.rule.do .badge { background: var(--lago); color: var(--paper); }
+.rule.dont .badge { background: var(--ink); color: var(--paper); opacity: 0.9; }
+.rule .label { margin-top: auto; font-size: 13px; line-height: 1.5; padding-top: 16px; border-top: 1px solid var(--line); }
+
+.tweaks-panel {
+  position: fixed; bottom: 20px; right: 20px; z-index: 9999;
+  background: var(--ink); color: var(--paper);
+  border-radius: 8px; padding: 16px;
+  width: 280px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  font-family: var(--font-body); font-size: 13px;
+}
+.tweaks-panel h4 { margin: 0 0 12px; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
+.tweaks-panel .row { margin-bottom: 12px; }
+.tweaks-panel label { display: block; font-size: 11px; opacity: 0.7; margin-bottom: 6px; font-family: var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
+.tweaks-panel select {
+  width: 100%; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12);
+  color: var(--paper); border-radius: 4px; padding: 6px 8px; font-family: var(--font-body);
+}
+.tweaks-panel .chips { display: flex; gap: 6px; flex-wrap: wrap; }
+.tweaks-panel .chip {
+  padding: 6px 10px; border-radius: 999px; cursor: pointer;
+  background: rgba(255,255,255,0.08); border: 1px solid transparent; font-size: 11px;
+  font-family: var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase;
+}
+.tweaks-panel .chip.active { background: var(--lago); border-color: var(--amanecer); }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+
+.caption {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  margin-top: 12px;
+}
+
+.quote {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+}
+
+.footer {
+  padding: 64px 0;
+  border-top: 1px solid var(--line);
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.phone {
+  width: 260px;
+  aspect-ratio: 9 / 19.5;
+  background: var(--ink);
+  border-radius: 36px;
+  padding: 12px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.2), 0 2px 0 rgba(255,255,255,0.1) inset;
+  margin: 0 auto;
+}
+.phone-inner {
+  width: 100%; height: 100%; border-radius: 26px; overflow: hidden;
+  background: var(--paper);
+  position: relative;
+}
+
+.ig-post {
+  aspect-ratio: 1;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid var(--line);
+}
+
+/* TOC nav */
+.toc-nav {
+  position: fixed; left: 24px; top: 50%; transform: translateY(-50%);
+  z-index: 100; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+  display: flex; flex-direction: column; gap: 8px;
+  background: rgba(244,239,230,0.85); backdrop-filter: blur(8px);
+  padding: 12px 14px; border-radius: 2px; border: 1px solid var(--line);
+}
+.toc-nav a {
+  color: var(--ink); opacity: 0.5; text-decoration: none; font-weight: 400; transition: opacity 0.2s;
+}
+.toc-nav a.active { color: var(--lago); opacity: 1; font-weight: 600; }
+
+@media (max-width: 1100px) { .toc-nav { display: none; } }
+@media (max-width: 768px) {
+  .page { padding: 0 24px; }
+  .hero-main { grid-template-columns: 1fr; }
+  .hero-bottom { grid-template-columns: repeat(2, 1fr); }
+  .sec-head { grid-template-columns: 1fr; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .grid-3 { grid-template-columns: 1fr; }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .swatch-grid { grid-template-columns: repeat(6, 1fr); }
+  .swatch { grid-column: span 6; }
+  .swatch.large { grid-column: span 6; }
+  .type-spec { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+
+<script type="text/babel">
+
+// ─── MARKS ────────────────────────────────────────────────────────────────
+
+const TinchoMark = ({ size = 120, color = "currentColor", accent, style }) => {
+  const ac = accent || color;
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" style={style} aria-label="Tincho mark">
+      <path d="M12 68 C 32 52, 88 52, 108 68" stroke={color} strokeWidth="4" strokeLinecap="round" fill="none"/>
+      <path d="M60 30 L60 98" stroke={color} strokeWidth="4" strokeLinecap="round"/>
+      <path d="M34 44 L86 44" stroke={color} strokeWidth="4" strokeLinecap="round"/>
+      <circle cx="60" cy="44" r="3.2" fill={ac}/>
+    </svg>
+  );
+};
+
+const TinchoMonogram = ({ size = 120, color = "currentColor", bg = "transparent", accent, style }) => {
+  const ac = accent || color;
+  return (
+    <svg width={size} height={size} viewBox="0 0 120 120" fill="none" style={style} aria-label="Tincho monogram">
+      <circle cx="60" cy="60" r="56" fill={bg} stroke={color} strokeWidth="2"/>
+      <path d="M22 70 C 38 58, 82 58, 98 70" stroke={color} strokeWidth="3.5" strokeLinecap="round" fill="none"/>
+      <path d="M60 36 L60 92" stroke={color} strokeWidth="3.5" strokeLinecap="round"/>
+      <path d="M40 48 L80 48" stroke={color} strokeWidth="3.5" strokeLinecap="round"/>
+      <circle cx="60" cy="48" r="2.8" fill={ac}/>
+    </svg>
+  );
+};
+
+const TinchoWordmark = ({ color = "currentColor", size = 64, tagline, tagColor }) => (
+  <div style={{ display: "inline-flex", flexDirection: "column", gap: 6, color, alignItems: "flex-start" }}>
+    <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontWeight: 400, fontSize: size, lineHeight: 0.9, letterSpacing: "-0.04em" }}>
+      tincho
+    </div>
+    {tagline && (
+      <div style={{ fontFamily: "var(--font-mono)", fontSize: Math.max(10, size * 0.16), letterSpacing: "0.18em", textTransform: "uppercase", opacity: 0.75, color: tagColor || color }}>
+        {tagline}
+      </div>
+    )}
+  </div>
+);
+
+const TinchoLockup = ({ color = "currentColor", accent, tagline = "sistema nervioso · libertad", size = 48 }) => (
+  <div style={{ display: "inline-flex", alignItems: "center", gap: 18, color }}>
+    <TinchoMark size={size * 1.05} color={color} accent={accent}/>
+    <div style={{ width: 1, height: size * 0.9, background: "currentColor", opacity: 0.2 }}/>
+    <TinchoWordmark color={color} size={size * 0.95} tagline={tagline}/>
+  </div>
+);
+
+const WaveMotif = ({ width = 400, color = "currentColor", thickness = 1.5, opacity = 1, style }) => (
+  <svg width={width} height={width * 0.12} viewBox="0 0 400 48" fill="none" style={{ opacity, ...style }}>
+    <path d="M0 24 C 50 8, 100 40, 150 24 S 250 8, 300 24 S 400 40, 400 24" stroke={color} strokeWidth={thickness} strokeLinecap="round" fill="none"/>
+  </svg>
+);
+
+const ArcMotif = ({ size = 200, color = "currentColor", thickness = 1.5, style }) => (
+  <svg width={size} height={size / 2} viewBox="0 0 200 100" fill="none" style={style}>
+    <path d="M4 96 A 96 96 0 0 1 196 96" stroke={color} strokeWidth={thickness} fill="none" strokeLinecap="round"/>
+  </svg>
+);
+
+// ─── PALETTES & TYPE PAIRINGS ─────────────────────────────────────────────
+
+const PALETTES = {
+  atardecer: {
+    label: "Atardecer · default",
+    "--ink": "#15201C", "--paper": "#F4EFE6", "--paper-2": "#EBE3D4",
+    "--lago": "#1F4D4A", "--lago-deep": "#0F2E2C", "--tierra": "#B4643F",
+    "--tierra-soft": "#D98A5C", "--amanecer": "#E4B363", "--bruma": "#8A9A95",
+  },
+  amanecer: {
+    label: "Amanecer · más cálido",
+    "--ink": "#1A1712", "--paper": "#F7F1E4", "--paper-2": "#EEE4CE",
+    "--lago": "#2D4A3E", "--lago-deep": "#162B23", "--tierra": "#C96F3D",
+    "--tierra-soft": "#E08C5E", "--amanecer": "#EDBC6A", "--bruma": "#9B9583",
+  },
+  bruma: {
+    label: "Bruma · más frío / agua",
+    "--ink": "#121A1B", "--paper": "#EEEFEA", "--paper-2": "#E0E3DB",
+    "--lago": "#17403F", "--lago-deep": "#081E1F", "--tierra": "#A65A3E",
+    "--tierra-soft": "#C97E5E", "--amanecer": "#D8A656", "--bruma": "#7F928E",
+  },
+};
+
+const TYPE_PAIRINGS = {
+  instrument_geist: { label: "Instrument · Geist", display: "'Instrument Serif', Georgia, serif", body: "'Geist', -apple-system, system-ui, sans-serif", mono: "'JetBrains Mono', ui-monospace, monospace" },
+  newsreader_inter: { label: "Newsreader · Inter Tight", display: "'Newsreader', Georgia, serif", body: "'Inter Tight', -apple-system, system-ui, sans-serif", mono: "'JetBrains Mono', ui-monospace, monospace" },
+  fraunces_geist: { label: "Fraunces · Geist", display: "'Fraunces', Georgia, serif", body: "'Geist', -apple-system, system-ui, sans-serif", mono: "'JetBrains Mono', ui-monospace, monospace" },
+  dmserif_geist: { label: "DM Serif · Geist", display: "'DM Serif Display', Georgia, serif", body: "'Geist', -apple-system, system-ui, sans-serif", mono: "'JetBrains Mono', ui-monospace, monospace" },
+};
+
+const TWEAK_DEFAULTS = { paletteVariant: "amanecer", typePairing: "instrument_geist", showTOC: true };
+
+function applyTweaks(state) {
+  const p = PALETTES[state.paletteVariant] || PALETTES.atardecer;
+  Object.entries(p).forEach(([k, v]) => { if (k !== "label") document.documentElement.style.setProperty(k, v); });
+  const t = TYPE_PAIRINGS[state.typePairing] || TYPE_PAIRINGS.instrument_geist;
+  document.documentElement.style.setProperty("--font-display", t.display);
+  document.documentElement.style.setProperty("--font-body", t.body);
+  document.documentElement.style.setProperty("--font-mono", t.mono);
+}
+
+// ─── TOC ──────────────────────────────────────────────────────────────────
+
+const TOC = () => {
+  const [active, setActive] = React.useState("");
+  React.useEffect(() => {
+    const onScroll = () => {
+      const sections = document.querySelectorAll("section[id]");
+      let cur = "";
+      sections.forEach(s => { if (s.getBoundingClientRect().top < 200) cur = s.id; });
+      setActive(cur);
+    };
+    window.addEventListener("scroll", onScroll);
+    onScroll();
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+  const items = [["essence","01 Esencia"],["logo","02 Logo"],["color","03 Paleta"],["type","04 Tipografía"],["icons","05 Iconografía"],["mood","06 Moodboard"],["apps","07 Aplicaciones"],["rules","08 Do's & Don'ts"],["voice","09 Voz"]];
+  return (
+    <nav className="toc-nav">
+      {items.map(([id, label]) => (
+        <a key={id} href={`#${id}`} className={active === id ? "active" : ""}>{label}</a>
+      ))}
+    </nav>
+  );
+};
+
+// ─── TWEAKS PANEL ─────────────────────────────────────────────────────────
+
+const TweaksPanel = ({ state, setState }) => (
+  <div className="tweaks-panel">
+    <h4>Tweaks</h4>
+    <div className="row">
+      <label>Paleta</label>
+      <div className="chips">
+        {Object.entries(PALETTES).map(([k, v]) => (
+          <div key={k} className={`chip ${state.paletteVariant === k ? "active" : ""}`} onClick={() => setState({ ...state, paletteVariant: k })}>
+            {v.label.split(" · ")[0]}
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="row">
+      <label>Tipografía</label>
+      <select value={state.typePairing} onChange={e => setState({ ...state, typePairing: e.target.value })}>
+        {Object.entries(TYPE_PAIRINGS).map(([k, v]) => <option key={k} value={k}>{v.label}</option>)}
+      </select>
+    </div>
+    <div className="row">
+      <label style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
+        <input type="checkbox" checked={state.showTOC} onChange={e => setState({ ...state, showTOC: e.target.checked })}/>
+        <span style={{ marginLeft: 6 }}>Mostrar índice lateral</span>
+      </label>
+    </div>
+  </div>
+);
+
+// ─── HERO ─────────────────────────────────────────────────────────────────
+
+const Hero = () => (
+  <section className="hero">
+    <div className="page" style={{ height: "100%", display: "grid", gridTemplateRows: "auto 1fr auto" }}>
+      <div className="hero-top">
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <TinchoMark size={28} color="var(--ink)" accent="var(--tierra)"/>
+          <span>tincholibre.com</span>
+        </div>
+        <div>Brandkit v1.0 · Abril 2026</div>
+      </div>
+      <div className="hero-main">
+        <div>
+          <h1 className="hero-title">
+            Oasis<br/>
+            de <span className="italic">calma</span><br/>
+            en medio<br/>
+            del caos.
+          </h1>
+        </div>
+        <div className="hero-meta">
+          <div className="eyebrow" style={{ marginBottom: 20 }}>— Brand System · Tincho</div>
+          <p>Regulación del sistema nervioso para profesionales que viven acelerados. El puente entre tecnología milenaria y validación científica moderna.</p>
+          <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 22, lineHeight: 1.3, opacity: 0.75, maxWidth: "28ch" }}>
+            Experiencia límite → libertad interna → método real.
+          </p>
+        </div>
+      </div>
+      <div className="hero-bottom">
+        <div><span>Fundador</span>Tincho · Autor, Libertad en Jaque</div>
+        <div><span>Audiencia</span>Profesionales LatAm, 25–45</div>
+        <div><span>Tensión</span>Milenaria ↔ Neurociencia</div>
+        <div><span>Promesa</span>Calma funcional</div>
+      </div>
+      <WaveMotif width={1600} color="var(--lago)" thickness={1} opacity={0.12} style={{ position: "absolute", left: "-10%", bottom: "-5%", pointerEvents: "none" }}/>
+    </div>
+  </section>
+);
+
+// ─── ESSENCE ──────────────────────────────────────────────────────────────
+
+const Essence = () => {
+  const principles = [
+    { n: "01", t: "Aterrizado", d: "Nada flota. Todo aterriza en síntomas concretos, en el cuerpo, en el presente." },
+    { n: "02", t: "Cálido / directo", d: "Como alguien que ya pasó por ello y te dice la verdad sin rodeos." },
+    { n: "03", t: "Científico sin frío", d: "Neurociencia y teoría polivagal como fundamento, no como vitrina." },
+    { n: "04", t: "Espiritual sin eterizar", d: "Respiración, silencio y presencia — sin misticismo decorativo." },
+    { n: "05", t: "Breve y denso", d: "Máximo impacto, mínimo ruido. El silencio también comunica." },
+    { n: "06", t: "Puente, no vitrina", d: "No es spa, no es laboratorio. Es el paso entre los dos mundos." },
+  ];
+  return (
+    <section className="section" id="essence">
+      <div className="page">
+        <div className="sec-head">
+          <div><div className="sec-num">01 — Esencia</div></div>
+          <div>
+            <h2 className="sec-title">La marca es un <em>puente</em>, no una vitrina.</h2>
+            <p className="sec-desc" style={{ marginTop: 24 }}>
+              Tincho vive en la intersección de dos mundos que normalmente no conviven:
+              tecnología milenaria (yoga, pranayama, meditación) y validación científica moderna
+              (neurociencia, teoría polivagal, neuroplasticidad).
+            </p>
+          </div>
+        </div>
+        <div className="grid-2" style={{ marginBottom: 80 }}>
+          <div className="card" style={{ padding: 40, background: "var(--lago)", color: "var(--paper)", borderColor: "transparent" }}>
+            <div className="eyebrow" style={{ opacity: 0.7 }}>Tecnología milenaria</div>
+            <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 38, lineHeight: 1.05, letterSpacing: "-0.02em", marginTop: 24, marginBottom: 32 }}>Profundidad, sabiduría, corporalidad.</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 2.2, opacity: 0.85 }}>
+              <li>— Pranayama</li><li>— Meditación</li><li>— Yoga somática</li><li>— Silencio</li>
+            </ul>
+          </div>
+          <div className="card" style={{ padding: 40, background: "var(--tierra)", color: "var(--paper)", borderColor: "transparent" }}>
+            <div className="eyebrow" style={{ opacity: 0.7 }}>Validación científica</div>
+            <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 38, lineHeight: 1.05, letterSpacing: "-0.02em", marginTop: 24, marginBottom: 32 }}>Credibilidad, rigor, resultados.</div>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, fontFamily: "var(--font-mono)", fontSize: 12, letterSpacing: "0.1em", textTransform: "uppercase", lineHeight: 2.2, opacity: 0.85 }}>
+              <li>— Teoría polivagal</li><li>— Neuroplasticidad</li><li>— HRV / regulación</li><li>— Método medible</li>
+            </ul>
+          </div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 1, background: "var(--line)", border: "1px solid var(--line)" }}>
+          {principles.map(p => (
+            <div key={p.n} style={{ background: "var(--paper)", padding: 32, minHeight: 200 }}>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: "0.14em", opacity: 0.5 }}>{p.n}</div>
+              <div className="serif" style={{ fontSize: 30, fontStyle: "italic", letterSpacing: "-0.02em", margin: "16px 0 12px", lineHeight: 1.05 }}>{p.t}</div>
+              <div style={{ fontSize: 14, lineHeight: 1.5, opacity: 0.75 }}>{p.d}</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ marginTop: 96, display: "grid", gridTemplateColumns: "1fr 1fr", gap: 64, alignItems: "center" }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>Lo que NO es</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {["New age", "Esotérico", "Clínico frío", "Corporativo", "Bienestar genérico", "Coach motivacional", "Spa de moda"].map(x => (
+                <span key={x} style={{ padding: "8px 14px", border: "1px solid var(--line-strong)", borderRadius: 2, fontSize: 13, textDecoration: "line-through", textDecorationColor: "var(--tierra)", textDecorationThickness: "1.5px", opacity: 0.7 }}>{x}</span>
+              ))}
+            </div>
+          </div>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 16 }}>Lo que SÍ es</div>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+              {["Calma funcional", "Regulación", "Presencia", "Libertad interna", "Oasis", "Equilibrio", "Método", "Aterrizado"].map(x => (
+                <span key={x} style={{ padding: "8px 14px", background: "var(--lago)", color: "var(--paper)", borderRadius: 2, fontSize: 13, fontWeight: 500 }}>{x}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── LOGO SYSTEM ──────────────────────────────────────────────────────────
+
+const LogoSystem = () => (
+  <section className="section" id="logo">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">02 — Logo</div></div>
+        <div>
+          <h2 className="sec-title">Una <em>T</em> que es horizonte, respiración y presencia.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            El stem vertical es presencia y solidez. El arco horizontal es horizonte, agua quieta, una exhalación lenta.
+            El punto es el sol del amanecer — el momento en que la calma aparece.
+          </p>
+        </div>
+      </div>
+      <div style={{ background: "var(--paper-2)", border: "1px solid var(--line)", padding: "96px 64px", marginBottom: 32, position: "relative" }}>
+        <div style={{ position: "absolute", top: 16, left: 16, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>
+          Lockup horizontal · versión primaria
+        </div>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <TinchoLockup size={72} color="var(--ink)" accent="var(--tierra)" tagline="oasis · sistema nervioso"/>
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr 1fr", gap: 16, marginBottom: 64 }}>
+        <div className="logo-stage">
+          <div className="tag">Símbolo</div>
+          <TinchoMark size={140} color="var(--ink)" accent="var(--tierra)"/>
+        </div>
+        <div className="logo-stage">
+          <div className="tag">Monograma</div>
+          <TinchoMonogram size={140} color="var(--ink)" accent="var(--tierra)"/>
+        </div>
+        <div className="logo-stage dark">
+          <div className="tag" style={{ color: "var(--paper)", opacity: 0.5 }}>Símbolo · dark</div>
+          <TinchoMark size={140} color="var(--paper)" accent="var(--amanecer)"/>
+        </div>
+        <div className="logo-stage dark">
+          <div className="tag" style={{ color: "var(--paper)", opacity: 0.5 }}>Monograma · dark</div>
+          <TinchoMonogram size={140} color="var(--paper)" accent="var(--amanecer)"/>
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: 48, alignItems: "center" }}>
+        <div style={{ background: "var(--paper-2)", border: "1px solid var(--line)", padding: 48, position: "relative", aspectRatio: 1 }}>
+          <div style={{ position: "absolute", top: 16, left: 16, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>Construcción</div>
+          <div style={{ width: "100%", height: "100%", display: "grid", placeItems: "center" }}>
+            <svg viewBox="0 0 120 120" width="240" height="240">
+              <g stroke="var(--line-strong)" strokeWidth="0.4" strokeDasharray="2 2">
+                <line x1="0" y1="30" x2="120" y2="30"/><line x1="0" y1="44" x2="120" y2="44"/>
+                <line x1="0" y1="68" x2="120" y2="68"/><line x1="0" y1="98" x2="120" y2="98"/>
+                <line x1="60" y1="0" x2="60" y2="120"/><line x1="34" y1="0" x2="34" y2="120"/><line x1="86" y1="0" x2="86" y2="120"/>
+              </g>
+              <path d="M12 68 C 32 52, 88 52, 108 68" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round" fill="none"/>
+              <path d="M60 30 L60 98" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round"/>
+              <path d="M34 44 L86 44" stroke="var(--ink)" strokeWidth="4" strokeLinecap="round"/>
+              <circle cx="60" cy="44" r="3.2" fill="var(--tierra)"/>
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 16 }}>Especificaciones</div>
+          <table className="mono" style={{ width: "100%", fontSize: 13, borderCollapse: "collapse" }}>
+            <tbody>
+              {[
+                ["Grid base", "120 × 120 unidades"],
+                ["Stroke weight", "4u — stroke ratio 1 : 30"],
+                ["Clear space", "Altura del stem (68u) en todos los lados"],
+                ["Mínimo digital", "24px — símbolo · 120px — lockup"],
+                ["Mínimo print", "8mm — símbolo · 32mm — lockup"],
+                ["Arco", "Cuadrática, amplitud 16u — no simétrico perfecto"],
+                ["Punto", "3.2u radio · color acento (nunca ink)"],
+              ].map(([k, v]) => (
+                <tr key={k} style={{ borderBottom: "1px solid var(--line)" }}>
+                  <td style={{ padding: "14px 0", opacity: 0.55, textTransform: "uppercase", fontSize: 11, letterSpacing: "0.1em" }}>{k}</td>
+                  <td style={{ padding: "14px 0", textAlign: "right" }}>{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div style={{ marginTop: 64, padding: "48px 32px", background: "#fff", border: "1px solid var(--line)" }}>
+        <div className="eyebrow" style={{ marginBottom: 32 }}>Escala de uso · mismo mark, diferentes contextos</div>
+        <div style={{ display: "flex", alignItems: "flex-end", gap: 48, justifyContent: "space-between", flexWrap: "wrap" }}>
+          {[["24", "favicon"], ["48", "nav"], ["80", "avatar"], ["140", "hero"]].map(([s, l]) => (
+            <div key={s} style={{ textAlign: "center" }}>
+              <TinchoMark size={parseInt(s)} color="var(--ink)" accent="var(--tierra)"/>
+              <div className="mono" style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.55, marginTop: 12 }}>{s}px · {l}</div>
+            </div>
+          ))}
+          <div style={{ textAlign: "center" }}>
+            <TinchoMonogram size={140} color="var(--ink)" accent="var(--tierra)"/>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.55, marginTop: 12 }}>Mono · perfil redondo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── COLOR PALETTE ────────────────────────────────────────────────────────
+
+const COLORS = [
+  { name: "Lago", role: "Primario", hex: "#1F4D4A", rgb: "31, 77, 74", oklch: "oklch(38% 0.04 182)", rationale: "Deep teal-green — lago de montaña al amanecer.", var: "--lago", dark: true, large: true },
+  { name: "Tierra", role: "Secundario", hex: "#B4643F", rgb: "180, 100, 63", oklch: "oklch(56% 0.12 45)", rationale: "Terracota cálida — tierra firme, solidez, calor humano.", var: "--tierra", dark: true, large: true },
+  { name: "Amanecer", role: "Acento", hex: "#E4B363", rgb: "228, 179, 99", oklch: "oklch(78% 0.10 80)", rationale: "Amber — luz primera del día, el punto del logo.", var: "--amanecer", dark: false },
+  { name: "Bruma", role: "Neutro medio", hex: "#8A9A95", rgb: "138, 154, 149", oklch: "oklch(62% 0.02 170)", rationale: "Niebla sobre agua — texto secundario, separadores.", var: "--bruma", dark: false },
+  { name: "Papel", role: "Fondo claro", hex: "#F4EFE6", rgb: "244, 239, 230", oklch: "oklch(95% 0.01 85)", rationale: "Off-white cálido — fondo base, nunca blanco puro.", var: "--paper", dark: false },
+  { name: "Papel profundo", role: "Fondo 2", hex: "#EBE3D4", rgb: "235, 227, 212", oklch: "oklch(91% 0.02 85)", rationale: "Tono más profundo del papel — cards, sombras sutiles.", var: "--paper-2", dark: false },
+  { name: "Tinta", role: "Texto · fondo oscuro", hex: "#15201C", rgb: "21, 32, 28", oklch: "oklch(19% 0.01 175)", rationale: "Charcoal con tinte verde — nunca negro puro.", var: "--ink", dark: true },
+  { name: "Lago profundo", role: "Dark mode", hex: "#0F2E2C", rgb: "15, 46, 44", oklch: "oklch(25% 0.03 182)", rationale: "Versión profunda del lago — fondos dark, hero nocturno.", var: "--lago-deep", dark: true },
+];
+
+const Swatch = ({ c }) => (
+  <div className={`swatch ${c.dark ? "dark" : "light"} ${c.large ? "large" : ""}`} style={{ background: `var(${c.var})` }}>
+    <div>
+      <div className="role">{c.role}</div>
+      <div className="name" style={{ marginTop: 8 }}>{c.name}</div>
+    </div>
+    <div className="codes">
+      <span>{c.hex}</span>
+      <span>RGB {c.rgb}</span>
+      <span style={{ opacity: 0.6 }}>{c.oklch}</span>
+    </div>
+  </div>
+);
+
+const ColorPalette = () => (
+  <section className="section" id="color">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">03 — Paleta</div></div>
+        <div>
+          <h2 className="sec-title">Atardecer en montaña, <em>agua quieta</em>, tierra cálida.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            Paleta construida desde el feeling — no del mood board genérico "wellness".
+            Funciona en fondo claro y oscuro. Cada color tiene un rol, no es decorativo.
+          </p>
+        </div>
+      </div>
+      <div className="swatch-grid">
+        {COLORS.map(c => <Swatch key={c.name} c={c}/>)}
+      </div>
+      <div style={{ marginTop: 64 }}>
+        <div className="eyebrow" style={{ marginBottom: 16 }}>Proporción de uso · 60 / 25 / 10 / 5</div>
+        <div style={{ display: "flex", height: 60, border: "1px solid var(--line)" }}>
+          <div style={{ flex: 60, background: "var(--paper)", display: "grid", placeItems: "center", fontSize: 11, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Papel · 60%</div>
+          <div style={{ flex: 25, background: "var(--lago)", color: "var(--paper)", display: "grid", placeItems: "center", fontSize: 11, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Lago · 25%</div>
+          <div style={{ flex: 10, background: "var(--tierra)", color: "var(--paper)", display: "grid", placeItems: "center", fontSize: 11, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Tierra · 10%</div>
+          <div style={{ flex: 5, background: "var(--amanecer)", color: "var(--ink)", display: "grid", placeItems: "center", fontSize: 11, fontFamily: "var(--font-mono)", letterSpacing: "0.1em", textTransform: "uppercase" }}>Am · 5%</div>
+        </div>
+      </div>
+      <div style={{ marginTop: 48, display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+        {[
+          { bg: "var(--paper)", fg: "var(--ink)", fgName: "Tinta", bgName: "Papel", ratio: "14.2 : 1", level: "AAA" },
+          { bg: "var(--lago)", fg: "var(--paper)", fgName: "Papel", bgName: "Lago", ratio: "8.1 : 1", level: "AAA" },
+          { bg: "var(--tierra)", fg: "var(--paper)", fgName: "Papel", bgName: "Tierra", ratio: "4.8 : 1", level: "AA" },
+          { bg: "var(--lago-deep)", fg: "var(--amanecer)", fgName: "Amanecer", bgName: "Lago profundo", ratio: "7.3 : 1", level: "AAA" },
+        ].map((p, i) => (
+          <div key={i} style={{ background: p.bg, color: p.fg, padding: 24, aspectRatio: "1 / 1", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontStyle: "italic", letterSpacing: "-0.02em", lineHeight: 1 }}>Aa</div>
+            <div style={{ fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 1.7 }}>
+              <div>{p.fgName} / {p.bgName}</div>
+              <div style={{ opacity: 0.7 }}>{p.ratio} · WCAG {p.level}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// ─── TYPOGRAPHY ───────────────────────────────────────────────────────────
+
+const Typography = () => (
+  <section className="section" id="type">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">04 — Tipografía</div></div>
+        <div>
+          <h2 className="sec-title">Un serif con <em>peso</em>. Un sans que respira.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            Tres familias, cada una con rol específico. El serif aporta presencia y corporalidad;
+            el sans es aterrizado y moderno; el mono agrega precisión técnica sin frialdad.
+          </p>
+        </div>
+      </div>
+      <div className="type-spec">
+        <div className="meta">
+          <strong>Display · Heading</strong>
+          Instrument Serif<br/>Regular · Italic<br/>400
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Uso</div>
+            H1 — Headlines<br/>Frases de alto impacto<br/>Citas largas
+          </div>
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Specs</div>
+            H1 — 72–164px / 0.86<br/>H2 — 44–76px / 0.98<br/>Tracking — −0.025em<br/>Italic para énfasis
+          </div>
+        </div>
+        <div className="demo">
+          <div style={{ fontFamily: "var(--font-display)", fontSize: 140, lineHeight: 0.9, letterSpacing: "-0.04em", fontWeight: 400 }}>
+            Aa <span style={{ fontStyle: "italic", color: "var(--lago)" }}>Bb</span>
+          </div>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: 18, letterSpacing: "0.02em", opacity: 0.55, marginTop: 8 }}>
+            ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz 0123456789 · ¿? ¡! áéíóú
+          </div>
+          <div style={{ fontFamily: "var(--font-display)", fontSize: 52, fontStyle: "italic", letterSpacing: "-0.02em", lineHeight: 1.05, marginTop: 40, maxWidth: "22ch" }}>
+            "La libertad está en tu equilibrio."
+          </div>
+        </div>
+      </div>
+      <div className="type-spec">
+        <div className="meta">
+          <strong>Body · Subtítulos</strong>
+          Geist Sans<br/>Regular · Medium<br/>400 / 500 / 600
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Uso</div>
+            Párrafo principal<br/>Navegación<br/>Botones<br/>UI general
+          </div>
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Specs</div>
+            Body — 15–17px / 1.5<br/>Subt — 22px / 1.3<br/>Button — 14px / 1 / 500<br/>Tracking — 0
+          </div>
+        </div>
+        <div className="demo">
+          <div style={{ fontFamily: "var(--font-body)", fontSize: 96, fontWeight: 500, letterSpacing: "-0.03em", lineHeight: 1 }}>Aa Bb</div>
+          <div style={{ fontFamily: "var(--font-body)", fontSize: 14, opacity: 0.55, marginTop: 12, letterSpacing: "0.02em" }}>
+            ABCDEFGHIJKLMNÑOPQRSTUVWXYZ abcdefghijklmnñopqrstuvwxyz 0123456789 · ¿? ¡! áéíóú
+          </div>
+          <p style={{ fontFamily: "var(--font-body)", fontSize: 17, lineHeight: 1.55, maxWidth: "50ch", marginTop: 32, fontWeight: 400 }}>
+            Vivís en modo urgencia. La cabeza no se apaga aunque quieras. Probaste apps de meditación,
+            intentaste "desconectar", pero el sistema nervioso no responde a la fuerza de voluntad — responde a un método.
+          </p>
+        </div>
+      </div>
+      <div className="type-spec">
+        <div className="meta">
+          <strong>Mono · Acento</strong>
+          JetBrains Mono<br/>Regular · Medium<br/>400 / 500
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Uso</div>
+            Eyebrows<br/>Numeración<br/>Specs técnicas<br/>Micro-copy clínico
+          </div>
+          <div style={{ marginTop: 20, lineHeight: 1.6 }}>
+            <div style={{ opacity: 0.55 }}>Specs</div>
+            Mono — 10–13px<br/>Tracking — 0.12–0.16em<br/>UPPERCASE siempre<br/>Numeración tabular
+          </div>
+        </div>
+        <div className="demo">
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: 48, fontWeight: 500, letterSpacing: "0em", lineHeight: 1 }}>01 → 07</div>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: 13, opacity: 0.55, marginTop: 12, letterSpacing: "0.06em" }}>
+            0123456789 · HRV · 72 BPM · POLIVAGAL · ↗ ↘ → ←
+          </div>
+          <div style={{ fontFamily: "var(--font-mono)", fontSize: 13, letterSpacing: "0.14em", textTransform: "uppercase", marginTop: 28, lineHeight: 2 }}>
+            — Módulo 01 · Regulación basal<br/>
+            — Módulo 02 · Respiración dirigida<br/>
+            — Módulo 03 · Presencia sostenida
+          </div>
+        </div>
+      </div>
+      <div style={{ marginTop: 96, padding: 64, background: "var(--lago)", color: "var(--paper)" }}>
+        <div className="eyebrow" style={{ opacity: 0.7, marginBottom: 32 }}>Jerarquía en uso · ejemplo completo</div>
+        <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", opacity: 0.75, marginBottom: 16 }}>— Capítulo 02 · Método</div>
+        <h3 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(48px,6vw,72px)", lineHeight: 0.95, letterSpacing: "-0.03em", margin: 0, fontWeight: 400, maxWidth: "16ch" }}>
+          El sistema nervioso no <span style={{ fontStyle: "italic", color: "var(--amanecer)" }}>escucha razones</span>.
+        </h3>
+        <p style={{ fontFamily: "var(--font-body)", fontSize: 18, lineHeight: 1.5, maxWidth: "52ch", marginTop: 32, opacity: 0.85 }}>
+          Responde a la respiración, al tono vagal, al movimiento lento. La regulación no
+          es una idea — es una práctica que se siente en el cuerpo dentro de los primeros tres minutos.
+        </p>
+        <div className="mono" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.6, marginTop: 32 }}>
+          Página 47 / 183 · Libertad en Jaque
+        </div>
+      </div>
+      <div style={{ marginTop: 64, display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 16 }}>
+        {[
+          { t: "Display · alternativa", main: "Newsreader", use: "Si Instrument Serif no está disponible. Más legible en body largo." },
+          { t: "Body · alternativa", main: "Söhne / Satoshi", use: "Si Geist no está disponible. Mantener peso humanista." },
+          { t: "Mono · alternativa", main: "IBM Plex Mono", use: "Si JetBrains Mono no está disponible. Mantener tabular figures." },
+        ].map(a => (
+          <div key={a.t} style={{ padding: 24, border: "1px solid var(--line)", background: "var(--paper-2)" }}>
+            <div className="eyebrow" style={{ marginBottom: 12, opacity: 0.5 }}>{a.t}</div>
+            <div style={{ fontFamily: "var(--font-display)", fontSize: 32, fontStyle: "italic", letterSpacing: "-0.02em" }}>{a.main}</div>
+            <div style={{ fontSize: 13, opacity: 0.72, marginTop: 8, lineHeight: 1.5 }}>{a.use}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// ─── ICONS ────────────────────────────────────────────────────────────────
+
+const Icon = ({ children, size = 32, color = "currentColor", label }) => (
+  <svg width={size} height={size} viewBox="0 0 32 32" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-label={label}>
+    {children}
+  </svg>
+);
+
+const IconBreath   = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="breath"><path d="M4 18 C 10 10, 22 10, 28 18"/><path d="M4 18 C 10 26, 22 26, 28 18"/><circle cx="16" cy="18" r="1.2" fill={color} stroke="none"/></Icon>;
+const IconWave     = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="wave"><path d="M3 16 C 8 10, 12 22, 16 16 S 24 10, 29 16"/></Icon>;
+const IconHorizon  = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="horizon"><path d="M2 20 C 9 14, 23 14, 30 20"/><circle cx="16" cy="11" r="3"/></Icon>;
+const IconMethod   = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="method"><circle cx="16" cy="16" r="12"/><path d="M10 16 L14 20 L22 12"/></Icon>;
+const IconNerve    = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="nerve"><path d="M6 6 C 12 10, 12 14, 16 16 C 20 18, 20 22, 26 26"/><circle cx="6" cy="6" r="1.5"/><circle cx="26" cy="26" r="1.5"/></Icon>;
+const IconOasis    = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="oasis"><circle cx="16" cy="14" r="4"/><path d="M4 24 C 10 20, 22 20, 28 24"/></Icon>;
+const IconSilence  = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="silence"><circle cx="16" cy="16" r="12"/><path d="M10 16 L22 16"/></Icon>;
+const IconBook     = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="book"><path d="M6 6 L16 9 L26 6 L26 26 L16 23 L6 26 Z"/><path d="M16 9 L16 23"/></Icon>;
+const IconFreedom  = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="freedom"><path d="M8 24 L8 8"/><path d="M8 8 C 14 8, 20 14, 24 8"/></Icon>;
+const IconPresence = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="presence"><circle cx="16" cy="16" r="3"/><circle cx="16" cy="16" r="8" strokeDasharray="1.5 2"/><circle cx="16" cy="16" r="13" strokeDasharray="1.5 3"/></Icon>;
+const IconBalance  = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="balance"><path d="M6 22 L26 22"/><path d="M16 22 L16 10"/><path d="M10 10 L22 10"/><path d="M7 16 L13 16"/><path d="M19 16 L25 16"/></Icon>;
+const IconMountain = ({ size = 32, color = "currentColor" }) => <Icon size={size} color={color} label="mountain"><path d="M3 24 L11 12 L17 18 L22 12 L29 24 Z"/><circle cx="11" cy="8" r="1.5"/></Icon>;
+
+const ICONS = [
+  { c: IconBreath, n: "Respiración" }, { c: IconWave, n: "Onda / HRV" }, { c: IconHorizon, n: "Horizonte" },
+  { c: IconMethod, n: "Método" }, { c: IconNerve, n: "Nervio" }, { c: IconOasis, n: "Oasis" },
+  { c: IconSilence, n: "Silencio" }, { c: IconBook, n: "Libro" }, { c: IconFreedom, n: "Libertad" },
+  { c: IconPresence, n: "Presencia" }, { c: IconBalance, n: "Equilibrio" }, { c: IconMountain, n: "Montaña" },
+];
+
+const IconSystem = () => (
+  <section className="section" id="icons">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">05 — Iconografía</div></div>
+        <div>
+          <h2 className="sec-title">Formas <em>orgánicas</em>. Curvas antes que ángulos.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            Sistema outline, 1.5px, cap redondo. Todas las formas nacen del mismo DNA: el arco, la onda,
+            el círculo. Geometría que respira — nunca rígida, nunca decorativa.
+          </p>
+        </div>
+      </div>
+      <div style={{ background: "var(--paper-2)", border: "1px solid var(--line)", padding: 48, marginBottom: 48 }}>
+        <div className="eyebrow" style={{ marginBottom: 32 }}>DNA de formas · átomos del sistema</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(5, 1fr)", gap: 24 }}>
+          {[
+            { t: "Arco", s: <svg viewBox="0 0 100 100" width="100%"><path d="M10 80 A 40 40 0 0 1 90 80" stroke="var(--ink)" strokeWidth="2" fill="none" strokeLinecap="round"/></svg>, d: "Horizonte, exhalación, montaña." },
+            { t: "Onda", s: <svg viewBox="0 0 100 100" width="100%"><path d="M10 50 C 30 30, 50 70, 70 50 S 90 30, 90 50" stroke="var(--ink)" strokeWidth="2" fill="none" strokeLinecap="round"/></svg>, d: "HRV, respiración, ritmo." },
+            { t: "Círculo", s: <svg viewBox="0 0 100 100" width="100%"><circle cx="50" cy="50" r="36" stroke="var(--ink)" strokeWidth="2" fill="none"/></svg>, d: "Presencia, completitud." },
+            { t: "Línea vertical", s: <svg viewBox="0 0 100 100" width="100%"><path d="M50 14 L50 86" stroke="var(--ink)" strokeWidth="2" strokeLinecap="round"/></svg>, d: "Stem, columna, stand." },
+            { t: "Punto", s: <svg viewBox="0 0 100 100" width="100%"><circle cx="50" cy="50" r="5" fill="var(--tierra)"/></svg>, d: "Sol, foco, punto de regulación." },
+          ].map(x => (
+            <div key={x.t} style={{ background: "var(--paper)", padding: 24, aspectRatio: "1/1.1", display: "flex", flexDirection: "column" }}>
+              <div style={{ flex: 1, display: "grid", placeItems: "center" }}>{x.s}</div>
+              <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", marginTop: 12 }}>{x.t}</div>
+              <div style={{ fontSize: 12, opacity: 0.7, marginTop: 4 }}>{x.d}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 1, background: "var(--line)", border: "1px solid var(--line)" }}>
+        {ICONS.map(i => (
+          <div key={i.n} style={{ background: "var(--paper)", padding: "32px 20px", display: "flex", flexDirection: "column", alignItems: "center", gap: 16, minHeight: 140 }}>
+            <div style={{ color: "var(--lago)" }}><i.c size={40} color="var(--lago)"/></div>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.6 }}>{i.n}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ marginTop: 48, display: "grid", gridTemplateColumns: "1fr 2fr", gap: 48, alignItems: "start" }}>
+        <div style={{ background: "var(--ink)", color: "var(--paper)", padding: 48, display: "grid", placeItems: "center" }}>
+          <div style={{ color: "var(--amanecer)" }}><IconBreath size={64} color="var(--amanecer)"/></div>
+        </div>
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 16 }}>Especificaciones</div>
+          <table className="mono" style={{ width: "100%", fontSize: 13, borderCollapse: "collapse" }}>
+            <tbody>
+              {[
+                ["Grid", "32 × 32"],
+                ["Stroke", "1.5px · constante"],
+                ["Caps", "Round · sin excepciones"],
+                ["Joins", "Round"],
+                ["Fill", "Solo punto acento — nunca la forma completa"],
+                ["Tamaños", "16 / 20 / 24 / 32 / 40 / 48px"],
+                ["Padding interior", "2u mínimo del bounding box"],
+              ].map(([k, v]) => (
+                <tr key={k} style={{ borderBottom: "1px solid var(--line)" }}>
+                  <td style={{ padding: "12px 0", opacity: 0.55, textTransform: "uppercase", fontSize: 11, letterSpacing: "0.1em" }}>{k}</td>
+                  <td style={{ padding: "12px 0", textAlign: "right" }}>{v}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── MOODBOARD ────────────────────────────────────────────────────────────
+
+const Moodboard = () => {
+  const Placeholder = ({ label, hint, aspect = "4/5", colorA = "var(--lago)", colorB = "var(--lago-deep)" }) => (
+    <div style={{ aspectRatio: aspect, position: "relative", overflow: "hidden", border: "1px solid var(--line)", background: `repeating-linear-gradient(135deg, ${colorA} 0 12px, ${colorB} 12px 24px)` }}>
+      <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "space-between", padding: 20, color: "var(--paper)" }}>
+        <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.85 }}>{label}</div>
+        <div className="mono" style={{ fontSize: 11, letterSpacing: "0.04em", opacity: 0.9, lineHeight: 1.4 }}>[ {hint} ]</div>
+      </div>
+    </div>
+  );
+  return (
+    <section className="section" id="mood">
+      <div className="page">
+        <div className="sec-head">
+          <div><div className="sec-num">06 — Moodboard</div></div>
+          <div>
+            <h2 className="sec-title">Luz <em>natural</em>. Cuerpo real. Aire.</h2>
+            <p className="sec-desc" style={{ marginTop: 24 }}>
+              Dirección fotográfica aterrizada: el foco siempre en el cuerpo, la respiración, el paisaje
+              que permite el silencio. Cero stock genérico de wellness, cero lotus flowers.
+            </p>
+          </div>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(12, 1fr)", gap: 12, marginBottom: 64 }}>
+          <div style={{ gridColumn: "span 5", gridRow: "span 2" }}>
+            <Placeholder label="Retrato · fundador" hint="Tincho, luz natural lateral, mirada directa. Cuerpo visible. Sin studio-lighting." aspect="4/5"/>
+          </div>
+          <div style={{ gridColumn: "span 4" }}>
+            <Placeholder label="Paisaje · horizonte" hint="Montaña al amanecer. Niebla baja. Sin gente." aspect="4/3" colorA="var(--tierra)" colorB="#8a4a2a"/>
+          </div>
+          <div style={{ gridColumn: "span 3" }}>
+            <Placeholder label="Detalle · manos" hint="Gesto de respiración o pausa. Macro." aspect="1/1" colorA="var(--bruma)" colorB="#6d7e79"/>
+          </div>
+          <div style={{ gridColumn: "span 3" }}>
+            <Placeholder label="Agua quieta" hint="Lago al alba, reflejo." aspect="1/1" colorA="var(--lago-deep)" colorB="#0a1f1d"/>
+          </div>
+          <div style={{ gridColumn: "span 4" }}>
+            <Placeholder label="Práctica · sentado" hint="Cuerpo en silla, ojos cerrados. Luz ventana. Ropa neutra." aspect="4/3" colorA="var(--paper-2)" colorB="#d7cdb8"/>
+          </div>
+          <div style={{ gridColumn: "span 4" }}>
+            <Placeholder label="Texturas · tierra" hint="Piedra, madera, respiración visible en el frío." aspect="4/3" colorA="var(--tierra)" colorB="#8a4a2a"/>
+          </div>
+          <div style={{ gridColumn: "span 8" }}>
+            <Placeholder label="Escena amplia · contemplación" hint="Persona pequeña en paisaje grande. Escala que humilla sin abrumar." aspect="16/9" colorA="var(--lago)" colorB="var(--lago-deep)"/>
+          </div>
+        </div>
+        <div className="grid-2">
+          <div style={{ padding: 32, background: "var(--lago)", color: "var(--paper)" }}>
+            <div className="eyebrow" style={{ opacity: 0.7, marginBottom: 20 }}>Fotografía · SÍ</div>
+            <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.9, fontSize: 15 }}>
+              <li>Luz natural, hora dorada o azul</li>
+              <li>Cuerpo real, gesto contenido</li>
+              <li>Naturaleza: montaña, agua, tierra, bruma</li>
+              <li>Composiciones amplias, espacio negativo</li>
+              <li>Ropa neutra, sin logos</li>
+              <li>Retrato directo, mirada presente</li>
+            </ul>
+          </div>
+          <div style={{ padding: 32, background: "var(--ink)", color: "var(--paper)" }}>
+            <div className="eyebrow" style={{ opacity: 0.7, marginBottom: 20, color: "var(--tierra-soft)" }}>Fotografía · NO</div>
+            <ul style={{ margin: 0, paddingLeft: 20, lineHeight: 1.9, fontSize: 15, opacity: 0.85 }}>
+              <li>Stock de "mujer meditando con lotus"</li>
+              <li>Filtros instagram (VSCO, Lightroom naranja)</li>
+              <li>Studio lighting perfecto / corporativo</li>
+              <li>Flatlay de velas y cristales</li>
+              <li>Fondos saturados, gradientes digitales</li>
+              <li>Poses fitness / coach de Instagram</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// ─── APPLICATIONS ─────────────────────────────────────────────────────────
+
+const IGPost1 = () => (
+  <div className="ig-post" style={{ background: "var(--lago)", color: "var(--paper)", padding: 48, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
+      <TinchoMark size={32} color="var(--paper)" accent="var(--amanecer)"/>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.6 }}>01 / 07</div>
+    </div>
+    <div>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", opacity: 0.7, marginBottom: 16 }}>— Regulación</div>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: 52, lineHeight: 1, letterSpacing: "-0.025em" }}>
+        Tu cabeza no<br/>se apaga<br/>porque tu <span style={{ fontStyle: "italic", color: "var(--amanecer)" }}>cuerpo</span><br/>no sabe que<br/>está a salvo.
+      </div>
+    </div>
+    <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.6 }}>tincholibre.com</div>
+  </div>
+);
+
+const IGPost2 = () => (
+  <div className="ig-post" style={{ background: "var(--paper)", color: "var(--ink)", padding: 48, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+    <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>Método · 3 minutos</div>
+    <div>
+      <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 44, lineHeight: 1.05, letterSpacing: "-0.02em", color: "var(--lago)" }}>
+        La libertad<br/>está en tu<br/>equilibrio.
+      </div>
+      <WaveMotif width={260} color="var(--tierra)" thickness={1.5} style={{ marginTop: 24 }}/>
+    </div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+      <TinchoMark size={28} color="var(--ink)" accent="var(--tierra)"/>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>@tincho</div>
+    </div>
+  </div>
+);
+
+const IGPost3 = () => (
+  <div className="ig-post" style={{ background: "var(--tierra)", color: "var(--paper)", padding: 40, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+    <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", opacity: 0.75 }}>— Pregunta</div>
+    <div style={{ fontFamily: "var(--font-display)", fontSize: 40, lineHeight: 1.05, letterSpacing: "-0.02em" }}>
+      ¿Cuándo fue la última vez que sentiste <span style={{ fontStyle: "italic" }}>silencio</span> adentro?
+    </div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <TinchoMonogram size={44} color="var(--paper)" accent="var(--amanecer)"/>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.7 }}>Comparte →</div>
+    </div>
+  </div>
+);
+
+const IGPost4 = () => (
+  <div className="ig-post" style={{ background: "var(--paper-2)", color: "var(--ink)", padding: 40, position: "relative", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+    <div style={{ position: "absolute", inset: 0, display: "grid", placeItems: "center", opacity: 0.12 }}>
+      <svg viewBox="0 0 200 200" width="85%"><circle cx="100" cy="100" r="90" stroke="var(--lago)" strokeWidth="1" fill="none"/><circle cx="100" cy="100" r="60" stroke="var(--lago)" strokeWidth="1" fill="none"/><circle cx="100" cy="100" r="30" stroke="var(--lago)" strokeWidth="1" fill="none"/></svg>
+    </div>
+    <div style={{ position: "relative" }}>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>— Teoría polivagal · 01</div>
+    </div>
+    <div style={{ position: "relative" }}>
+      <div className="mono" style={{ fontSize: 12, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--tierra)", marginBottom: 12 }}>Nervio vago ↓</div>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: 42, lineHeight: 1.02, letterSpacing: "-0.025em" }}>
+        El 80% de la señal va del <span style={{ fontStyle: "italic", color: "var(--lago)" }}>cuerpo</span> al cerebro.
+      </div>
+    </div>
+    <div style={{ position: "relative", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>Tincho · Abr 2026</div>
+      <TinchoMark size={24} color="var(--ink)" accent="var(--tierra)"/>
+    </div>
+  </div>
+);
+
+const IGStory = () => (
+  <div style={{ aspectRatio: "9/16", background: "var(--lago-deep)", color: "var(--paper)", padding: 32, display: "flex", flexDirection: "column", justifyContent: "space-between", border: "1px solid var(--line)", position: "relative", overflow: "hidden" }}>
+    <div style={{ position: "absolute", top: 12, left: 12, right: 12, display: "flex", gap: 4 }}>
+      {[1,1,1,0.3,0.3].map((a,i) => <div key={i} style={{ flex: 1, height: 2, background: `rgba(244,239,230,${a})` }}/>)}
+    </div>
+    <div style={{ marginTop: 32, display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ width: 28, height: 28, borderRadius: "50%", border: "1.5px solid var(--amanecer)", padding: 2 }}>
+        <TinchoMonogram size={22} color="var(--paper)" accent="var(--amanecer)"/>
+      </div>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase" }}>tincho · hace 2h</div>
+    </div>
+    <div>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--amanecer)", marginBottom: 14 }}>— Práctica breve</div>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: 40, lineHeight: 1, letterSpacing: "-0.025em", marginBottom: 24 }}>
+        Tres minutos.<br/><span style={{ fontStyle: "italic", color: "var(--amanecer)" }}>Ojos abiertos.</span><br/>Sin técnica.
+      </div>
+      <WaveMotif width={260} color="var(--amanecer)" thickness={1.5} opacity={0.7}/>
+    </div>
+    <div style={{ padding: "12px 20px", border: "1px solid rgba(244,239,230,0.3)", borderRadius: 999, textAlign: "center", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase" }}>
+      Desliza ↑ · Audio guiado
+    </div>
+  </div>
+);
+
+const EbookCover = () => (
+  <div style={{ aspectRatio: "3/4", background: "var(--paper)", color: "var(--ink)", padding: 40, display: "flex", flexDirection: "column", justifyContent: "space-between", border: "1px solid var(--line)", position: "relative", overflow: "hidden", boxShadow: "20px 20px 40px rgba(21,32,28,0.12)" }}>
+    <div>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase", opacity: 0.55 }}>Lead magnet · gratis</div>
+      <div className="mono" style={{ fontSize: 11, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--tierra)", marginTop: 6 }}>Vol. 01</div>
+    </div>
+    <div>
+      <div style={{ fontFamily: "var(--font-display)", fontSize: 72, lineHeight: 0.9, letterSpacing: "-0.035em", marginBottom: 20 }}>
+        Tres<br/>minutos<br/><span style={{ fontStyle: "italic", color: "var(--lago)" }}>bastan.</span>
+      </div>
+      <div style={{ fontSize: 14, lineHeight: 1.45, maxWidth: "24ch", opacity: 0.8 }}>
+        Un método aterrizado para salir del modo urgencia — sin apps, sin velas, sin cursos de 12 semanas.
+      </div>
+    </div>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+      <div>
+        <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>Por</div>
+        <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 24, letterSpacing: "-0.02em" }}>Tincho</div>
+        <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55, marginTop: 2 }}>Autor · Libertad en Jaque</div>
+      </div>
+      <TinchoMark size={44} color="var(--ink)" accent="var(--tierra)"/>
+    </div>
+    <ArcMotif size={220} color="var(--tierra)" thickness={1.2} style={{ position: "absolute", right: -40, top: "38%", opacity: 0.35 }}/>
+  </div>
+);
+
+const WebHeader = () => (
+  <div style={{ background: "var(--paper)", border: "1px solid var(--line)", overflow: "hidden" }}>
+    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "20px 32px", borderBottom: "1px solid var(--line)" }}>
+      <TinchoLockup size={28} color="var(--ink)" accent="var(--tierra)" tagline={null}/>
+      <nav style={{ display: "flex", gap: 32 }}>
+        {["Método", "Libro", "Comunidad", "Blog"].map(l => (
+          <div key={l} style={{ fontSize: 13, fontWeight: 500 }}>{l}</div>
+        ))}
+      </nav>
+      <div style={{ padding: "10px 20px", background: "var(--lago)", color: "var(--paper)", fontSize: 12, letterSpacing: "0.04em", fontWeight: 500 }}>
+        Entrar al oasis →
+      </div>
+    </div>
+    <div style={{ padding: "80px 48px 48px", display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 48, alignItems: "center" }}>
+      <div>
+        <div className="mono" style={{ fontSize: 11, letterSpacing: "0.16em", textTransform: "uppercase", color: "var(--tierra)", marginBottom: 20 }}>— Regulación del sistema nervioso</div>
+        <h1 style={{ fontFamily: "var(--font-display)", fontSize: 76, lineHeight: 0.9, letterSpacing: "-0.035em", margin: 0, fontWeight: 400 }}>
+          Un oasis de calma en medio del <span style={{ fontStyle: "italic", color: "var(--lago)" }}>caos.</span>
+        </h1>
+        <p style={{ fontSize: 16, lineHeight: 1.5, maxWidth: "44ch", marginTop: 28, opacity: 0.82 }}>
+          Para profesionales acelerados que probaron apps, libros y retiros — y siguen sin poder apagar la cabeza. Un método con fundamento, no un deseo vago.
+        </p>
+        <div style={{ display: "flex", gap: 12, marginTop: 32 }}>
+          <div style={{ padding: "14px 24px", background: "var(--ink)", color: "var(--paper)", fontSize: 14, fontWeight: 500 }}>Empezar en 3 minutos</div>
+          <div style={{ padding: "14px 24px", border: "1px solid var(--line-strong)", fontSize: 14, fontWeight: 500 }}>Leer el libro</div>
+        </div>
+      </div>
+      <div style={{ aspectRatio: "4/5", background: `repeating-linear-gradient(135deg, var(--lago) 0 14px, var(--lago-deep) 14px 28px)`, position: "relative", display: "flex", alignItems: "flex-end", padding: 24, color: "var(--paper)" }}>
+        <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.85 }}>[ Retrato · Tincho, luz natural ]</div>
+      </div>
+    </div>
+  </div>
+);
+
+const BizCard = ({ side = "front" }) => side === "front" ? (
+  <div style={{ aspectRatio: "1.75 / 1", background: "var(--paper)", color: "var(--ink)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", border: "1px solid var(--line)", position: "relative", overflow: "hidden", boxShadow: "0 8px 24px rgba(21,32,28,0.08)" }}>
+    <TinchoMark size={32} color="var(--ink)" accent="var(--tierra)"/>
+    <div>
+      <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 30, letterSpacing: "-0.02em", lineHeight: 1 }}>Tincho</div>
+      <div className="mono" style={{ fontSize: 9, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55, marginTop: 6 }}>Sistema nervioso · libertad interna</div>
+    </div>
+    <ArcMotif size={140} color="var(--tierra)" thickness={1} style={{ position: "absolute", right: -20, bottom: -30, opacity: 0.3 }}/>
+  </div>
+) : (
+  <div style={{ aspectRatio: "1.75 / 1", background: "var(--lago)", color: "var(--paper)", padding: 24, display: "flex", flexDirection: "column", justifyContent: "space-between", border: "1px solid var(--line)", position: "relative", overflow: "hidden", boxShadow: "0 8px 24px rgba(21,32,28,0.08)" }}>
+    <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 22, letterSpacing: "-0.02em", lineHeight: 1.1, maxWidth: "18ch" }}>
+      "La libertad está en tu equilibrio."
+    </div>
+    <div className="mono" style={{ fontSize: 10, letterSpacing: "0.12em", textTransform: "uppercase", lineHeight: 2 }}>
+      <div>tincholibre.com</div>
+      <div style={{ opacity: 0.75 }}>IG @tincho · Skool / Oasis</div>
+    </div>
+  </div>
+);
+
+const Applications = () => (
+  <section className="section" id="apps">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">07 — Aplicaciones</div></div>
+        <div>
+          <h2 className="sec-title">El sistema <em>en uso</em>.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            Plantillas listas para replicar en Canva o Figma. El sistema demuestra su consistencia
+            cuando los mismos átomos —arco, onda, mono eyebrow, italic acento— componen piezas muy distintas.
+          </p>
+        </div>
+      </div>
+      <div style={{ marginBottom: 64 }}>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Instagram Feed · 1:1 · 1080×1080</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          <IGPost1/><IGPost2/><IGPost3/><IGPost4/>
+        </div>
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 1.2fr 1fr", gap: 32, marginBottom: 64, alignItems: "start" }}>
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>— Story · 9:16</div>
+          <IGStory/>
+        </div>
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>— Lead magnet · portada</div>
+          <EbookCover/>
+        </div>
+        <div>
+          <div className="eyebrow" style={{ marginBottom: 20 }}>— Tarjeta digital · frente + dorso</div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
+            <BizCard side="front"/><BizCard side="back"/>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Web · header + hero</div>
+        <WebHeader/>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── DO'S & DON'TS ────────────────────────────────────────────────────────
+
+const DosAndDonts = () => (
+  <section className="section" id="rules">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">08 — Do's &amp; Don'ts</div></div>
+        <div>
+          <h2 className="sec-title">Lo que <em>sostiene</em> el sistema.</h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            La coherencia se cuida en la repetición. Estas reglas evitan que el sistema se desordene cuando pasa por muchas manos o se traduce a Canva.
+          </p>
+        </div>
+      </div>
+      <div style={{ marginBottom: 48 }}>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Logo · uso</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          <div className="rule do">
+            <span className="badge">SÍ</span>
+            <div style={{ flex: 1, display: "grid", placeItems: "center" }}>
+              <TinchoMark size={100} color="var(--ink)" accent="var(--tierra)"/>
+            </div>
+            <div className="label">Stem 4u · punto en color acento</div>
+          </div>
+          <div className="rule dont">
+            <span className="badge">NO</span>
+            <div style={{ flex: 1, display: "grid", placeItems: "center" }}>
+              <div style={{ transform: "scaleX(1.4)" }}><TinchoMark size={100} color="var(--ink)" accent="var(--tierra)"/></div>
+            </div>
+            <div className="label">Nunca deformar proporciones</div>
+          </div>
+          <div className="rule dont">
+            <span className="badge">NO</span>
+            <div style={{ flex: 1, display: "grid", placeItems: "center", background: "#FF4D00", margin: "-24px -24px 16px" }}>
+              <TinchoMark size={100} color="#00FF88" accent="#FF00FF"/>
+            </div>
+            <div className="label">Nunca colores fuera del sistema</div>
+          </div>
+          <div className="rule dont">
+            <span className="badge">NO</span>
+            <div style={{ flex: 1, display: "grid", placeItems: "center" }}>
+              <div style={{ filter: "drop-shadow(4px 4px 0 var(--tierra))" }}><TinchoMark size={100} color="var(--ink)" accent="var(--tierra)"/></div>
+            </div>
+            <div className="label">Nunca sombras, glow o efectos</div>
+          </div>
+        </div>
+      </div>
+      <div style={{ marginBottom: 48 }}>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Tipografía · combinaciones</div>
+        <div className="grid-2">
+          <div className="rule do">
+            <span className="badge">SÍ</span>
+            <div className="mono" style={{ fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase", opacity: 0.55 }}>— Capítulo 02</div>
+            <div className="serif" style={{ fontSize: 44, fontStyle: "italic", color: "var(--lago)", letterSpacing: "-0.02em", lineHeight: 1.05, margin: "12px 0" }}>Serif italic para énfasis</div>
+            <div style={{ fontSize: 14, opacity: 0.8, lineHeight: 1.5 }}>Body en sans humanista. Mono como micro-label que ancla el contexto.</div>
+            <div className="label">Serif italic + sans + mono eyebrow</div>
+          </div>
+          <div className="rule dont">
+            <span className="badge">NO</span>
+            <div style={{ fontFamily: "Impact, sans-serif", fontSize: 48, letterSpacing: "0.02em", lineHeight: 1, color: "var(--tierra)" }}>GRITAR NUNCA</div>
+            <div style={{ fontFamily: "Comic Sans MS, cursive", fontSize: 18, marginTop: 12 }}>Ni fuentes decorativas. Ni mezclar 4 familias.</div>
+            <div className="label">Evitar fuentes ajenas al sistema</div>
+          </div>
+        </div>
+      </div>
+      <div style={{ marginBottom: 48 }}>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Color · combinaciones</div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 16 }}>
+          <div className="rule do" style={{ background: "var(--lago)", color: "var(--paper)" }}>
+            <span className="badge">SÍ</span>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 48, color: "var(--amanecer)" }}>Aa</div>
+            <div className="label" style={{ borderColor: "rgba(244,239,230,0.2)" }}>Lago + Amanecer para highlight</div>
+          </div>
+          <div className="rule do" style={{ background: "var(--paper)" }}>
+            <span className="badge">SÍ</span>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 48, color: "var(--lago)" }}>Aa</div>
+            <div className="label">Papel + Lago para corpus principal</div>
+          </div>
+          <div className="rule dont" style={{ background: "var(--tierra)", color: "var(--lago)" }}>
+            <span className="badge">NO</span>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 48 }}>Aa</div>
+            <div className="label" style={{ borderColor: "rgba(21,32,28,0.2)", color: "var(--ink)" }}>Tierra + Lago = baja legibilidad</div>
+          </div>
+          <div className="rule dont" style={{ background: "linear-gradient(135deg, #ff6bcb, #00d9ff)", color: "#fff" }}>
+            <span className="badge">NO</span>
+            <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 48 }}>Aa</div>
+            <div className="label" style={{ borderColor: "rgba(255,255,255,0.3)" }}>Gradientes saturados: prohibidos</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="eyebrow" style={{ marginBottom: 20 }}>— Voz · copywriting</div>
+        <div className="grid-2">
+          <div style={{ padding: 32, background: "var(--lago)", color: "var(--paper)" }}>
+            <span style={{ display: "inline-block", marginBottom: 20, background: "var(--amanecer)", color: "var(--ink)", padding: "4px 10px", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase" }}>SÍ decir</span>
+            <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9, fontSize: 15 }}>
+              <li>"Tu cabeza no se apaga porque tu cuerpo no sabe que está a salvo."</li>
+              <li>"Tres minutos bastan. Sin técnica perfecta."</li>
+              <li>"No es una idea — es una práctica que se siente."</li>
+              <li>"Regulación aterrizada, con fundamento."</li>
+            </ul>
+          </div>
+          <div style={{ padding: 32, background: "var(--ink)", color: "var(--paper)" }}>
+            <span style={{ display: "inline-block", marginBottom: 20, background: "var(--tierra-soft)", color: "var(--ink)", padding: "4px 10px", borderRadius: 999, fontFamily: "var(--font-mono)", fontSize: 10, letterSpacing: "0.14em", textTransform: "uppercase" }}>NO decir</span>
+            <ul style={{ margin: 0, paddingLeft: 18, lineHeight: 1.9, fontSize: 15, opacity: 0.85, textDecoration: "line-through", textDecorationThickness: "1px", textDecorationColor: "rgba(244,239,230,0.4)" }}>
+              <li>"Libera tu máximo potencial"</li>
+              <li>"Manifesta tu vida soñada ✨"</li>
+              <li>"El viaje comienza dentro de ti"</li>
+              <li>"Desbloquea tu chakra raíz"</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+// ─── VOICE ────────────────────────────────────────────────────────────────
+
+const Voice = () => (
+  <section className="section" id="voice">
+    <div className="page">
+      <div className="sec-head">
+        <div><div className="sec-num">09 — Voz</div></div>
+        <div>
+          <h2 className="sec-title">Cálido. Aterrizado. <em>Directo.</em></h2>
+          <p className="sec-desc" style={{ marginTop: 24 }}>
+            Como alguien que ya pasó por ello. Breve y denso: máximo impacto, mínimo ruido. El silencio también comunica.
+          </p>
+        </div>
+      </div>
+      <div style={{ background: "var(--paper-2)", padding: 48, border: "1px solid var(--line)", marginBottom: 48 }}>
+        <div className="eyebrow" style={{ marginBottom: 32 }}>Ejes de voz</div>
+        {[
+          ["Cálido", "Clínico · frío", 0.25],
+          ["Directo", "Suave · evasivo", 0.18],
+          ["Aterrizado", "Místico · etéreo", 0.22],
+          ["Breve y denso", "Explicativo · largo", 0.28],
+          ["Científico", "Esotérico · new age", 0.35],
+        ].map(([a, b, pos]) => (
+          <div key={a} style={{ display: "grid", gridTemplateColumns: "180px 1fr 180px", alignItems: "center", gap: 24, marginBottom: 24, fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase" }}>
+            <div style={{ color: "var(--lago)", fontWeight: 500 }}>— {a}</div>
+            <div style={{ position: "relative", height: 2, background: "var(--line-strong)" }}>
+              <div style={{ position: "absolute", left: `${pos * 100}%`, top: "-5px", width: 12, height: 12, borderRadius: "50%", background: "var(--tierra)", transform: "translateX(-50%)" }}/>
+            </div>
+            <div style={{ textAlign: "right", opacity: 0.45, textDecoration: "line-through" }}>{b}</div>
+          </div>
+        ))}
+      </div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 24 }}>
+        {[
+          { t: "Tagline principal", q: "Acceder a un oasis de calma en medio del caos.", use: "Homepage hero, portadas, perfil IG." },
+          { t: "Tagline secundario", q: "La libertad está en tu equilibrio.", use: "Closers, email signatures, back cover." },
+          { t: "Shortform", q: "Regulación aterrizada. Sin misticismo.", use: "Bio corta (< 150 caracteres), LinkedIn." },
+          { t: "Promesa concreta", q: "Bajá la velocidad en tres minutos — con método.", use: "CTAs, lead magnets, ads." },
+        ].map(x => (
+          <div key={x.t} style={{ padding: 32, background: "#fff", border: "1px solid var(--line)" }}>
+            <div className="eyebrow" style={{ marginBottom: 16, opacity: 0.55 }}>— {x.t}</div>
+            <div style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: 32, letterSpacing: "-0.02em", lineHeight: 1.1, color: "var(--lago)", marginBottom: 20 }}>
+              "{x.q}"
+            </div>
+            <div className="mono" style={{ fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", opacity: 0.6 }}>
+              Uso → {x.use}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+// ─── FOOTER ───────────────────────────────────────────────────────────────
+
+const Footer = () => (
+  <footer className="footer">
+    <div className="page" style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+        <TinchoMark size={20} color="var(--ink)" accent="var(--tierra)"/>
+        <span>tincho · brandkit v1.0 · abril 2026</span>
+      </div>
+      <div>tincholibre.com</div>
+    </div>
+  </footer>
+);
+
+// ─── APP ──────────────────────────────────────────────────────────────────
+
+applyTweaks(TWEAK_DEFAULTS);
+
+const App = () => {
+  const [state, setState] = React.useState(TWEAK_DEFAULTS);
+  const [showTweaks, setShowTweaks] = React.useState(false);
+  React.useEffect(() => { applyTweaks(state); }, [state]);
+  return (
+    <>
+      {state.showTOC && <TOC/>}
+      <Hero/>
+      <Essence/>
+      <LogoSystem/>
+      <ColorPalette/>
+      <Typography/>
+      <IconSystem/>
+      <Moodboard/>
+      <Applications/>
+      <DosAndDonts/>
+      <Voice/>
+      <Footer/>
+      <button
+        onClick={() => setShowTweaks(v => !v)}
+        style={{ position: "fixed", bottom: 20, right: 20, zIndex: 10000, background: "var(--ink)", color: "var(--paper)", border: "none", borderRadius: 999, padding: "10px 18px", fontFamily: "var(--font-mono)", fontSize: 11, letterSpacing: "0.12em", textTransform: "uppercase", cursor: "pointer", opacity: showTweaks ? 0 : 0.8 }}
+      >
+        Tweaks
+      </button>
+      {showTweaks && (
+        <div style={{ position: "fixed", inset: 0, zIndex: 9998 }} onClick={() => setShowTweaks(false)}>
+          <div onClick={e => e.stopPropagation()}>
+            <TweaksPanel state={state} setState={setState}/>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App/>);
+</script>
+</body>
+</html>
