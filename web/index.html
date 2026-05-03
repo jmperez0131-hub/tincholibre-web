@@ -1113,6 +1113,83 @@
             .t-grid       { grid-template-columns: 1fr; }
         }
 
+        /* ─── MAESTRÍAS / SILICON VALLEY ────────────── */
+        .maestrias {
+            background: var(--tinta);
+            border-top: 1px solid rgba(244,239,230,0.06);
+            border-bottom: 1px solid rgba(244,239,230,0.06);
+        }
+
+        .maestrias-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .maestrias .label {
+            color: rgba(244,239,230,0.4);
+            margin-bottom: 32px;
+        }
+
+        .maestrias-logo {
+            margin-bottom: 48px;
+        }
+
+        .maestrias-logo img {
+            height: 52px;
+            width: auto;
+            opacity: 0.92;
+        }
+
+        .maestrias-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 100%;
+            max-width: 680px;
+            margin-bottom: 40px;
+        }
+
+        .maestrias-card {
+            background: rgba(244,239,230,0.05);
+            border: 1px solid rgba(244,239,230,0.1);
+            border-radius: var(--radius);
+            padding: 28px 24px;
+            text-align: left;
+        }
+
+        .maestrias-card-tag {
+            font-family: var(--font-mono);
+            font-size: 9px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--amanecer);
+            opacity: 0.75;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .maestrias-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: var(--papel);
+            letter-spacing: -0.015em;
+            margin-bottom: 10px;
+        }
+
+        .maestrias-card p {
+            font-size: 0.88rem;
+            color: rgba(244,239,230,0.55);
+            line-height: 1.75;
+        }
+
+        @media (max-width: 600px) {
+            .maestrias-cards { grid-template-columns: 1fr; max-width: 420px; }
+            .maestrias-logo img { height: 40px; }
+        }
+
         /* ─── GUÍA DIGITAL ───────────────────────────── */
         .guia {
             background: var(--lago-prof);
@@ -1615,6 +1692,55 @@
                 </svg>
             </a>
         </div>
+
+    </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════════════
+     MAESTRÍAS — EL SILICON VALLEY
+════════════════════════════════════════════════ -->
+<section class="section maestrias" id="maestrias" aria-labelledby="maestrias-title">
+    <div class="section-inner maestrias-inner">
+
+        <span class="label reveal">También me encuentras en</span>
+
+        <div class="maestrias-logo reveal" data-delay="1">
+            <img
+                src="Brandkit ASSETS/assets/partners/esv-logo.svg"
+                alt="El Silicon Valley de LATAM"
+            >
+        </div>
+
+        <div class="maestrias-cards reveal" data-delay="2">
+
+            <div class="maestrias-card">
+                <span class="maestrias-card-tag">Presencial · Colombia</span>
+                <h3>Bootcamps</h3>
+                <p>4 días de inmersión en negocios digitales de alta intensidad. Yo hago las mañanas: yoga y meditación para la mente del emprendedor.</p>
+            </div>
+
+            <div class="maestrias-card">
+                <span class="maestrias-card-tag">Programa Digital</span>
+                <h3>La Maestría</h3>
+                <p>Formación semestral en IA, marketing, ventas y mentalidad. Soy mentor del pilar Mentalidad y Abundancia.</p>
+            </div>
+
+        </div>
+
+        <a
+            href="https://elsiliconvalley.co/la-maestria-silicon-valley/"
+            class="bk-btn bk-btn-secondary reveal"
+            data-delay="3"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Conocer el programa El Silicon Valley"
+        >
+            Conocer el programa
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+        </a>
 
     </div>
 </section>
