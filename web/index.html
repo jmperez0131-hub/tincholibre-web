@@ -1948,34 +1948,27 @@
     navOverlay.addEventListener('click', closeNavMenu);
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', closeNavMenu));
 
-    /* ── Form ────────────────────────────────────── */
-    document.getElementById('form-protocolo').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const input = this.querySelector('.form-input');
-        const btn   = document.getElementById('form-btn');
-
+    /* ── Form helpers ────────────────────────────── */
+    function handleFormSubmit(input, btn) {
         if (!input.value || !input.validity.valid) {
             input.focus();
             return;
         }
-
         btn.disabled = true;
-        btn.textContent = '¡Listo! Revisa tu correo.';
+        btn.textContent = 'Yendo al protocolo…';
+        setTimeout(() => { window.location.href = 'equilibrio.html'; }, 800);
+    }
+
+    /* ── Form ────────────────────────────────────── */
+    document.getElementById('form-protocolo').addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleFormSubmit(this.querySelector('.form-input'), document.getElementById('form-btn'));
     });
 
     /* ── Mini form ───────────────────────────────── */
     document.getElementById('form-mini').addEventListener('submit', function(e) {
         e.preventDefault();
-        const input = this.querySelector('.form-input');
-        const btn   = document.getElementById('form-mini-btn');
-
-        if (!input.value || !input.validity.valid) {
-            input.focus();
-            return;
-        }
-
-        btn.disabled = true;
-        btn.textContent = '¡Listo! Revisa tu correo.';
+        handleFormSubmit(this.querySelector('.form-input'), document.getElementById('form-mini-btn'));
     });
 </script>
 

@@ -11,6 +11,7 @@
 | `libertad-en-jaque.html` | Página de ventas del libro |
 | `gracias-guia.html` | Página de gracias post-descarga guía |
 | `gracias-libro.html` | Página de gracias post-compra libro |
+| `equilibrio.html` | Entrega del lead magnet — Protocolo 3 Respiraciones (audio player + descarga) |
 | `brandkit.css` | Estilos globales del sitio |
 
 ## Assets locales referenciados por HTML
