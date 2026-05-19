@@ -53,7 +53,7 @@
 >
 > Repite dos veces más a tu propio ritmo.
 >
-> [pausa de 20 segundos]
+> [pausa de 35–40 segundos]
 >
 > Eso que acaba de pasar no es relajación — es regulación. Le enviaste al sistema nervioso una señal de seguridad. No necesitaste fuerza de voluntad. Solo usaste el único sistema del cuerpo que puedes controlar voluntariamente. Eso te lo llevas contigo a todas partes."
 
@@ -102,6 +102,6 @@
 
 ## Mensaje de Anuncios — semana 2 (publicar miércoles o jueves)
 
-> Esta semana en El Oasis — Skool hay una sesión en vivo para practicar respiración de caja en tiempo real y hacer preguntas. Si quieres ir más profundo que el audio de hoy, es ahí.
+> Esta semana en El Oasis — Skool hay una sesión en vivo para practicar la respiración de caja juntos y resolver dudas en tiempo real. Si el audio de hoy te abrió algo y quieres llevarlo más lejos, es ahí donde seguimos.
 >
 > [LINK_SKOOL]
