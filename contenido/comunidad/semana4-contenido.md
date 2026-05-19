@@ -133,7 +133,7 @@
 **Formato:** Texto breve
 **Publicar esto:**
 
-> Cuatro semanas. Cuatro herramientas: notar el estado, respiración 4-7-8, box breathing, escaneo corporal, y la respiración alternada de esta semana.
+> Cuatro semanas. Cuatro técnicas: respiración 4-7-8, box breathing, escaneo corporal, y la respiración alternada de esta semana. Más una capacidad que ya no puedes apagar — notar cuándo tu cuerpo está en alerta.
 >
 > El reto de hoy no es agregar una técnica nueva. Es elegir UNA que ya tienes — la que más te sirve, la que más fácil entra — y usarla al menos 5 días seguidos a partir de hoy.
 >
