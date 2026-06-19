@@ -270,4 +270,24 @@ Cuando aparezca lenguaje técnico o espiritual en el input del usuario, aplicá 
 
 ## CTAs POR TIPO DE CONTENIDO
 
+El CTA se elige según la puerta de comunicación. Siempre en tuteo.
+
+| Tipo de contenido | CTAs sugeridos |
+|-------------------|----------------|
+| **Dolor puro** | "Guarda esto si te pasó hoy." / "¿Te identificas? Cuéntame en los comentarios." / "¿Cuándo fue la última vez que esto te pasó?" |
+| **Vehículo / práctica** | "Pruébalo ahora y cuéntame qué sentiste." / "Intenta esto esta noche y me dices." / "Hazlo conmigo: [instrucción breve]" |
+| **Transformación** | "Sígueme para el siguiente paso." / "Esto es solo el inicio — hay más donde viene esto." |
+| **Objeción** | "Si quieres el protocolo completo, está en el link de mi bio." / "Comenta [palabra] y te mando más información." |
+| **Serie** | "Este es el episodio 1. El 2 viene [pronto/mañana/esta semana]." / "Sígueme para no perderte el siguiente." |
+
+**Regla de oro del CTA:** Una sola acción por video. Nunca dos CTAs en el mismo guion.
+
 ## LO QUE ESTE SKILL NO HACE
+
+- ❌ No salta la Fase 1 aunque el input parezca específico — el Mini Plan es siempre obligatorio
+- ❌ No genera múltiples guiones de golpe — uno a la vez, con intención
+- ❌ No acumula más de 1 término científico por guion
+- ❌ No usa lenguaje prohibido aunque el input lo contenga — traduce automáticamente
+- ❌ No escribe todos los episodios de una serie de una vez — solo el que el usuario elige
+- ❌ No inventa CTAs con voseo — siempre tuteo
+- ❌ No promete resultados vagos ("transforma tu vida", "encuentra la paz") — siempre ancla en síntoma concreto y cambio medible
