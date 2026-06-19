@@ -49,6 +49,8 @@ Después de presentar los ángulos, preguntá:
 
 > "¿Cuál ángulo preferís? Y para ese ángulo: ¿querés **guion completo** (palabra por palabra, listo para filmarse) o **estructura** (hook fijo + bullets para improvisar + CTA exacto)?"
 
+**IMPORTANTE:** Los hooks siempre van en tuteo (tú/te/tu). Nunca usar voseo en los hooks aunque la audiencia sea argentina o colombiana. Correcto: "Terminas el día agotado." Incorrecto: "Terminás el día agotado."
+
 ## FASE 2 — Guion
 
 Después de que el usuario elige un ángulo y el formato (completo o estructura), generás el guion usando el ARMAZÓN UNIVERSAL y las VARIACIONES POR DURACIÓN correspondientes.
