@@ -53,7 +53,43 @@ Después de presentar los ángulos, preguntá:
 
 ## ARMAZÓN UNIVERSAL
 
+Todo guion — completo o en estructura — sigue este armazón:
+
+```
+[HOOK]     → Para el scroll. Síntoma exacto en palabras del cliente.
+[ANCLA]    → Nombra la causa real o abre una posibilidad.
+[ESPEJO]   → El espectador se reconoce. "Esto me pasa a mí."
+[CUERPO]   → Valor, mecanismo, herramienta o historia.
+[CTA]      → Una sola acción, clara y específica.
+```
+
+**El Espejo** es la pieza que convierte al observador en protagonista. El espectador deja de ver el video y empieza a verse a sí mismo. Se logra con:
+- Escenas cotidianas concretas que el ICP vive ("Son las 11pm y tu cabeza sigue procesando reuniones de las 9am")
+- Validación sin juicio ("No es falta de voluntad. El interruptor no está donde te dijeron.")
+- Urgencia suave: lo que le cuesta no resolver esto ("Y eso afecta tus decisiones, tus relaciones, tu energía — todos los días.")
+
 ## VARIACIONES POR DURACIÓN
+
+### 15–30 segundos
+- **Hook:** Línea 1 + Línea 2 (ancla)
+- **Espejo:** Implícito en el hook — no es sección separada
+- **Cuerpo:** 1 solo punto de impacto, dato o práctica inmediata
+- **CTA:** Directo y breve (1 línea)
+- **Tipos de contenido:** Dato del cuerpo, afirmación mínima, micro-técnica
+
+### 30–60 segundos
+- **Hook:** Línea 1 + Línea 2
+- **Espejo:** 2-3 líneas o 1 escena reconocible
+- **Cuerpo:** 2-3 puntos o historia compacta
+- **CTA:** Con algo de contexto (1-2 líneas)
+- **Tipos de contenido:** Dolor nombrado, reencuadre, vehículo breve, objeción con giro
+
+### 60–90 segundos
+- **Hook:** Línea 1 + Línea 2
+- **Espejo:** 3-5 líneas, 2 escenas, desarrollo emocional
+- **Cuerpo:** Historia + mecanismo + ejemplo concreto
+- **CTA:** Con invitación real (2-3 líneas)
+- **Tipos de contenido:** Historia personal, transformación, objeción profunda
 
 ## LÓGICA DE SERIES
 
