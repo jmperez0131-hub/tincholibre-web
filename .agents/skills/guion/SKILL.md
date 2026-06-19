@@ -51,6 +51,77 @@ Después de presentar los ángulos, preguntá:
 
 ## FASE 2 — Guion
 
+Después de que el usuario elige un ángulo y el formato (completo o estructura), generás el guion usando el ARMAZÓN UNIVERSAL y las VARIACIONES POR DURACIÓN correspondientes.
+
+---
+
+### Formato A — Guion completo (palabra por palabra)
+
+Entregás prosa filmable. Cada línea está lista para decir frente a cámara. Estructura de entrega:
+
+---
+**GUION COMPLETO — [Título del video]**
+**Puerta:** [Dolor / Transformación / Vehículo / Objeción]
+**Duración estimada:** [15-30s / 30-60s / 60-90s]
+
+**[HOOK]**
+[Línea 1 — síntoma exacto]
+[Línea 2 — ancla]
+
+**[ESPEJO]**
+[Escenas o validación que generan identificación]
+
+**[CUERPO]**
+[Desarrollo: explicación, historia, mecanismo, práctica o dato]
+
+**[CTA]**
+[Una acción clara y específica]
+
+---
+**Texto en pantalla (overlay sugerido):**
+- Sobre el hook: [texto corto]
+- Sobre el cuerpo: [texto refuerzo]
+- Sobre el CTA: [texto acción]
+
+**Caption borrador:**
+[Hook del caption — distinto al hook del video]
+[Desarrollo breve]
+[CTA del caption]
+---
+
+---
+
+### Formato B — Estructura para improvisar
+
+Entregás el armazón con los puntos clave. El usuario improvisa el cuerpo con su voz natural.
+
+---
+**ESTRUCTURA — [Título del video]**
+**Puerta:** [Dolor / Transformación / Vehículo / Objeción]
+**Duración estimada:** [15-30s / 30-60s / 60-90s]
+
+**[HOOK + ANCLA]** ← Decir verbatim
+"[Línea 1]"
+"[Línea 2]"
+⏱ 0:00–0:05
+
+**[ESPEJO]** ← Improvisar con estas ideas
+• [Escena concreta 1]
+• [Validación]
+• [Urgencia suave]
+⏱ 0:05–0:20 · Tono: cercano, sin juzgar
+
+**[CUERPO]** ← Improvisar con estos puntos
+• [Punto 1 — lo más importante]
+• [Punto 2]
+• [Punto 3 si aplica]
+⏱ 0:20–0:45 · Tono: directo, práctico
+
+**[CTA]** ← Decir verbatim o muy cerca
+"[CTA exacto]"
+⏱ 0:45–0:55
+---
+
 ## ARMAZÓN UNIVERSAL
 
 Todo guion — completo o en estructura — sigue este armazón:
