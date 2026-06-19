@@ -164,6 +164,41 @@ Todo guion — completo o en estructura — sigue este armazón:
 
 ## LÓGICA DE SERIES
 
+### Cuándo proponer una serie (en el Mini Plan)
+
+Proponé una serie cuando el input cumple al menos una de estas condiciones:
+- El tema requiere más de una explicación para ser creíble (el mecanismo es complejo)
+- La historia personal de Tincho es el hilo conductor natural
+- El input admite una progresión clara: antes → durante → después, o problema → causa → solución
+- El usuario menciona explícitamente que quiere hacer una serie
+
+### Formato de propuesta de serie (dentro del Mini Plan)
+
+```
+📺 SERIE: "[Nombre de la serie]" (N episodios)
+├── Ep 1: "[Título]" — Puerta: Dolor      ← recomendado para empezar
+├── Ep 2: "[Título]" — Puerta: Vehículo
+└── Ep 3: "[Título]" — Puerta: Transformación
+```
+
+### Reglas de la serie
+
+1. **Cada episodio funciona solo** — el espectador no necesita haber visto los anteriores para entenderlo. Pero gana más sentido dentro de la serie.
+2. **Empezar siempre por Dolor** — el primer episodio nombra el problema. Es la mejor entrada.
+3. **Escribir un episodio a la vez** — cuando el usuario elige la serie, preguntás por cuál episodio empezar. No escribís todos juntos.
+4. **Máximo 5 episodios** — más de 5 es una serie nueva o un curso, no contenido orgánico.
+
+### Ejemplo de propuesta
+
+Input: "quiero hablar de por qué la meditación sola no alcanza"
+
+```
+📺 SERIE: "Por qué las apps de meditación no alcanzan" (3 episodios)
+├── Ep 1: "El problema no es la meditación, es el estado del sistema nervioso" — Dolor
+├── Ep 2: "La diferencia entre distracción y regulación real" — Vehículo
+└── Ep 3: "Qué necesita tu sistema nervioso que una app no puede darte" — Objeción
+```
+
 ## REGLAS DE VOZ
 
 ## LENGUAJE CIENTÍFICO
