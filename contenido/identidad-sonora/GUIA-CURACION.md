@@ -40,7 +40,7 @@ No hay `ffmpeg` instalado en este entorno, así que el recorte se hace con una h
 1. Descargar de audacityteam.org e instalar.
 2. Abrir el archivo completo (File → Open).
 3. Seleccionar con el mouse el tramo de 60-90s identificado en el paso 2.
-4. File → Export Audio → Export Selected Audio (en Audacity reciente aparece en File → Export, con opción de exportar solo la selección).
+4. File → Export Audio → Export Selected Audio (en Audacity reciente aparece en File → Export, con opción de exportar solo la selección). En el diálogo de exportación, asegúrate de elegir "Current selection" (o "Selección actual") en vez de "Entire Project" antes de exportar.
 5. Nombrar el archivo según la convención (ver paso 4) y guardar directamente en la carpeta `contenido/identidad-sonora/`.
 
 ## 4. Nombrar y guardar
