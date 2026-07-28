@@ -28,7 +28,7 @@
 - **Inicio:** Empezar a hablar sin intro, sin música, sin saludar. Directo al hook.
 - **Pausas:** Respetarlas. El silencio trabaja a tu favor.
 - **Subtítulos:** Activar en edición. El 85% del contenido se ve sin sonido.
-- **Música:** Sin letra. Volumen bajo (30-40% de tu voz). Sin música durante las prácticas.
+- **Música:** Identidad sonora de marca — ver `../identidad-sonora/README.md`. Sin letra. Volumen 25-35% de tu voz. Sin música en el hook. Sin música durante las prácticas.
 
 ---
 ---
