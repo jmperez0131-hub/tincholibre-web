@@ -40,9 +40,8 @@ No hay `ffmpeg` instalado en este entorno, así que el recorte se hace con una h
 1. Descargar de audacityteam.org e instalar.
 2. Abrir el archivo completo (File → Open).
 3. Seleccionar con el mouse el tramo de 60-90s identificado en el paso 2.
-4. Edit → Clip Boundaries → Split (o simplemente recortar la selección).
-5. File → Export → Export as MP3.
-6. Nombrar el archivo según la convención (ver paso 4) y guardar directamente en la carpeta `contenido/identidad-sonora/`.
+4. File → Export Audio → Export Selected Audio (en Audacity reciente aparece en File → Export, con opción de exportar solo la selección).
+5. Nombrar el archivo según la convención (ver paso 4) y guardar directamente en la carpeta `contenido/identidad-sonora/`.
 
 ## 4. Nombrar y guardar
 
@@ -53,6 +52,8 @@ Seguir la convención ya definida en el README:
 ## 5. Verificar el archivo final (duración, sin necesidad de ffmpeg)
 
 Desde PowerShell, en la carpeta `contenido/identidad-sonora/`:
+
+*(Sustituye `base-01-piano-solo.mp3` por el nombre del archivo que estés verificando)*
 
 ```powershell
 $shell = New-Object -ComObject Shell.Application
