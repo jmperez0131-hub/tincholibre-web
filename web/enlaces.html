@@ -60,12 +60,32 @@
             margin: 0 auto 20px;
         }
 
+        @keyframes avatar-breathe {
+            0%, 100% { transform: scale(0.94); opacity: 0.55; }
+            50%      { transform: scale(1.08); opacity: 1; }
+        }
+
+        @keyframes avatar-breathe-outer {
+            0%, 100% { transform: scale(1.05); opacity: 0.7; }
+            50%      { transform: scale(0.92); opacity: 0.25; }
+        }
+
         .avatar-wrap::before {
             content: '';
             position: absolute;
             inset: -30px;
             background: radial-gradient(circle, rgba(237, 188, 106, 0.35) 0%, rgba(237, 188, 106, 0) 70%);
             z-index: 0;
+            animation: avatar-breathe 5.5s ease-in-out infinite;
+        }
+
+        .avatar-wrap::after {
+            content: '';
+            position: absolute;
+            inset: -48px;
+            background: radial-gradient(circle, rgba(201, 111, 61, 0.28) 0%, rgba(201, 111, 61, 0) 70%);
+            z-index: -1;
+            animation: avatar-breathe-outer 7s ease-in-out infinite;
         }
 
         .avatar {
