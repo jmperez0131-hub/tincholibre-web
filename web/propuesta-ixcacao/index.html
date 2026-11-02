@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Propuesta de Tincho para IX Cacao: narrativa, web, contenido, redes y carta de experiencias.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#EDF0EC">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Propuesta IX Cacao">
+<meta property="og:description" content="Contar IX, mostrar cómo se vive y facilitar la reserva. Propuesta de trabajo de Tincho.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316231D'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' font-style='italic' fill='%23D9A883'%3EIX%3C/text%3E%3C/svg%3E">
+<script>
+if ('IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('js');
+</script>
+<title>Propuesta IX Cacao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<style>
+/* Concepto: documento largo que baja como un río por la montaña. Niebla verde de fondo, tinta de bosque, un solo acento de corteza de cacao. Curvas de nivel solo en la portada. */
+:root {
+  --bg: #EDF0EC;
+  --surface: #F7F9F5;
+  --sunk: #E2E8E1;
+  --ink: #16231D;
+  --muted: #53625A;
+  --line: #C9D2C9;
+  --accent: #7A4A32;
+  --on-accent: #FBF7F3;
+  --river: #2C6764;
+  --river-soft: #D6E6E3;
+  --cacao-soft: #EADDD2;
+  --contour: rgba(44, 103, 100, .38);
+  --display: "Newsreader", Georgia, "Times New Roman", serif;
+  --body: "Hanken Grotesk", "Segoe UI", system-ui, sans-serif;
+  --maxw: 1120px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1713; --surface: #15211B; --sunk: #0B120F; --ink: #E7EDE6; --muted: #9DAEA3;
+    --line: #2B3B32; --accent: #D9A883; --on-accent: #1A120D; --river: #86C2BC;
+    --river-soft: #17302D; --cacao-soft: #2A1F19; --contour: rgba(134, 194, 188, .3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1713; --surface: #15211B; --sunk: #0B120F; --ink: #E7EDE6; --muted: #9DAEA3;
+  --line: #2B3B32; --accent: #D9A883; --on-accent: #1A120D; --river: #86C2BC;
+  --river-soft: #17302D; --cacao-soft: #2A1F19; --contour: rgba(134, 194, 188, .3);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 60; background: var(--bg); }
+img, svg { max-width: 100%; }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.12; margin: 0; text-wrap: balance; letter-spacing: -.01em; }
+p { margin: 0 0 1em; }
+a { color: var(--river); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-left: max(20px, env(safe-area-inset-left, 0px));
+  padding-right: max(20px, env(safe-area-inset-right, 0px));
+}
+
+/* Barra superior */
+.site {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 50;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; min-height: 56px; }
+.mark { font-family: var(--display); font-size: 1.2rem; letter-spacing: .01em; white-space: nowrap; }
+.mark i { font-style: italic; color: var(--accent); }
+.site nav { display: flex; gap: 22px; overflow-x: auto; scrollbar-width: none; min-width: 0; }
+.site nav::-webkit-scrollbar { display: none; }
+.site nav a { color: var(--muted); font-size: .9rem; text-decoration: none; white-space: nowrap; padding-block: 16px; border-bottom: 2px solid transparent; }
+.site nav a:hover { color: var(--ink); }
+.site nav a[aria-current="true"] { color: var(--ink); border-bottom-color: var(--accent); }
+
+/* Portada */
+.cover { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.cover svg.contours { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+.ring { fill: none; stroke: var(--contour); stroke-width: 1.1; stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 2.2s cubic-bezier(.25,.6,.2,1) both; animation-delay: calc(var(--i) * 80ms); }
+.ring--major { stroke-width: 1.8; }
+@keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+.cover .wrap { position: relative; padding-block: clamp(64px, 12vw, 140px) clamp(56px, 9vw, 104px); }
+.eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
+.cover h1 { font-size: clamp(3.4rem, 11vw, 8.2rem); font-weight: 300; line-height: .95; letter-spacing: -.03em; }
+.cover h1 i { color: var(--accent); font-weight: 300; }
+.cover .lead { font-family: var(--display); font-size: clamp(1.5rem, 3.4vw, 2.35rem); font-weight: 300; line-height: 1.22; max-width: 26ch; margin: 36px 0 0; }
+
+/* Secciones */
+.section { padding-block: clamp(56px, 9vw, 112px); border-bottom: 1px solid var(--line); }
+.section .grid { display: grid; gap: 36px; grid-template-columns: minmax(0, 1fr); }
+.section-head { min-width: 0; }
+.label { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); margin: 0 0 14px; font-weight: 600; }
+.section h2 { font-size: clamp(1.9rem, 4.2vw, 3rem); font-weight: 300; }
+.section-body { min-width: 0; max-width: 760px; }
+@media (min-width: 960px) {
+  .section .grid { grid-template-columns: 280px minmax(0, 1fr); gap: 72px; }
+  .section-head { position: sticky; top: 100px; align-self: start; }
+  .section-body.wide { max-width: none; }
+}
+.lede { font-family: var(--display); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.45; font-weight: 300; }
+.muted { color: var(--muted); }
+.small { font-size: .92rem; }
+.rule { height: 1px; background: var(--line); border: 0; margin: 40px 0; }
+.sub { font-size: 1.6rem; margin-bottom: 12px; }
+
+/* Resumen */
+.moves { display: grid; gap: 0; margin: 32px 0; border-top: 1px solid var(--line); }
+.move { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.move h3 { font-size: 1.45rem; font-weight: 400; }
+.move p { margin: 0; color: var(--muted); }
+@media (min-width: 700px) { .move { grid-template-columns: 240px minmax(0, 1fr); gap: 32px; } }
+.reco { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 28px; margin-top: 36px; }
+.reco .label { margin-bottom: 8px; }
+.reco .big { font-family: var(--display); font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 300; line-height: 1.15; }
+.reco .big span { color: var(--accent); }
+.reco p:last-child { margin-bottom: 0; }
+
+/* Diagnóstico */
+.finding { display: grid; gap: 14px; padding: 30px 0; border-top: 1px solid var(--line); }
+.finding h3 { font-size: 1.5rem; font-weight: 400; }
+.finding .cols { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); }
+.finding p { margin: 0; }
+.finding ul { margin: 10px 0 0; padding-left: 1.1em; }
+.finding li { margin-bottom: 4px; }
+.col-label { display: block; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+@media (min-width: 700px) { .finding .cols { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px; } }
+.story { background: var(--cacao-soft); border-radius: 14px; padding: clamp(22px, 4vw, 34px); margin: 0 0 8px; }
+.story h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 14px; }
+.story > p:last-child { margin-bottom: 0; }
+.story .chain { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.chain li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0; }
+.chain b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.3rem; margin-bottom: 4px; }
+.chain span { color: var(--muted); font-size: .95rem; line-height: 1.5; display: block; }
+.good { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; margin-top: 12px; }
+.good h3 { font-size: 1.35rem; margin-bottom: 10px; }
+.good ul { margin: 0; padding-left: 1.1em; }
+.good li { margin-bottom: 4px; }
+
+/* Visión */
+.pair { display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); margin: 28px 0; }
+@media (min-width: 700px) { .pair { grid-template-columns: 1fr 1fr; } }
+.pair > div { border-radius: 14px; padding: 26px; }
+.pair h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.pair ul { margin: 0; padding-left: 1.1em; }
+.pair li { margin-bottom: 6px; }
+.pair .yes { background: var(--river-soft); }
+.pair .no { background: var(--surface); border: 1px solid var(--line); }
+.bullets { margin: 16px 0; padding-left: 1.1em; }
+.bullets li { margin-bottom: 8px; }
+
+/* Tablas */
+.table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: .98rem; }
+th, td { padding: 13px 16px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: top; }
+tbody tr:last-child td, tbody tr:last-child th { border-bottom: 0; }
+th { font-size: .74rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); font-weight: 600; white-space: nowrap; }
+td.num, th.num { text-align: right; white-space: nowrap; }
+
+/* Servicios */
+.services { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); margin: 28px 0; }
+@media (min-width: 760px) { .services { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.service { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 24px; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.service h3 { font-size: 1.4rem; }
+.service .kind { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin: -8px 0 0; }
+.level { border-top: 1px solid var(--line); padding-top: 14px; }
+.level h4 { margin: 0 0 4px; font-family: var(--body); font-size: .98rem; font-weight: 600; display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.level h4 span { font-variant-numeric: tabular-nums; color: var(--accent); white-space: nowrap; }
+.level p { margin: 0; color: var(--muted); font-size: .95rem; line-height: 1.55; }
+.packages { display: grid; gap: 18px; grid-template-columns: minmax(0, 1fr); margin: 28px 0; }
+@media (min-width: 760px) { .packages { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.package { border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; background: var(--surface); display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.package.is-reco { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.package.is-reco .muted, .package.is-reco li { color: color-mix(in srgb, var(--bg) 78%, var(--ink)); }
+.package .badge { align-self: flex-start; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; padding: 3px 10px; border-radius: 99px; background: var(--accent); color: var(--on-accent); }
+.package h3 { font-size: 1.55rem; }
+.package .price { font-family: var(--display); font-size: 1.9rem; font-weight: 300; line-height: 1.15; font-variant-numeric: tabular-nums; margin: 0; }
+.package .price small { font-family: var(--body); font-size: .9rem; opacity: .75; }
+.package ul { margin: 6px 0 0; padding-left: 1.1em; font-size: .96rem; }
+.package li { margin-bottom: 4px; }
+
+/* Configurador */
+.cfg { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: clamp(22px, 4vw, 36px); margin-top: 40px; }
+.cfg h3 { font-size: 1.6rem; margin-bottom: 6px; }
+.cfg-grid { display: grid; gap: 28px; grid-template-columns: minmax(0, 1fr); margin-top: 24px; }
+@media (min-width: 900px) { .cfg-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 44px; } }
+fieldset { border: 0; padding: 0; margin: 0 0 22px; min-width: 0; }
+legend { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 0; margin-bottom: 10px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts input { position: absolute; opacity: 0; pointer-events: none; }
+.opts label { cursor: pointer; border: 1px solid var(--line); border-radius: 99px; padding: 9px 16px; min-height: 44px; display: inline-flex; align-items: center; background: var(--bg); font-size: .96rem; transition: background .2s, border-color .2s, color .2s; }
+.opts label:hover { border-color: var(--accent); }
+.opts input:checked + label { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.opts input:focus-visible + label { outline: 2px solid var(--accent); outline-offset: 3px; }
+.cfg-out { background: var(--bg); border: 1px solid var(--line); border-radius: 14px; padding: 26px; align-self: start; }
+.cfg-name { font-family: var(--display); font-size: 1.7rem; font-weight: 300; margin: 0 0 4px; }
+.cfg-sub { color: var(--muted); font-size: .95rem; margin: 0 0 18px; }
+.cfg-out dl { margin: 0; display: grid; gap: 0; }
+.cfg-out .row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.cfg-out dt { color: var(--muted); }
+.cfg-out dd { margin: 0; font-weight: 600; text-align: right; }
+.cfg-out .row.total dd { font-family: var(--display); font-size: 1.35rem; font-weight: 400; color: var(--accent); }
+
+/* Inmersión */
+.imm { display: grid; gap: 20px; grid-template-columns: minmax(0, 1fr); margin: 28px 0; }
+@media (min-width: 760px) { .imm { grid-template-columns: 1.4fr 1fr; gap: 24px; } }
+.imm > div { border-radius: 14px; padding: 26px; min-width: 0; }
+.imm h3 { font-size: 1.3rem; margin-bottom: 12px; }
+.imm ul { margin: 0; padding-left: 1.1em; }
+.imm li { margin-bottom: 6px; }
+.imm .for { background: var(--river-soft); }
+.imm .ask { background: var(--surface); border: 1px solid var(--line); }
+
+/* Plan */
+.flow { list-style: none; padding: 0; margin: 28px 0; display: grid; gap: 16px; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 700px) { .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .flow { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+.flow li { border-top: 2px solid var(--accent); padding-top: 14px; min-width: 0; }
+.flow .when { font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin: 0 0 6px; }
+.flow h3 { font-size: 1.3rem; margin-bottom: 8px; }
+.flow p { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.55; }
+.two { display: grid; gap: 24px; grid-template-columns: minmax(0, 1fr); margin-top: 32px; }
+@media (min-width: 760px) { .two { grid-template-columns: 1fr 1fr; gap: 40px; } }
+.two h3 { font-size: 1.3rem; margin-bottom: 10px; }
+.two ul { margin: 0; padding-left: 1.1em; }
+.two li { margin-bottom: 6px; }
+
+/* Condiciones */
+.terms { margin: 0; display: grid; gap: 0; }
+.term { display: grid; gap: 4px; padding: 20px 0; border-top: 1px solid var(--line); grid-template-columns: minmax(0, 1fr); }
+.term dt { font-family: var(--display); font-size: 1.25rem; }
+.term dd { margin: 0; color: var(--muted); }
+@media (min-width: 700px) { .term { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; } }
+.group { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin: 40px 0 6px; }
+
+/* Cierre */
+.close { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 26px 28px; margin-top: 44px; }
+.close p { margin: 0; font-family: var(--display); font-size: 1.35rem; font-weight: 300; line-height: 1.4; }
+footer { padding-block: 56px 72px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: baseline; }
+footer p { margin: 0; color: var(--muted); font-size: .95rem; }
+footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ring { animation: none; }
+  .opts label { transition: none; }
+}
+
+@media print {
+  @page { size: A4; margin: 16mm 14mm; }
+  html { scroll-behavior: auto; }
+  body { font-size: 10.5pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  :root, :root:not([data-theme="light"]), :root[data-theme="dark"] {
+    --bg: #FFFFFF; --surface: #F7F9F5; --sunk: #E9EEE8; --ink: #16231D; --muted: #4B5A52; --line: #C9D2C9;
+    --accent: #7A4A32; --on-accent: #FBF7F3; --river: #2C6764; --river-soft: #D6E6E3; --cacao-soft: #EADDD2;
+    --contour: rgba(44, 103, 100, .38); color-scheme: light;
+  }
+  body::before, .site, .cfg-controls { display: none !important; }
+  .ring { animation: none; }
+  .cover .wrap { padding-block: 40px 40px; }
+  .section { padding-block: 28px; break-inside: auto; }
+  .section .grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .section-head { position: static !important; }
+  .finding, .package, .service, .term, .story, .reco, .good, .pair > div, .imm > div, .cfg-out, .table-wrap, .close, .flow li, .chain li { break-inside: avoid; }
+  .cfg-grid { grid-template-columns: 1fr !important; }
+  .cfg { padding: 0; border: 0; background: none; }
+  .services, .packages { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; gap: 10px; }
+  .flow { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 10px; }
+  .chain { grid-template-columns: repeat(4, minmax(0, 1fr)) !important; }
+  .section-body { max-width: none; }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* ---------- Interacción y movimiento ---------- */
+.site nav { position: relative; }
+.progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 2px; pointer-events: none; }
+.progress i { display: block; width: 100%; height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: 0 50%; }
+
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+.cover .eyebrow, .cover h1, .cover .lead, .cover .cue { animation: rise .8s cubic-bezier(.2,.7,.2,1) both; }
+.cover h1 { animation-delay: .08s; }
+.cover .lead { animation-delay: .2s; }
+.cover .cue { animation-delay: .34s; }
+.cue { display: inline-flex; align-items: center; gap: 10px; margin-top: 40px; min-height: 44px; color: var(--ink); text-decoration: none; font-weight: 600; font-size: .98rem; border-bottom: 1px solid var(--accent); }
+.cue svg { transition: transform .25s ease; }
+.cue:hover svg { transform: translateY(3px); }
+
+.js .rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
+.js .rv.in { opacity: 1; transform: none; }
+
+.finding .cols > div:last-child .col-label { color: var(--river); }
+
+.package, .service { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+@media (hover: hover) {
+  .package:hover, .service:hover { transform: translateY(-3px); box-shadow: 0 16px 32px -20px rgba(22, 35, 29, .45); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+}
+.package.is-selected { outline: 2px solid var(--accent); outline-offset: 3px; }
+.package ul { margin-bottom: 14px; }
+.package .pick { margin-top: auto; min-height: 44px; border-radius: 99px; border: 1px solid var(--ink); background: transparent; color: var(--ink); font: 600 .95rem var(--body); cursor: pointer; transition: background .2s, color .2s; }
+.package .pick:hover { background: var(--ink); color: var(--bg); }
+.package.is-reco .pick { border-color: var(--bg); color: var(--bg); }
+.package.is-reco .pick:hover { background: var(--bg); color: var(--ink); }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 10px 20px; border-radius: 99px; border: 1px solid var(--ink); background: var(--ink); color: var(--bg); font: 600 .95rem var(--body); text-decoration: none; cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.btn:hover { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+.btn.ghost { background: transparent; color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.cfg-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+.cfg-status { min-height: 1.5em; margin: 10px 0 0; font-size: .9rem; color: var(--muted); }
+
+@keyframes flash { from { background: color-mix(in srgb, var(--accent) 24%, transparent); } to { background: transparent; } }
+.cfg-out dd { border-radius: 6px; }
+.cfg-out dd.flash { animation: flash .8s ease; }
+
+.fab { position: fixed; right: max(16px, env(safe-area-inset-right, 0px)); bottom: max(16px, env(safe-area-inset-bottom, 0px)); z-index: 40; display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 99px; background: var(--ink); color: var(--bg); font-weight: 600; font-size: .95rem; text-decoration: none; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .55); opacity: 0; visibility: hidden; transform: translateY(12px); transition: opacity .3s ease, transform .3s ease, visibility 0s linear .3s, background .2s; }
+.fab.on { opacity: 1; visibility: visible; transform: none; transition-delay: 0s; }
+.fab:hover { background: var(--accent); color: var(--on-accent); }
+
+.print-only { display: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .cover .eyebrow, .cover h1, .cover .lead, .cover .cue { animation: none; }
+  .cfg-out dd.flash { animation: none; }
+  .package, .service, .fab, .cue svg { transition: none; }
+}
+
+/* ---------- Celular ---------- */
+@media (max-width: 640px) {
+  body { font-size: 1rem; }
+  .site .wrap { gap: 12px; min-height: 52px; }
+  .site nav { gap: 18px; padding-right: 28px; -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
+  .cover .wrap { padding-block: 52px 44px; }
+  .eyebrow { margin-bottom: 20px; letter-spacing: .12em; }
+  .cover .lead { margin-top: 26px; }
+  .cue { margin-top: 28px; }
+  .section { padding-block: 48px; }
+  .section .grid { gap: 22px; }
+  .lede { font-size: 1.22rem; }
+  .move { padding: 18px 0; }
+  .finding { padding: 24px 0; }
+  .package.is-reco { order: -1; }
+  .packages, .services { gap: 14px; }
+  .package, .service { padding: 22px 20px; }
+  .reco, .good, .story, .close, .pair > div, .imm > div { padding: 22px 20px; }
+  .cfg { padding: 20px 16px; border-radius: 14px; }
+  .cfg-out { padding: 20px; }
+  .cfg-actions .btn { flex: 1 1 100%; }
+  .opts label { padding: 9px 14px; }
+  .term { padding: 16px 0; }
+  table.stack thead { display: none; }
+  table.stack, table.stack tbody, table.stack tr, table.stack td { display: block; width: 100%; }
+  table.stack tr { padding: 14px 16px; border-bottom: 1px solid var(--line); }
+  table.stack tr:last-child { border-bottom: 0; }
+  table.stack td { padding: 0; border: 0; }
+  table.stack td.num { text-align: left; white-space: normal; color: var(--accent); font-weight: 600; margin-top: 2px; }
+  footer { padding-block: 40px 96px; }
+}
+
+/* ---------- PDF: solo lo que hace falta ---------- */
+@media print {
+  .progress, .fab, .cue, .cfg, .web-only, .pick, .cfg-actions { display: none !important; }
+  .print-only { display: inline !important; }
+  .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
+  .cover .eyebrow, .cover h1, .cover .lead { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .package, .service { box-shadow: none !important; transform: none !important; }
+  .package.is-reco { order: 0; }
+  body { font-size: 10pt; line-height: 1.55; }
+  .cover .wrap { padding-block: 48px 36px; }
+  .cover h1 { font-size: 4.2rem; }
+  .cover .lead { font-size: 1.5rem; margin-top: 22px; }
+  .section { padding-block: 22px; }
+  .section h2 { font-size: 1.6rem; }
+  .lede { font-size: 1.1rem; }
+  .finding { padding: 16px 0; }
+  .move { padding: 12px 0; }
+  .rule { margin: 22px 0; }
+  .group { margin-top: 24px; }
+  .term { padding: 12px 0; }
+  .close { margin-top: 28px; }
+  footer { padding-block: 24px 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <span class="mark"><i>IX</i> Cacao</span>
+    <nav aria-label="Secciones">
+      <a href="#resumen">Resumen</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#vision">Visión</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#inmersion">Inmersión</a>
+      <a href="#plan">Plan</a>
+      <a href="#condiciones">Condiciones</a>
+    </nav>
+  </div>
+  <div class="progress" aria-hidden="true"><i id="progressBar"></i></div>
+</header>
+
+<main>
+<section class="cover" aria-labelledby="titulo">
+  <svg class="contours" id="contours" viewBox="0 0 900 660" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false"></svg>
+  <div class="wrap">
+    <p class="eyebrow">Propuesta de trabajo · Tincho · Noviembre de 2026</p>
+    <h1 id="titulo"><i>IX</i> Cacao</h1>
+    <p class="lead">Contar IX, mostrar cómo se vive y facilitar la reserva.</p>
+    <a class="cue" href="#resumen">Ver la propuesta<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+  </div>
+</section>
+
+<section class="section" id="resumen" aria-labelledby="h-resumen">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Resumen</p>
+      <h2 id="h-resumen">Lo esencial</h2>
+    </div>
+    <div class="section-body">
+      <p class="lede">IX Cacao tiene lo difícil resuelto: el bosque, el cacao, el río y cinco cabañas que respetan el paisaje. Falta que quien busca un lugar así lo encuentre, entienda qué se vive aquí y reserve sin dar vueltas.</p>
+      <p>Así puedo aportar:</p>
+      <div class="moves">
+        <div class="move"><h3>Contar IX</h3><p>La diosa que da nombre al lugar es la mejor razón para recordarlo. La convierto en el relato que explica por qué venir.</p></div>
+        <div class="move"><h3>Mostrar cómo se vive</h3><p>Contenido hecho desde dentro, con lo que ya existe: los caballos, las bicicletas, el río y el cacaotal.</p></div>
+        <div class="move"><h3>Facilitar la reserva</h3><p>Una presencia digital clara, de la web a las redes, que lleve al huésped a reservar sin dar vueltas.</p></div>
+      </div>
+      <div class="reco">
+        <p class="label">Lo que ganas</p>
+        <p class="big">Un lugar que se cuenta bien y se reserva fácil.</p>
+        <ul class="bullets">
+          <li>Una sola persona que conoce el lugar y cuenta, produce y publica desde dentro.</li>
+          <li>La misma historia en la web, las redes, la guía del huésped y las experiencias.</li>
+          <li>Un camino más corto entre «me interesa» y la reserva.</li>
+          <li>Un reporte mensual con números claros para decidir cómo seguir.</li>
+        </ul>
+        <p class="muted web-only"><a href="#servicios">Ver servicios y paquetes</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="diagnostico" aria-labelledby="h-diag">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Diagnóstico</p>
+      <h2 id="h-diag">Lo que percibo hoy</h2>
+    </div>
+    <div class="section-body wide">
+      <p class="lede" style="max-width:760px">Esto es lo que veo desde afuera, tras revisar la web, Instagram y Google Maps, y desde mi visita al lugar. Es una mirada externa. Tú conoces el negocio por dentro y sabrás qué ajustar.</p>
+
+      <article class="finding">
+        <h3>La historia de IX apenas se insinúa</h3>
+        <div class="story">
+          <h3>Una diosa, un cacaotal y un río. Con eso se puede contar un lugar entero.</h3>
+          <p>IX es la diosa maya del cacao y de la naturaleza. Es el nombre del sitio y hoy aparece sin desarrollar, en la web y en Instagram. La propuesta es que el relato sostenga todo lo demás.</p>
+          <ul class="chain">
+            <li><b>La diosa</b><span>Da el nombre y la razón para recordar el lugar.</span></li>
+            <li><b>El cacao</b><span>Más de 14.000 plantas. Es lo que aquí se cultiva, se prueba y se transforma.</span></li>
+            <li><b>El río</b><span>Adonde se baja a descansar, a respirar y a no hacer nada.</span></li>
+            <li><b>El ritmo</b><span>Lo que el huésped se lleva: unos días más lentos.</span></li>
+          </ul>
+          <p class="muted" style="margin:0">Ese relato aparece en la web, en cada pieza de contenido, en la guía del huésped y en el nombre de las experiencias. Lo escribo contigo, con lo que tú sabes del origen del nombre.</p>
+        </div>
+      </article>
+
+      <article class="finding">
+        <h3>Google Maps no los deja aparecer donde la gente busca</h3>
+        <div class="cols">
+          <div><span class="col-label">Lo que veo</span><p>Tienen 5,0 estrellas, pero con 8 reseñas. La categoría es «Reserva natural» y no alojamiento, así que quien busca dónde dormir en San Carlos probablemente no los ve. La dirección del mapa (Puente del Volturno, Vda. San Blas) no coincide con la de la web (Vereda La María). Puede ser el punto del parqueo, pero quien llega por primera vez no lo sabe.</p></div>
+          <div><span class="col-label">Qué cambia</span><p>Categoría correcta, fotos, horario real, un pin que explique cómo llegar y un sistema sencillo para pedir reseñas a quien ya se hospedó.</p></div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <h3>La web cuenta el lugar, pero no cierra la reserva</h3>
+        <div class="cols">
+          <div>
+            <span class="col-label">Lo que veo</span>
+            <p>El texto ya habla de silencio, agua y cacao. Pero no muestra precios, y quien duda tiene que escribir para saber cuánto cuesta. El selector ofrece cinco idiomas y el contenido está solo en español. El menú aparece repetido, el enlace de YouTube está vacío y el título dice «cacaco». Los testimonios muestran 1.234 valoraciones cada uno, cifra que no coincide con las 8 de Google y le resta credibilidad.</p>
+          </div>
+          <div>
+            <span class="col-label">Qué cambia</span>
+            <p>Una web que se lee como una invitación:</p>
+            <ul>
+              <li>Abre con la historia de IX y con fotos reales de una noche y de un día.</li>
+              <li>Muestra qué incluye la estadía y cuánto cuesta, con las normas a la vista.</li>
+              <li>Reserva en pocos pasos con Lobby, el mismo motor de hoy.</li>
+              <li>Se lee en español, inglés y francés, y carga rápido con señal débil.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <h3>El contenido todavía no muestra cómo se vive aquí</h3>
+        <div class="cols">
+          <div><span class="col-label">Lo que veo</span><p>Instagram tiene 616 seguidores y publica entre una y tres veces por semana. Falta contenido que haga sentir el lugar: la cabalgata, el río, el cacaotal. El enlace de YouTube de la web no lleva a nada. El 31 de octubre me llegó un anuncio con una promoción del 7 al 12 de octubre, ya vencida.</p></div>
+          <div><span class="col-label">Qué cambia</span><p>Contenido grabado en el lugar con lo que ya existe, y una misma grabación adaptada a Instagram, TikTok y Facebook. También presencia donde la gente decide: Google y las reseñas. La pauta pasa a tener calendario al día y una meta clara: reservas, no solo alcance.</p></div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <h3>Los QR no resuelven nada</h3>
+        <div class="cols">
+          <div><span class="col-label">Lo que veo</span><p>Los QR de las habitaciones, el restaurante y los baños llevan a la web general, que no responde lo que el huésped necesita en ese momento.</p></div>
+          <div><span class="col-label">Qué cambia</span><p>Una guía digital con actividades, normas, horarios y servicios, liviana para cargar con señal débil.</p></div>
+        </div>
+      </article>
+
+      <article class="finding">
+        <h3>Llegar puede ser parte de la experiencia</h3>
+        <div class="cols">
+          <div><span class="col-label">Lo que veo</span><p>Hay que dejar el carro, cruzar un puente colgante y subir la montaña. Hoy es una fricción.</p></div>
+          <div><span class="col-label">Qué cambia</span><p>Bien contado, es el primer paso para desconectar. Y se explica antes de la reserva, no al llegar.</p></div>
+        </div>
+      </article>
+
+      <div class="good" style="max-width:760px">
+        <h3>Lo que ya está bien, y se respeta</h3>
+        <ul>
+          <li>El lugar y la arquitectura de madera, construida según la web sin talar árboles.</li>
+          <li>El registro nacional de turismo publicado y la página de prevención del turismo sexual infantil.</li>
+          <li>El restaurante, las cuatro bicicletas eléctricas, los seis caballos y el yoga.</li>
+          <li>La reserva con Lobby y por WhatsApp, que no hay que cambiar.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="vision" aria-labelledby="h-vision">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Visión</p>
+      <h2 id="h-vision">A quién recibir y por qué yo</h2>
+    </div>
+    <div class="section-body">
+      <p class="lede">La meta es que a IX Cacao llegue gente que viene a parar. Una foto bonita atrae a cualquiera. Lo que filtra es contar bien qué se vive, mostrar precios y normas desde la reserva y hablarle a quien busca calma.</p>
+      <div class="pair">
+        <div class="yes">
+          <h3>El lugar es para quien viene a</h3>
+          <ul>
+            <li>Desconectarse del celular unos días.</li>
+            <li>Caminar, montar en bicicleta o a caballo y bajar al río.</li>
+            <li>Comer bien y dormir mejor, solo, en pareja o en grupo pequeño.</li>
+          </ul>
+        </div>
+        <div class="no">
+          <h3>Probablemente no es para quien viene a</h3>
+          <ul>
+            <li>Hacer fiesta o poner música alta.</li>
+            <li>Sacar la foto y irse.</li>
+            <li>Llegar en carro hasta la puerta.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted small">Esta lista sale de lo que me dijiste que quieres cuidar. La afinamos juntos antes de escribir una sola pieza.</p>
+
+      <hr class="rule">
+      <p class="label">Por qué yo</p>
+      <p class="lede">Vivo lo que este lugar vende y me interesa que se cuente bien.</p>
+      <ul class="bullets">
+        <li>Facilito yoga, respiración y meditación, y he guiado varias ceremonias de cacao. Puedo contar y ofrecer las experiencias desde dentro.</li>
+        <li>Crucé 17 países en bicicleta y lo conté en un libro. Conozco a quien viaja hasta un lugar como este.</li>
+        <li>Trabajo en español, inglés y francés, y el material sale en los tres.</li>
+        <li>Lo que publico en mi cuenta llega sobre todo a gente que no me conocía. Esa es la audiencia que necesita IX, y puedo sumarla con piezas hechas en conjunto, con créditos para ambos.</li>
+      </ul>
+      <p class="muted small">Mi experiencia en redes viene de mi propia marca. Aquí la pongo al servicio de la tuya.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="servicios" aria-labelledby="h-serv">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Servicios y paquetes</p>
+      <h2 id="h-serv">Escoge lo que necesitas</h2>
+    </div>
+    <div class="section-body wide">
+      <p class="lede" style="max-width:760px">Tres servicios que se contratan por separado, tres paquetes que los juntan a mejor precio y una carta de experiencias aparte. La narrativa IX va incluida en todo.</p>
+
+      <div class="services">
+        <article class="service">
+          <h3>Web y guía del huésped</h3>
+          <p class="kind">Pago único</p>
+          <div class="level"><h4>Web y guía <span>4,5 M</span></h4><p>La historia de IX, alojamiento, precios, experiencias y reserva con Lobby. Guía digital que reemplaza los QR. Español, inglés y francés. SEO base.</p></div>
+          <div class="level"><h4>Mantenimiento <span>0,3 M al mes</span></h4><p>Opcional. Va incluido en el Integral.</p></div>
+        </article>
+        <article class="service">
+          <h3>Contenido</h3>
+          <p class="kind">Mensual</p>
+          <div class="level"><h4>Esencial <span>1,5 M</span></h4><p>4 reels, 2 carruseles y fotos. Dos días de producción al mes.</p></div>
+          <div class="level"><h4>Regular <span>2,2 M</span></h4><p>8 reels, 4 carruseles y fotos. De tres a cuatro días de producción al mes.</p></div>
+        </article>
+        <article class="service">
+          <h3>Redes y pauta</h3>
+          <p class="kind">Mensual</p>
+          <div class="level"><h4>Básico <span>1,5 M</span></h4><p>Instagram y Facebook, pauta básica con promociones al día, ficha de Google Maps corregida y reporte mensual.</p></div>
+          <div class="level"><h4>Completo <span>2,2 M</span></h4><p>Instagram, TikTok y Facebook. Estrategia de pauta, construcción de automatizaciones, atención de mensajes en horario acordado, sistema de reseñas y reporte mensual con metas.</p></div>
+        </article>
+      </div>
+      <p class="muted small" style="max-width:760px">La inversión en anuncios la paga IX Cacao. La gestión va incluida.</p>
+
+      <div class="packages">
+        <article class="package">
+          <h3>Esencial</h3>
+          <p class="price">3,0 M <small>al mes</small></p>
+          <p class="muted small" style="margin:0">Para empezar con lo básico, bien hecho. Si sumas la web, baja a 4,0 M.</p>
+          <ul><li>Contenido Esencial</li><li>Redes y pauta Básico</li></ul>
+        </article>
+        <article class="package">
+          <h3>Presencia</h3>
+          <p class="price">3,9 M <small>al mes</small></p>
+          <p class="muted small" style="margin:0">Suma suelta: 4,4 M. Ahorras 0,5 M al mes.</p>
+          <ul><li>Contenido Regular</li><li>Redes y pauta Completo</li></ul>
+        </article>
+        <article class="package is-reco">
+          <span class="badge">Recomendado</span>
+          <h3>Integral</h3>
+          <p class="price">3,5 M <small>una vez</small><br>4,2 M <small>al mes</small></p>
+          <p class="muted small" style="margin:0">Suma suelta: 4,5 M y 4,7 M al mes. Ahorras 1,0 M en la web y 0,5 M al mes.</p>
+          <ul><li>Web y guía del huésped</li><li>Presencia completa</li><li>Mantenimiento de la web</li></ul>
+        </article>
+      </div>
+      <p class="muted small" style="max-width:760px">Un bono de hasta 500.000 COP al mes depende de las metas que fijemos juntos.</p>
+
+      <div class="cfg" id="configurador">
+        <h3>Arma tu propia combinación</h3>
+        <p class="muted" style="margin:0">Marca lo que quieres y ve el precio al instante. Si coincide con un paquete, se aplica su precio.</p>
+        <div class="cfg-grid">
+          <div class="cfg-controls">
+            <fieldset>
+              <legend>Web y guía</legend>
+              <div class="opts">
+                <input type="radio" name="web" id="web-no" value="no"><label for="web-no">No</label>
+                <input type="radio" name="web" id="web-si" value="si" checked><label for="web-si">Sí</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Contenido</legend>
+              <div class="opts">
+                <input type="radio" name="cont" id="cont-none" value="none"><label for="cont-none">Ninguno</label>
+                <input type="radio" name="cont" id="cont-esencial" value="esencial"><label for="cont-esencial">Esencial</label>
+                <input type="radio" name="cont" id="cont-regular" value="regular" checked><label for="cont-regular">Regular</label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Redes y pauta</legend>
+              <div class="opts">
+                <input type="radio" name="redes" id="redes-none" value="none"><label for="redes-none">Ninguno</label>
+                <input type="radio" name="redes" id="redes-basico" value="basico"><label for="redes-basico">Básico</label>
+                <input type="radio" name="redes" id="redes-completo" value="completo" checked><label for="redes-completo">Completo</label>
+              </div>
+            </fieldset>
+          </div>
+          <div class="cfg-out" aria-live="polite">
+            <p class="cfg-name" id="cfgName">Integral</p>
+            <p class="cfg-sub" id="cfgSub"></p>
+            <dl>
+              <div class="row"><dt>Pago único</dt><dd id="cfgOne">3,5 M</dd></div>
+              <div class="row"><dt>Cada mes</dt><dd id="cfgMonth">4,2 M</dd></div>
+              <div class="row total"><dt>Primeros tres meses</dt><dd id="cfgTotal">16,1 M</dd></div>
+            </dl>
+            <div class="cfg-actions web-only">
+              <button type="button" class="btn" id="cfgCopy">Copiar mi selección</button>
+              <a class="btn ghost" id="cfgWa" href="https://wa.me/?text=" target="_blank" rel="noopener">Enviar por WhatsApp</a>
+            </div>
+            <p class="cfg-status" id="cfgStatus" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+
+      <hr class="rule">
+      <p class="label">Aparte, sin compromiso</p>
+      <h3 class="sub">Carta de experiencias</h3>
+      <p style="max-width:760px">Yoga, respiración, meditación, sonoterapia, ceremonias de cacao e inmersión en hielo, en sesiones grupales privadas. Se programan por evento y con tiempo. Más adelante, y cuando tenga sentido, podemos mirar retiros pequeños con aliados locales.</p>
+      <div class="table-wrap">
+        <table class="stack">
+          <thead><tr><th>Experiencia</th><th class="num">Precio por sesión grupal privada</th></tr></thead>
+          <tbody>
+            <tr><td>Yoga, respiración y meditación</td><td class="num">300.000 COP</td></tr>
+            <tr><td>Yoga, respiración, meditación y sonido</td><td class="num">400.000 COP</td></tr>
+            <tr><td>Sonoterapia, solo la sesión</td><td class="num">300.000 COP</td></tr>
+            <tr><td>Ceremonia de cacao</td><td class="num">350.000 COP</td></tr>
+            <tr><td>Inmersión en hielo</td><td class="num">200.000 COP</td></tr>
+            <tr><td>Noche IX: ceremonia de cacao y sonoterapia en una sola velada</td><td class="num">550.000 COP</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="good" style="max-width:760px">
+        <h3>Cómo funciona para IX Cacao</h3>
+        <p class="muted small">El precio es por sesión grupal privada: un grupo exclusivo de tus huéspedes, no una clase abierta.</p>
+        <ul>
+          <li>Pagas solo las sesiones que se hacen. No hay costo fijo mensual.</li>
+          <li>Tú defines lo que paga cada huésped, y la diferencia queda para IX Cacao.</li>
+          <li>Cada sesión se graba para tus redes, con permiso de los asistentes. La experiencia se vende sola.</li>
+          <li>La ceremonia puede hacerse con cacao de la propia finca, algo que ningún otro lugar puede copiar.</li>
+          <li>Se agendan con tiempo y se confirman 48 horas antes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="inmersion" aria-labelledby="h-imm">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Inmersión</p>
+      <h2 id="h-imm">Vivir el lugar antes de contarlo</h2>
+    </div>
+    <div class="section-body wide">
+      <p class="lede" style="max-width:760px">Propongo una inmersión de varios días en el lugar, a concretar según disponibilidad. Es una propuesta aparte de los paquetes.</p>
+      <div class="imm">
+        <div class="for">
+          <h3>Para qué sirve</h3>
+          <ul>
+            <li>Grabar el banco inicial de contenido: caballos, bicicletas, río, cacaotal y amaneceres.</li>
+            <li>Conocer a las personas, los espacios y los ritmos del lugar, para contarlos bien.</li>
+            <li>Probar las experiencias de la carta, con huéspedes si coincide.</li>
+          </ul>
+        </div>
+        <div class="ask">
+          <h3>Qué pido</h3>
+          <ul>
+            <li>Alojamiento y alimentación a cargo de IX Cacao.</li>
+            <li>El transporte lo cubro yo.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="plan" aria-labelledby="h-plan">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Plan de 90 días</p>
+      <h2 id="h-plan">Cómo se trabaja</h2>
+    </div>
+    <div class="section-body wide">
+      <p class="lede" style="max-width:760px">Primero se arregla lo que hoy se fuga. Después se construye lo nuevo, se lanza y se mide. Se ajusta a los servicios que escojas.</p>
+      <ol class="flow">
+        <li><p class="when">Semana 0</p><h3>Arranque</h3><p>Accesos y punto de partida: ocupación, reservas por canal, seguidores, reseñas y consultas. Con eso fijamos las metas.</p></li>
+        <li><p class="when">Primeros 10 días</p><h3>Arreglar</h3><p>Google Maps corregido, pauta al día y una página sencilla como destino de los QR.</p></li>
+        <li><p class="when">Mes 1 y 2</p><h3>Construir</h3><p>Narrativa IX aprobada, web y guía, y contenido publicándose en todas las redes.</p></li>
+        <li><p class="when">Mes 2 y 3</p><h3>Lanzar</h3><p>La web y la guía salen al aire. Campañas de pauta con meta de reservas directas.</p></li>
+        <li><p class="when">Día 90</p><h3>Medir y decidir</h3><p>Informe contra el punto de partida y decisión conjunta: continuar, ampliar o pasar a mantenimiento remoto.</p></li>
+      </ol>
+      <div class="two">
+        <div>
+          <h3>Metas a fijar contigo</h3>
+          <p>Reseñas en Google Maps, reservas directas, consultas por mensaje y ocupación. No pongo cifras antes de medir el punto de partida.</p>
+        </div>
+        <div>
+          <h3>Lo que necesito de ti</h3>
+          <ul>
+            <li>Los accesos, en la semana cero.</li>
+            <li>Aprobar textos y fotos en 48 horas hábiles.</li>
+            <li>Definir el presupuesto de pauta.</li>
+            <li>Una persona de contacto en el lugar.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="condiciones" aria-labelledby="h-cond" style="border-bottom:0">
+  <div class="wrap grid">
+    <div class="section-head">
+      <p class="label">Condiciones</p>
+      <h2 id="h-cond">Las reglas, claras desde el principio</h2>
+    </div>
+    <div class="section-body">
+      <p class="group" style="margin-top:0">Tiempo y presencia</p>
+      <dl class="terms">
+        <div class="term"><dt>Duración</dt><dd>Compromiso inicial de tres meses para ambas partes. Después, renovación de común acuerdo, con aviso de 30 días para terminar.</dd></div>
+        <div class="term"><dt>Presencia</dt><dd>Una inmersión inicial de varios días, a concretar según disponibilidad. Después, visitas de 3 a 4 días al mes, con un máximo de dos semanas.</dd></div>
+        <div class="term"><dt>Alojamiento y comida</dt><dd>IX Cacao los cubre durante la inmersión y las visitas. El transporte corre por mi cuenta.</dd></div>
+        <div class="term"><dt>Trabajo remoto</dt><dd>Si me desplazo lejos, el trabajo sigue en remoto con lo que quedó armado. Lo evaluamos juntos.</dd></div>
+      </dl>
+      <p class="group">Dinero y alcance</p>
+      <dl class="terms">
+        <div class="term"><dt>Pagos</dt><dd>Web: 50% al iniciar y 50% al lanzar. Mensualidad: por adelantado, en los primeros cinco días del mes.</dd></div>
+        <div class="term"><dt>Pauta</dt><dd>La inversión en anuncios la paga IX Cacao. La gestión va incluida.</dd></div>
+        <div class="term"><dt>Aprobaciones</dt><dd>IX Cacao responde en 48 horas hábiles. Si no hay respuesta, se publica lo acordado en el calendario.</dd></div>
+        <div class="term"><dt>Cambios de alcance</dt><dd>Solo por escrito y de común acuerdo, con ajuste de precio si el alcance sube.</dd></div>
+      </dl>
+      <p class="group">Contenido y propiedad</p>
+      <dl class="terms">
+        <div class="term"><dt>Propiedad intelectual</dt><dd>Mi metodología, la ceremonia y mi contenido de marca siguen siendo míos. El material producido para IX Cacao es de IX Cacao, y puedo usarlo en mi portafolio y en mis redes con crédito.</dd></div>
+        <div class="term"><dt>Alianza de contenido</dt><dd>Publicación cruzada con mis redes y créditos para ambos. IX Cacao aprueba antes las piezas donde aparezca el lugar. Lo ya publicado se mantiene seis meses después de terminar.</dd></div>
+        <div class="term"><dt>Accesos y datos</dt><dd>Las claves las gestiona IX Cacao. Yo no guardo credenciales ni datos personales de huéspedes, solo cifras agregadas.</dd></div>
+      </dl>
+      <p class="group">Experiencias</p>
+      <dl class="terms">
+        <div class="term"><dt>Grabar y guiar</dt><dd>Filmar mis propias sesiones para contenido está incluido. Guiar sesiones para huéspedes se cobra según la carta.</dd></div>
+        <div class="term"><dt>Fuera de mis visitas</dt><dd>Si una sesión cae fuera de mis días de visita, se suman transporte, alojamiento y alimentación.</dd></div>
+        <div class="term"><dt>Confirmación</dt><dd>Cada experiencia se confirma 48 horas antes. La cancelación tardía paga el 50% del precio de la sesión.</dd></div>
+      </dl>
+
+      <div class="close">
+        <p><span class="web-only">Escoge un paquete o arma tu combinación, y dejamos el acuerdo por escrito.</span><span class="print-only">Escoge un paquete y dejamos el acuerdo por escrito.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">Juan Martín Pérez Tobón, Tincho</p>
+    <p>@tincholibre · tincholibre.com · WhatsApp +57 322 980 8842</p>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="#configurador">Armar mi combinación</a>
+
+<script>
+(function () {
+  /* Curvas de nivel de la portada */
+  var svg = document.getElementById('contours');
+  if (svg) {
+    var cx = 640, cy = 330, out = '';
+    for (var k = 0; k < 16; k++) {
+      var R = 26 + k * 26, s = k * 0.17, pts = [];
+      for (var i = 0; i <= 120; i++) {
+        var t = i / 120 * Math.PI * 2;
+        var r = R * (1 + 0.11 * Math.sin(2 * t + s) + 0.06 * Math.sin(3 * t + 1.7 * s + 1) + 0.03 * Math.sin(5 * t + 2.3 * s));
+        pts.push((cx + r * 1.2 * Math.cos(t)).toFixed(1) + ' ' + (cy + r * 0.85 * Math.sin(t)).toFixed(1));
+      }
+      out += '<path pathLength="1" style="--i:' + k + '" class="ring' + (k % 5 === 0 ? ' ring--major' : '') + '" d="M' + pts.join(' L') + 'Z"/>';
+    }
+    svg.innerHTML = out;
+  }
+
+  /* Configurador de precios (miles de COP) */
+  var L = { web: 4500, cont: { none: 0, esencial: 1500, regular: 2200 }, redes: { none: 0, basico: 1500, completo: 2200 } };
+  function fm(v) { return (v / 1000).toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' M'; }
+  function pick(n) { var el = document.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : 'none'; }
+  function calc() {
+    var w = pick('web') === 'si', c = pick('cont'), r = pick('redes');
+    var count = (w ? 1 : 0) + (c !== 'none') + (r !== 'none');
+    var one = w ? L.web : 0, month = L.cont[c] + L.redes[r];
+    var name = 'A tu medida', sub = 'Suma de los servicios a precio de lista.';
+    if (w && c === 'regular' && r === 'completo') {
+      name = 'Integral'; one = 3500; month = 4200;
+      sub = 'Incluye el mantenimiento de la web. Ahorras 1,0 M en la web y 0,5 M al mes.';
+    } else if (!w && c === 'regular' && r === 'completo') {
+      name = 'Presencia'; month = 3900;
+      sub = 'Ahorras 0,5 M al mes frente a contratar los dos por separado.';
+    } else if (c === 'esencial' && r === 'basico') {
+      if (w) { name = 'Esencial con web'; one = 4000; sub = 'La web baja a 4,0 M al sumarla al paquete Esencial.'; }
+      else { name = 'Esencial'; sub = 'Para empezar con lo básico, bien hecho.'; }
+    } else if (count === 0) {
+      name = 'Nada seleccionado'; sub = 'Marca al menos un servicio.';
+    }
+    document.getElementById('cfgName').textContent = name;
+    document.getElementById('cfgSub').textContent = sub;
+    document.getElementById('cfgOne').textContent = one ? fm(one) : 'No aplica';
+    document.getElementById('cfgMonth').textContent = month ? fm(month) : 'No aplica';
+    document.getElementById('cfgTotal').textContent = fm(one + month * 3);
+  }
+  var inputs = document.querySelectorAll('.cfg input[type="radio"]');
+  for (var j = 0; j < inputs.length; j++) inputs[j].addEventListener('change', calc);
+  calc();
+
+  /* Sección activa en la barra */
+  var links = document.querySelectorAll('.site nav a');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          for (var q = 0; q < links.length; q++) links[q].removeAttribute('aria-current');
+          var a = document.querySelector('.site nav a[href="#' + e.target.id + '"]');
+          if (a) { a.setAttribute('aria-current', 'true'); }
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    document.querySelectorAll('main section[id]').forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+
+<script>
+(function () {
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Número de Tincho con código de país, sin + ni espacios (ej. 573001234567). Vacío abre el selector de contactos de WhatsApp. */
+  var WHATSAPP = '573229808842';
+  function $(s, c) { return (c || document).querySelector(s); }
+  function $$(s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); }
+
+  /* Aparición suave al bajar */
+  if (document.documentElement.classList.contains('js')) {
+    var targets = $$('.section-head, .section-body > *');
+    targets.forEach(function (el) { el.classList.add('rv'); });
+    var rio = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); rio.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    targets.forEach(function (el) { rio.observe(el); });
+  }
+
+  /* Progreso de lectura, corrimiento de las curvas y botón flotante */
+  var bar = $('#progressBar'), cover = $('.cover'), contours = $('#contours'), fab = $('#fab'), cfg = $('#configurador');
+  var ticking = false, cfgVisible = false;
+  function onScroll() {
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (bar) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0).toFixed(4) + ')';
+    if (contours && !reduce && cover && y < cover.offsetHeight) contours.style.transform = 'translate3d(0,' + (y * 0.12).toFixed(1) + 'px,0)';
+    if (fab && cover) fab.classList.toggle('on', y > cover.offsetHeight * 0.7 && !cfgVisible);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(onScroll); } }, { passive: true });
+  window.addEventListener('resize', onScroll);
+  if (cfg && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { cfgVisible = es[0].isIntersecting; onScroll(); }).observe(cfg);
+  }
+  onScroll();
+
+  /* En el celular, el menú sigue a la sección activa */
+  var nav = $('.site nav');
+  if (nav && 'MutationObserver' in window) {
+    var mo = new MutationObserver(function (ms) {
+      ms.forEach(function (m) {
+        var a = m.target;
+        if (a.getAttribute('aria-current') === 'true') {
+          nav.scrollTo({ left: a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' });
+        }
+      });
+    });
+    $$('a', nav).forEach(function (a) { mo.observe(a, { attributes: true, attributeFilter: ['aria-current'] }); });
+  }
+
+  /* Paquetes enlazados al configurador */
+  var cards = $$('.package');
+  var MAP = [
+    { web: 'no', cont: 'esencial', redes: 'basico' },
+    { web: 'no', cont: 'regular', redes: 'completo' },
+    { web: 'si', cont: 'regular', redes: 'completo' }
+  ];
+  function setRadios(c) {
+    ['web', 'cont', 'redes'].forEach(function (n) { var el = document.getElementById(n + '-' + c[n]); if (el) el.checked = true; });
+    var any = $('.cfg input[type="radio"]');
+    if (any) any.dispatchEvent(new Event('change', { bubbles: true }));
+  }
+  cards.forEach(function (card, i) {
+    if (!MAP[i]) return;
+    var b = document.createElement('button');
+    b.type = 'button'; b.className = 'pick'; b.textContent = 'Armar este paquete';
+    b.addEventListener('click', function () {
+      setRadios(MAP[i]);
+      if (cfg) cfg.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+    });
+    card.appendChild(b);
+  });
+
+  var nameEl = $('#cfgName'), status = $('#cfgStatus'), wa = $('#cfgWa'), copyBtn = $('#cfgCopy');
+  function label(n) { var r = $('input[name="' + n + '"]:checked'); var l = r && $('label[for="' + r.id + '"]'); return l ? l.textContent : ''; }
+  function message() {
+    return 'Hola Tincho, de tu propuesta de IX Cacao quiero: ' + nameEl.textContent + '.\n' +
+      'Web y guía: ' + label('web') + ' · Contenido: ' + label('cont') + ' · Redes y pauta: ' + label('redes') + '.\n' +
+      'Pago único: ' + $('#cfgOne').textContent + ' · Cada mes: ' + $('#cfgMonth').textContent + ' · Primeros tres meses: ' + $('#cfgTotal').textContent + '.';
+  }
+  function sync(animate) {
+    var n = nameEl.textContent;
+    var idx = n === 'Integral' ? 2 : n === 'Presencia' ? 1 : n.indexOf('Esencial') === 0 ? 0 : -1;
+    cards.forEach(function (c, i) { c.classList.toggle('is-selected', i === idx); });
+    if (wa) wa.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message());
+    if (animate && !reduce) {
+      $$('.cfg-out dd').forEach(function (d) { d.classList.remove('flash'); void d.offsetWidth; d.classList.add('flash'); });
+    }
+  }
+  $$('.cfg input[type="radio"]').forEach(function (r) { r.addEventListener('change', function () { sync(true); }); });
+  sync(false);
+
+  function say(t) { if (status) { status.textContent = t; clearTimeout(say.t); say.t = setTimeout(function () { status.textContent = ''; }, 3000); } }
+  if (copyBtn) copyBtn.addEventListener('click', function () {
+    var txt = message();
+    function fallback() {
+      var ta = document.createElement('textarea');
+      ta.value = txt; ta.setAttribute('readonly', ''); ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); say('Selección copiada. Pégala en tu respuesta.'); }
+      catch (e) { say('No se pudo copiar. Escríbela a mano en tu respuesta.'); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(function () { say('Selección copiada. Pégala en tu respuesta.'); }, fallback);
+    } else { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>

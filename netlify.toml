@@ -1,2 +1,7 @@
 [build]
   publish = "web"
+
+[[headers]]
+  for = "/propuesta-ixcacao/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
