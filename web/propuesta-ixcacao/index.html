@@ -8,13 +8,22 @@
 <meta name="theme-color" content="#EDF0EC">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_CO">
-<meta property="og:title" content="Propuesta IX Cacao">
+<meta property="og:title" content="Propuesta para IX Cacao · Tincho">
+<meta property="og:url" content="https://tincholibre.com/propuesta-ixcacao/">
+<meta property="og:site_name" content="Tincho">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://tincholibre.com/propuesta-ixcacao/img/og-ixcacao.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Cabaña de madera en A de IX Cacao junto al título de la propuesta">
+<meta name="twitter:image" content="https://tincholibre.com/propuesta-ixcacao/img/og-ixcacao.jpg">
 <meta property="og:description" content="Contar IX, mostrar cómo se vive y facilitar la reserva. Propuesta de trabajo de Tincho.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2316231D'/%3E%3Ctext x='16' y='22' text-anchor='middle' font-family='Georgia,serif' font-size='17' font-style='italic' fill='%23D9A883'%3EIX%3C/text%3E%3C/svg%3E">
 <script>
 if ('IntersectionObserver' in window && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) document.documentElement.classList.add('js');
 </script>
-<title>Propuesta IX Cacao</title>
+<title>Propuesta para IX Cacao · Tincho</title>
+<link rel="preload" as="image" href="img/portada.jpg" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap">
@@ -100,7 +109,8 @@ a { color: var(--river); text-underline-offset: 3px; }
 .ring { fill: none; stroke: var(--contour); stroke-width: 1.1; stroke-dasharray: 1; stroke-dashoffset: 0; animation: draw 2.2s cubic-bezier(.25,.6,.2,1) both; animation-delay: calc(var(--i) * 80ms); }
 .ring--major { stroke-width: 1.8; }
 @keyframes draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-.cover .wrap { position: relative; padding-block: clamp(64px, 12vw, 140px) clamp(56px, 9vw, 104px); }
+.cover .wrap { position: relative; padding-block: clamp(64px, 12vw, 140px) clamp(56px, 9vw, 104px); min-height: clamp(520px, 78svh, 760px); display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+.cover-media { position: absolute; inset: 0 0 0 auto; width: 44%; background: url("img/portada.jpg") center 38% / cover; -webkit-mask-image: linear-gradient(to right, transparent 0, #000 34%); mask-image: linear-gradient(to right, transparent 0, #000 34%); }
 .eyebrow { font-size: .8rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 0 0 28px; }
 .cover h1 { font-size: clamp(3.4rem, 11vw, 8.2rem); font-weight: 300; line-height: .95; letter-spacing: -.03em; }
 .cover h1 i { color: var(--accent); font-weight: 300; }
@@ -145,8 +155,10 @@ a { color: var(--river); text-underline-offset: 3px; }
 .finding li { margin-bottom: 4px; }
 .col-label { display: block; font-size: .74rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
 @media (min-width: 700px) { .finding .cols { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 36px; } }
-.story { background: var(--cacao-soft); border-radius: 14px; padding: clamp(22px, 4vw, 34px); margin: 0 0 8px; }
-.story h3 { font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.2; margin-bottom: 14px; }
+.story { --ink: #E7EDE6; --muted: #C4D0C7; --line: rgba(231, 237, 230, .22); --surface: rgba(10, 16, 13, .58); color: var(--ink); border-radius: 14px; padding: clamp(24px, 4.5vw, 44px); margin: 0 0 8px; background: linear-gradient(90deg, rgba(10, 16, 13, .93) 0%, rgba(10, 16, 13, .8) 48%, rgba(10, 16, 13, .46) 100%), url("img/noche.jpg") center 74% / cover no-repeat, #0E1713; }
+@media (max-width: 700px) { .story { background: linear-gradient(rgba(10, 16, 13, .84), rgba(10, 16, 13, .84)), url("img/noche.jpg") center 74% / cover no-repeat, #0E1713; } }
+.chain li { -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.story h4 { font-family: var(--display); font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 300; line-height: 1.2; letter-spacing: -.01em; margin: 0 0 14px; }
 .story > p:last-child { margin-bottom: 0; }
 .story .chain { list-style: none; padding: 0; margin: 24px 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 .chain li { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 16px 18px; min-width: 0; }
@@ -168,6 +180,29 @@ a { color: var(--river); text-underline-offset: 3px; }
 .pair .no { background: var(--surface); border: 1px solid var(--line); }
 .bullets { margin: 16px 0; padding-left: 1.1em; }
 .bullets li { margin-bottom: 8px; }
+
+/* Mis números */
+.proof { margin: 24px 0 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
+.proof summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; padding: 12px 20px; font-weight: 600; }
+.proof summary::-webkit-details-marker { display: none; }
+.proof summary::after { content: ""; flex: none; width: 9px; height: 9px; border-right: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(45deg) translateY(-2px); transition: transform .25s ease; }
+.proof[open] summary::after { transform: rotate(-135deg) translateY(-2px); }
+.proof-body { padding: 4px 20px 22px; }
+.stats { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+.stats li { border-top: 2px solid var(--accent); padding-top: 10px; }
+.stats b { display: block; font-family: var(--display); font-weight: 300; font-size: 2.3rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.stats span { display: block; color: var(--muted); font-size: .93rem; line-height: 1.45; }
+.reels { list-style: none; padding: 0; margin: 0 0 16px; border-top: 1px solid var(--line); }
+.reels li { display: grid; gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.reels b { font-weight: 600; }
+.reels span { color: var(--muted); font-size: .95rem; font-variant-numeric: tabular-nums; }
+@media (prefers-reduced-motion: reduce) { .proof summary::after { transition: none; } }
+
+/* Foto con degradado */
+.ph { margin: 28px 0 0; }
+.ph img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+.ph--fade img { -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 100%); mask-image: linear-gradient(to bottom, #000 45%, transparent 100%); }
+@media (max-width: 959px) { .ph img { aspect-ratio: 16 / 9; } .ph--fade img { -webkit-mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); mask-image: linear-gradient(to bottom, #000 55%, transparent 100%); } }
 
 /* Tablas */
 .table-wrap { overflow-x: auto; margin: 24px 0; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
@@ -218,7 +253,7 @@ legend { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; co
 .cfg-out dl { margin: 0; display: grid; gap: 0; }
 .cfg-out .row { display: flex; justify-content: space-between; gap: 16px; padding: 11px 0; border-top: 1px solid var(--line); font-variant-numeric: tabular-nums; }
 .cfg-out dt { color: var(--muted); }
-.cfg-out dd { margin: 0; font-weight: 600; text-align: right; }
+.cfg-out dd { margin: 0; font-weight: 600; text-align: right; white-space: nowrap; }
 .cfg-out .row.total dd { font-family: var(--display); font-size: 1.35rem; font-weight: 400; color: var(--accent); }
 
 /* Inmersión */
@@ -259,6 +294,8 @@ legend { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; co
 footer { padding-block: 56px 72px; }
 footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; align-items: baseline; }
 footer p { margin: 0; color: var(--muted); font-size: .95rem; }
+footer p a { display: inline-block; padding-block: 10px; color: var(--ink); text-decoration-color: var(--accent); }
+footer p a:hover { color: var(--accent); }
 footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
@@ -384,6 +421,13 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
   .rv { opacity: 1 !important; transform: none !important; transition: none !important; }
   .cover .eyebrow, .cover h1, .cover .lead { animation: none !important; opacity: 1 !important; transform: none !important; }
   .package, .service { box-shadow: none !important; transform: none !important; }
+  .proof { break-inside: avoid; }
+  .proof summary::after { display: none; }
+  details.proof::details-content { content-visibility: visible; }
+  .ph { break-inside: avoid; }
+  .ph img { aspect-ratio: 16 / 6; }
+  .cover-media { width: 38%; }
+  .cover .wrap { min-height: 0; }
   .package.is-reco { order: 0; }
   body { font-size: 10pt; line-height: 1.55; }
   .cover .wrap { padding-block: 48px 36px; }
@@ -400,6 +444,66 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
   .close { margin-top: 28px; }
   footer { padding-block: 24px 0; }
 }
+@media screen and (max-width: 899px) {
+  .cover-media { position: relative; inset: auto; width: 100%; height: min(54svh, 480px); -webkit-mask-image: linear-gradient(to bottom, #000 58%, transparent 100%); mask-image: linear-gradient(to bottom, #000 58%, transparent 100%); }
+  .cover .wrap { min-height: 0; margin-top: -28px; padding-block: 0 44px; }
+  .cover svg.contours { opacity: .4; }
+}
+@media print {
+  @page { size: A4; margin: 15mm 14mm 17mm; @bottom-center { content: "IX Cacao · Propuesta para Ernesto Pérez · " counter(page); font: 8pt "Hanken Grotesk", sans-serif; color: #53625A; } }
+  .section .grid { display: block !important; }
+  .section-head { margin-bottom: 10px; break-after: avoid; }
+  .section-head .label, h2, h3, .group, .lede { break-after: avoid; }
+  .section { break-before: auto; padding-block: 6mm 3mm; border-bottom: 0; border-top: 1px solid var(--line); }
+  #resumen, #servicios, #condiciones { break-before: auto; border-top: 0; }
+  #servicios, #condiciones { break-before: page; padding-top: 0; }
+  .cover { break-after: page; border-bottom: 0; }
+  .cover-media { display: none; }
+  .cover { min-height: 232mm; display: flex; align-items: center; }
+  .cover .wrap { min-height: 0; padding-block: 0; width: 100%; }
+  .cover svg.contours { opacity: 1; }
+  .ph { display: none; }
+  .package.is-selected { outline: 0; }
+  p { orphans: 3; widows: 3; }
+  .lede { break-inside: avoid; }
+  .section-head + .section-body > p:first-child { break-after: avoid; }
+  .finding { padding: 11px 0; }
+  .level h4 { flex-wrap: wrap; gap: 2px 12px; }
+  p { break-inside: avoid; }
+  .good { padding: 14px 18px; margin-top: 8px; }
+  .finding { padding: 9px 0; }
+  .pair { margin: 12px 0; }
+  .bullets li { margin-bottom: 5px; }
+  .rule { margin: 14px 0; }
+  .table-wrap th, .table-wrap td { padding: 8px 14px; }
+  .two > div { break-inside: avoid; }
+  .two { grid-template-columns: 1fr 1fr !important; gap: 20px; }
+  .proof .reels { display: none; }
+  .term { padding: 8px 0; }
+  .group { margin-top: 16px; }
+  .close { margin-top: 16px; padding: 16px 20px; }
+  footer { padding-block: 14px 0; }
+  .package { padding: 14px 14px; gap: 6px; }
+  .package .price { font-size: 1.5rem; }
+  .package ul { margin-bottom: 0; }
+  .imm { margin: 14px 0; }
+  .imm > div { padding: 14px 16px; }
+  .flow { margin: 14px 0; gap: 8px; }
+  .flow h3 { font-size: 1.1rem; }
+  .flow p { font-size: .82rem; line-height: 1.45; }
+  .two { margin-top: 14px; }
+  .services, .packages, .flow, .imm, .pair, .stats { break-inside: avoid; }
+  .chain { grid-template-columns: repeat(5, minmax(0, 1fr)) !important; gap: 8px; }
+  .chain li { padding: 10px 11px; }
+  .chain b { font-size: 1.05rem; }
+  .chain span { font-size: .8rem; line-height: 1.4; }
+  .pair { margin: 16px 0; }
+  .stats { margin-bottom: 10px; }
+  .stats b { font-size: 1.8rem; }
+  .reels li { padding: 7px 0; }
+  .proof { margin-top: 14px; }
+  .proof-body { padding-bottom: 12px; }
+}
 </style>
 </head>
 <body>
@@ -412,6 +516,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <a href="#diagnostico">Diagnóstico</a>
       <a href="#vision">Visión</a>
       <a href="#servicios">Servicios</a>
+      <a href="#experiencias">Experiencias</a>
       <a href="#inmersion">Inmersión</a>
       <a href="#plan">Plan</a>
       <a href="#condiciones">Condiciones</a>
@@ -422,9 +527,10 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
 
 <main>
 <section class="cover" aria-labelledby="titulo">
+  <div class="cover-media" aria-hidden="true"></div>
   <svg class="contours" id="contours" viewBox="0 0 900 660" preserveAspectRatio="xMaxYMid slice" aria-hidden="true" focusable="false"></svg>
   <div class="wrap">
-    <p class="eyebrow">Propuesta de trabajo · Tincho · Noviembre de 2026</p>
+    <p class="eyebrow">Propuesta para Ernesto Pérez · Tincho · Noviembre de 2026</p>
     <h1 id="titulo"><i>IX</i> Cacao</h1>
     <p class="lead">Contar IX, mostrar cómo se vive y facilitar la reserva.</p>
     <a class="cue" href="#resumen">Ver la propuesta<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
@@ -472,12 +578,13 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <article class="finding">
         <h3>La historia de IX apenas se insinúa</h3>
         <div class="story">
-          <h3>Una diosa, un cacaotal y un río. Con eso se puede contar un lugar entero.</h3>
-          <p>IX es la diosa maya del cacao y de la naturaleza. Es el nombre del sitio y hoy aparece sin desarrollar, en la web y en Instagram. La propuesta es que el relato sostenga todo lo demás.</p>
+          <h4>Una diosa, un cacaotal y un río. Con eso se puede contar un lugar entero.</h4>
+          <p>IX es, según la tradición maya que recoge el lugar, la diosa del cacao y de la naturaleza. Es el nombre del sitio y hoy aparece sin desarrollar, en la web y en Instagram. La propuesta es que el relato sostenga todo lo demás.</p>
           <ul class="chain">
             <li><b>La diosa</b><span>Da el nombre y la razón para recordar el lugar.</span></li>
             <li><b>El cacao</b><span>Más de 14.000 plantas. Es lo que aquí se cultiva, se prueba y se transforma.</span></li>
             <li><b>El río</b><span>Adonde se baja a descansar, a respirar y a no hacer nada.</span></li>
+            <li><b>El territorio</b><span>La vereda La María, en San Carlos, Antioquia: donde ocurre todo lo anterior.</span></li>
             <li><b>El ritmo</b><span>Lo que el huésped se lleva: unos días más lentos.</span></li>
           </ul>
           <p class="muted" style="margin:0">Ese relato aparece en la web, en cada pieza de contenido, en la guía del huésped y en el nombre de las experiencias. Lo escribo contigo, con lo que tú sabes del origen del nombre.</p>
@@ -488,7 +595,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
         <h3>Google Maps no los deja aparecer donde la gente busca</h3>
         <div class="cols">
           <div><span class="col-label">Lo que veo</span><p>Tienen 5,0 estrellas, pero con 8 reseñas. La categoría es «Reserva natural» y no alojamiento, así que quien busca dónde dormir en San Carlos probablemente no los ve. La dirección del mapa (Puente del Volturno, Vda. San Blas) no coincide con la de la web (Vereda La María). Puede ser el punto del parqueo, pero quien llega por primera vez no lo sabe.</p></div>
-          <div><span class="col-label">Qué cambia</span><p>Categoría correcta, fotos, horario real, un pin que explique cómo llegar y un sistema sencillo para pedir reseñas a quien ya se hospedó.</p></div>
+          <div><span class="col-label">Qué cambia</span><p>Categoría correcta, fotos, un pin que explique cómo llegar y un sistema sencillo para pedir reseñas a quien ya se hospedó.</p></div>
         </div>
       </article>
 
@@ -497,7 +604,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
         <div class="cols">
           <div>
             <span class="col-label">Lo que veo</span>
-            <p>El texto ya habla de silencio, agua y cacao. Pero no muestra precios, y quien duda tiene que escribir para saber cuánto cuesta. El selector ofrece cinco idiomas y el contenido está solo en español. El menú aparece repetido, el enlace de YouTube está vacío y el título dice «cacaco». Los testimonios muestran 1.234 valoraciones cada uno, cifra que no coincide con las 8 de Google y le resta credibilidad.</p>
+            <p>El texto ya habla de silencio, agua y cacao. Pero no muestra precios, y quien duda tiene que escribir para saber cuánto cuesta. El selector ofrece cinco idiomas y el contenido está solo en español. En el menú, «Ix Cacao» y «Nuestra Esencia» llevan a la misma página, y hay dos entradas casi iguales: «Menú» y «Menú Directorio». El enlace de YouTube está vacío y el título dice «cacaco». Los testimonios repiten el mismo conteo (1.234 valoraciones), que parece un dato de plantilla y no coincide con las 8 de Google; conviene corregirlo.</p>
           </div>
           <div>
             <span class="col-label">Qué cambia</span>
@@ -515,7 +622,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <article class="finding">
         <h3>El contenido todavía no muestra cómo se vive aquí</h3>
         <div class="cols">
-          <div><span class="col-label">Lo que veo</span><p>Instagram tiene 616 seguidores y publica entre una y tres veces por semana. Falta contenido que haga sentir el lugar: la cabalgata, el río, el cacaotal. El enlace de YouTube de la web no lleva a nada. El 31 de octubre me llegó un anuncio con una promoción del 7 al 12 de octubre, ya vencida.</p></div>
+          <div><span class="col-label">Lo que veo</span><p>Instagram tiene 610 seguidores y publica entre dos y cuatro veces por semana. Falta contenido que haga sentir el lugar: la cabalgata, el río, el cacaotal. El 31 de octubre me llegó un anuncio con una promoción del 7 al 12 de octubre, ya vencida.</p></div>
           <div><span class="col-label">Qué cambia</span><p>Contenido grabado en el lugar con lo que ya existe, y una misma grabación adaptada a Instagram, TikTok y Facebook. También presencia donde la gente decide: Google y las reseñas. La pauta pasa a tener calendario al día y una meta clara: reservas, no solo alcance.</p></div>
         </div>
       </article>
@@ -587,6 +694,22 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
         <li>Lo que publico en mi cuenta llega sobre todo a gente que no me conocía. Esa es la audiencia que necesita IX, y puedo sumarla con piezas hechas en conjunto, con créditos para ambos.</li>
       </ul>
       <p class="muted small">Mi experiencia en redes viene de mi propia marca. Aquí la pongo al servicio de la tuya.</p>
+      <details class="proof">
+        <summary>Mis números en redes</summary>
+        <div class="proof-body">
+          <ul class="stats">
+            <li><b>13,6 K</b><span>seguidores en Instagram</span></li>
+            <li><b>8,4 K</b><span>seguidores en TikTok</span></li>
+            <li><b>307 mil</b><span>vistas en 3 reels, el 87 % de gente que no me seguía</span></li>
+          </ul>
+          <ul class="reels">
+            <li><b>«El problema no es el tiempo»</b><span>78.844 vistas · 86,9 % de gente nueva · +1.625 seguidores</span></li>
+            <li><b>Respiración en el bosque</b><span>16.131 vistas · 65,8 % de gente nueva · +160 seguidores</span></li>
+            <li><b>«La sociedad no quiere que estés…»</b><span>212.688 vistas · 88,4 % de gente nueva · +4.121 seguidores</span></li>
+          </ul>
+          <p class="muted small" style="margin:0">Cifras de mi propia cuenta, no de un cliente.</p>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -610,40 +733,40 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
         <article class="service">
           <h3>Contenido</h3>
           <p class="kind">Mensual</p>
-          <div class="level"><h4>Esencial <span>1,5 M</span></h4><p>4 reels, 2 carruseles y fotos. Dos días de producción al mes.</p></div>
-          <div class="level"><h4>Regular <span>2,2 M</span></h4><p>8 reels, 4 carruseles y fotos. De tres a cuatro días de producción al mes.</p></div>
+          <div class="level"><h4>Esencial <span>1,6 M</span></h4><p>4 reels, 2 carruseles y fotos. Dos días de producción al mes.</p></div>
+          <div class="level"><h4>Regular <span>2,3 M</span></h4><p>8 reels, 4 carruseles y fotos. De tres a cuatro días de producción al mes.</p></div>
         </article>
         <article class="service">
           <h3>Redes y pauta</h3>
           <p class="kind">Mensual</p>
-          <div class="level"><h4>Básico <span>1,5 M</span></h4><p>Instagram y Facebook, pauta básica con promociones al día, ficha de Google Maps corregida y reporte mensual.</p></div>
-          <div class="level"><h4>Completo <span>2,2 M</span></h4><p>Instagram, TikTok y Facebook. Estrategia de pauta, construcción de automatizaciones, atención de mensajes en horario acordado, sistema de reseñas y reporte mensual con metas.</p></div>
+          <div class="level"><h4>Básico <span>1,7 M</span></h4><p>Instagram y Facebook, pauta básica con promociones al día, ficha de Google Maps corregida y reporte mensual.</p></div>
+          <div class="level"><h4>Completo <span>2,3 M</span></h4><p>Instagram, TikTok y Facebook. Estrategia de pauta, construcción de automatizaciones, atención de mensajes en dos franjas diarias, sistema de reseñas y reporte mensual con metas.</p></div>
         </article>
       </div>
-      <p class="muted small" style="max-width:760px">La inversión en anuncios la paga IX Cacao. La gestión va incluida.</p>
+      <p class="muted small" style="max-width:760px">La inversión en anuncios la paga IX Cacao. La gestión va incluida. Valores en pesos colombianos (COP); M = millones.</p>
 
       <div class="packages">
         <article class="package">
           <h3>Esencial</h3>
-          <p class="price">3,0 M <small>al mes</small></p>
+          <p class="price">3,3 M <small>al mes</small></p>
           <p class="muted small" style="margin:0">Para empezar con lo básico, bien hecho. Si sumas la web, baja a 4,0 M.</p>
           <ul><li>Contenido Esencial</li><li>Redes y pauta Básico</li></ul>
         </article>
         <article class="package">
           <h3>Presencia</h3>
-          <p class="price">3,9 M <small>al mes</small></p>
-          <p class="muted small" style="margin:0">Suma suelta: 4,4 M. Ahorras 0,5 M al mes.</p>
+          <p class="price">4,2 M <small>al mes</small></p>
+          <p class="muted small" style="margin:0">Suma suelta: 4,6 M. Ahorras 0,4 M al mes.</p>
           <ul><li>Contenido Regular</li><li>Redes y pauta Completo</li></ul>
         </article>
         <article class="package is-reco">
           <span class="badge">Recomendado</span>
           <h3>Integral</h3>
-          <p class="price">3,5 M <small>una vez</small><br>4,2 M <small>al mes</small></p>
-          <p class="muted small" style="margin:0">Suma suelta: 4,5 M y 4,7 M al mes. Ahorras 1,0 M en la web y 0,5 M al mes.</p>
+          <p class="price">3,5 M <small>una vez</small><br>4,5 M <small>al mes</small></p>
+          <p class="muted small" style="margin:0">Suma suelta: web 4,5 M + 4,9 M al mes. Ahorras 1,0 M en la web y 0,4 M al mes.</p>
           <ul><li>Web y guía del huésped</li><li>Presencia completa</li><li>Mantenimiento de la web</li></ul>
         </article>
       </div>
-      <p class="muted small" style="max-width:760px">Un bono de hasta 500.000 COP al mes depende de las metas que fijemos juntos.</p>
+      <p class="muted small" style="max-width:760px">Un bono de hasta 500.000 COP al mes, que paga IX Cacao además de la mensualidad, depende de las metas que fijemos juntos tras medir el punto de partida.</p>
 
       <div class="cfg" id="configurador">
         <h3>Arma tu propia combinación</h3>
@@ -679,8 +802,8 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
             <p class="cfg-sub" id="cfgSub"></p>
             <dl>
               <div class="row"><dt>Pago único</dt><dd id="cfgOne">3,5 M</dd></div>
-              <div class="row"><dt>Cada mes</dt><dd id="cfgMonth">4,2 M</dd></div>
-              <div class="row total"><dt>Primeros tres meses</dt><dd id="cfgTotal">16,1 M</dd></div>
+              <div class="row"><dt>Cada mes</dt><dd id="cfgMonth">4,5 M</dd></div>
+              <div class="row total"><dt>Primeros tres meses</dt><dd id="cfgTotal">17,0 M</dd></div>
             </dl>
             <div class="cfg-actions web-only">
               <button type="button" class="btn" id="cfgCopy">Copiar mi selección</button>
@@ -690,10 +813,17 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
-      <hr class="rule">
+<section class="section" id="experiencias" aria-labelledby="h-exp">
+  <div class="wrap grid">
+    <div class="section-head">
       <p class="label">Aparte, sin compromiso</p>
-      <h3 class="sub">Carta de experiencias</h3>
+      <h2 id="h-exp">Carta de experiencias</h2>
+    </div>
+    <div class="section-body wide">
       <p style="max-width:760px">Yoga, respiración, meditación, sonoterapia, ceremonias de cacao e inmersión en hielo, en sesiones grupales privadas. Se programan por evento y con tiempo. Más adelante, y cuando tenga sentido, podemos mirar retiros pequeños con aliados locales.</p>
       <div class="table-wrap">
         <table class="stack">
@@ -717,6 +847,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
           <li>Cada sesión se graba para tus redes, con permiso de los asistentes. La experiencia se vende sola.</li>
           <li>La ceremonia puede hacerse con cacao de la propia finca, algo que ningún otro lugar puede copiar.</li>
           <li>Se agendan con tiempo y se confirman 48 horas antes.</li>
+          <li>Antes de la ceremonia de cacao y de la inmersión en hielo, cada participante firma una ficha de salud y un consentimiento. Se informan las contraindicaciones (embarazo, medicación, problemas cardíacos) y se acuerda con IX quién provee el equipo.</li>
         </ul>
       </div>
     </div>
@@ -728,9 +859,10 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
     <div class="section-head">
       <p class="label">Inmersión</p>
       <h2 id="h-imm">Vivir el lugar antes de contarlo</h2>
+      <figure class="ph ph--fade"><img src="img/cabana-interior.jpg" alt="Interior de una cabaña de IX Cacao: cama, escalera al altillo y techo de madera en A" width="1000" height="1333" loading="lazy" decoding="async" style="object-position:center 35%"></figure>
     </div>
     <div class="section-body wide">
-      <p class="lede" style="max-width:760px">Propongo una inmersión de varios días en el lugar, a concretar según disponibilidad. Es una propuesta aparte de los paquetes.</p>
+      <p class="lede" style="max-width:760px">Propongo una inmersión de varios días en el lugar, a concretar según disponibilidad. Se suma a cualquier paquete, sin honorarios adicionales.</p>
       <div class="imm">
         <div class="for">
           <h3>Para qué sirve</h3>
@@ -793,25 +925,30 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <h2 id="h-cond">Las reglas, claras desde el principio</h2>
     </div>
     <div class="section-body">
-      <p class="group" style="margin-top:0">Tiempo y presencia</p>
+      <p class="group" style="margin-top:0">Tiempo y visitas</p>
       <dl class="terms">
+        <div class="term"><dt>Vigencia</dt><dd>Esta propuesta está vigente hasta el 20 de noviembre de 2026, para poder arrancar antes de la temporada de diciembre.</dd></div>
         <div class="term"><dt>Duración</dt><dd>Compromiso inicial de tres meses para ambas partes. Después, renovación de común acuerdo, con aviso de 30 días para terminar.</dd></div>
-        <div class="term"><dt>Presencia</dt><dd>Una inmersión inicial de varios días, a concretar según disponibilidad. Después, visitas de 3 a 4 días al mes, con un máximo de dos semanas.</dd></div>
+        <div class="term"><dt>Visitas al lugar</dt><dd>Una inmersión inicial de varios días, a concretar según disponibilidad y sin honorarios adicionales. Después, visitas de 3 a 4 días al mes; si el proyecto pide más presencia, hasta un máximo de dos semanas al mes, de común acuerdo.</dd></div>
         <div class="term"><dt>Alojamiento y comida</dt><dd>IX Cacao los cubre durante la inmersión y las visitas. El transporte corre por mi cuenta.</dd></div>
         <div class="term"><dt>Trabajo remoto</dt><dd>Si me desplazo lejos, el trabajo sigue en remoto con lo que quedó armado. Lo evaluamos juntos.</dd></div>
       </dl>
       <p class="group">Dinero y alcance</p>
       <dl class="terms">
-        <div class="term"><dt>Pagos</dt><dd>Web: 50% al iniciar y 50% al lanzar. Mensualidad: por adelantado, en los primeros cinco días del mes.</dd></div>
+        <div class="term"><dt>Pagos</dt><dd>Web: 50% al iniciar y 50% al lanzar. Mensualidad: por adelantado, en los primeros cinco días del mes. Valores en COP, sin IVA: no soy responsable de ese impuesto. Se pagan contra factura o cuenta de cobro, y IX aplica las retenciones que correspondan por ley.</dd></div>
         <div class="term"><dt>Pauta</dt><dd>La inversión en anuncios la paga IX Cacao. La gestión va incluida.</dd></div>
-        <div class="term"><dt>Aprobaciones</dt><dd>IX Cacao responde en 48 horas hábiles. Si no hay respuesta, se publica lo acordado en el calendario.</dd></div>
+        <div class="term"><dt>Aprobaciones</dt><dd>IX Cacao responde en 48 horas hábiles. Si no hay respuesta, solo se publican las piezas del calendario ya aprobado; el resto espera.</dd></div>
         <div class="term"><dt>Cambios de alcance</dt><dd>Solo por escrito y de común acuerdo, con ajuste de precio si el alcance sube.</dd></div>
+        <div class="term"><dt>Mensajes</dt><dd>En el nivel Completo atiendo los mensajes de Instagram, Facebook y TikTok en dos franjas diarias, de lunes a sábado, con respuesta el mismo día hábil. Las preguntas frecuentes se automatizan, también fuera de horario. Las reservas, los pagos y las urgencias los gestiona IX Cacao; el WhatsApp de reservas sigue como hoy.</dd></div>
+        <div class="term"><dt>Revisiones</dt><dd>Cada pieza y la web incluyen dos rondas de ajustes. Una tercera, o un cambio de dirección, se trata como cambio de alcance.</dd></div>
+        <div class="term"><dt>Qué no incluye</dt><dd>La gestión de Booking u otras plataformas de reserva, la atención de emergencias, el presupuesto de pauta, las licencias de música y herramientas de terceros, y la compra de equipos.</dd></div>
       </dl>
       <p class="group">Contenido y propiedad</p>
       <dl class="terms">
         <div class="term"><dt>Propiedad intelectual</dt><dd>Mi metodología, la ceremonia y mi contenido de marca siguen siendo míos. El material producido para IX Cacao es de IX Cacao, y puedo usarlo en mi portafolio y en mis redes con crédito.</dd></div>
         <div class="term"><dt>Alianza de contenido</dt><dd>Publicación cruzada con mis redes y créditos para ambos. IX Cacao aprueba antes las piezas donde aparezca el lugar. Lo ya publicado se mantiene seis meses después de terminar.</dd></div>
         <div class="term"><dt>Accesos y datos</dt><dd>Las claves las gestiona IX Cacao. Yo no guardo credenciales ni datos personales de huéspedes, solo cifras agregadas.</dd></div>
+        <div class="term"><dt>Dominio y hosting</dt><dd>El dominio, el hosting y las cuentas de la web quedan a nombre de IX Cacao y a su costo. Yo los administro con los accesos que me des.</dd></div>
       </dl>
       <p class="group">Experiencias</p>
       <dl class="terms">
@@ -823,6 +960,10 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <div class="close">
         <p><span class="web-only">Escoge un paquete o arma tu combinación, y dejamos el acuerdo por escrito.</span><span class="print-only">Escoge un paquete y dejamos el acuerdo por escrito.</span></p>
       </div>
+      <div class="cfg-actions web-only" style="margin-top:20px">
+        <a class="btn" href="https://wa.me/573229808842?text=Hola%20Tincho%2C%20vi%20tu%20propuesta%20de%20IX%20Cacao%20y%20quiero%20conversarla." target="_blank" rel="noopener">Escribirme por WhatsApp</a>
+        <a class="btn ghost" href="propuesta-ix-cacao.pdf" download>Descargar PDF</a>
+      </div>
     </div>
   </div>
 </section>
@@ -831,7 +972,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
 <footer>
   <div class="wrap">
     <p class="sig">Juan Martín Pérez Tobón, Tincho</p>
-    <p>@tincholibre · tincholibre.com · WhatsApp +57 322 980 8842</p>
+    <p><a href="https://www.instagram.com/tincholibre/" target="_blank" rel="noopener">@tincholibre</a> · <a href="https://tincholibre.com" target="_blank" rel="noopener">tincholibre.com</a> · <a href="https://wa.me/573229808842" target="_blank" rel="noopener">WhatsApp +57 322 980 8842</a><span class="print-only"> · Versión web: tincholibre.com/propuesta-ixcacao</span></p>
   </div>
 </footer>
 
@@ -856,7 +997,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
   }
 
   /* Configurador de precios (miles de COP) */
-  var L = { web: 4500, cont: { none: 0, esencial: 1500, regular: 2200 }, redes: { none: 0, basico: 1500, completo: 2200 } };
+  var L = { web: 4500, cont: { none: 0, esencial: 1600, regular: 2300 }, redes: { none: 0, basico: 1700, completo: 2300 } };
   function fm(v) { return (v / 1000).toLocaleString('es-ES', { minimumFractionDigits: 1, maximumFractionDigits: 1 }) + ' M'; }
   function pick(n) { var el = document.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : 'none'; }
   function calc() {
@@ -865,11 +1006,11 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
     var one = w ? L.web : 0, month = L.cont[c] + L.redes[r];
     var name = 'A tu medida', sub = 'Suma de los servicios a precio de lista.';
     if (w && c === 'regular' && r === 'completo') {
-      name = 'Integral'; one = 3500; month = 4200;
-      sub = 'Incluye el mantenimiento de la web. Ahorras 1,0 M en la web y 0,5 M al mes.';
+      name = 'Integral'; one = 3500; month = 4500;
+      sub = 'Incluye el mantenimiento de la web. Ahorras 1,0 M en la web y 0,4 M al mes.';
     } else if (!w && c === 'regular' && r === 'completo') {
-      name = 'Presencia'; month = 3900;
-      sub = 'Ahorras 0,5 M al mes frente a contratar los dos por separado.';
+      name = 'Presencia'; month = 4200;
+      sub = 'Ahorras 0,4 M al mes frente a contratar los dos por separado.';
     } else if (c === 'esencial' && r === 'basico') {
       if (w) { name = 'Esencial con web'; one = 4000; sub = 'La web baja a 4,0 M al sumarla al paquete Esencial.'; }
       else { name = 'Esencial'; sub = 'Para empezar con lo básico, bien hecho.'; }
@@ -975,6 +1116,11 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
     });
     card.appendChild(b);
   });
+
+  /* El PDF y la impresión muestran el desplegable abierto */
+  var proofs = $$('details.proof'), proofState = [];
+  window.addEventListener('beforeprint', function () { proofState = proofs.map(function (d) { return d.open; }); proofs.forEach(function (d) { d.open = true; }); });
+  window.addEventListener('afterprint', function () { proofs.forEach(function (d, i) { d.open = proofState[i]; }); });
 
   var nameEl = $('#cfgName'), status = $('#cfgStatus'), wa = $('#cfgWa'), copyBtn = $('#cfgCopy');
   function label(n) { var r = $('input[name="' + n + '"]:checked'); var l = r && $('label[for="' + r.id + '"]'); return l ? l.textContent : ''; }
