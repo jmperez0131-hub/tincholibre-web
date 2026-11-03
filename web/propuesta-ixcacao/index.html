@@ -181,6 +181,12 @@ a { color: var(--river); text-underline-offset: 3px; }
 .bullets { margin: 16px 0; padding-left: 1.1em; }
 .bullets li { margin-bottom: 8px; }
 
+/* Testimonio */
+.quote { margin: 26px 0; padding: 2px 0 2px 20px; border-left: 2px solid var(--accent); max-width: 760px; }
+.quote blockquote { margin: 0; font-family: var(--display); font-weight: 300; font-size: clamp(1.15rem, 2vw, 1.35rem); line-height: 1.45; }
+.quote figcaption { margin-top: 10px; color: var(--muted); font-size: .95rem; }
+.quote figcaption b { color: var(--ink); font-weight: 600; }
+
 /* Mis números */
 .proof { margin: 24px 0 0; border: 1px solid var(--line); border-radius: 14px; background: var(--surface); }
 .proof summary { cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 48px; padding: 12px 20px; font-weight: 600; }
@@ -422,6 +428,22 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
   .cover .eyebrow, .cover h1, .cover .lead { animation: none !important; opacity: 1 !important; transform: none !important; }
   .package, .service { box-shadow: none !important; transform: none !important; }
   .proof { break-inside: avoid; }
+  .quote { break-inside: avoid; margin: 14px 0; }
+  #vision .lede { font-size: 1rem; }
+  #vision .pair { margin: 8px 0; }
+  #vision .pair > div { padding: 12px 16px; }
+  #vision .pair li { margin-bottom: 3px; }
+  #vision .bullets { margin: 8px 0; }
+  #vision .bullets li { margin-bottom: 3px; }
+  #vision .rule { margin: 10px 0; }
+  #vision .section-head { margin-bottom: 6px; }
+  #vision .proof { margin-top: 8px; }
+  #vision .stats b { font-size: 1.5rem; }
+  #vision .stats span { font-size: .85rem; line-height: 1.35; }
+  #vision .stats { margin-bottom: 6px; }
+  #vision .proof summary { min-height: 36px; padding-block: 6px; }
+  #vision .proof-body { padding-bottom: 8px; }
+  #vision { padding-bottom: 0; }
   .proof summary::after { display: none; }
   details.proof::details-content { content-visibility: visible; }
   .ph { break-inside: avoid; }
@@ -688,12 +710,15 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
       <p class="label">Por qué yo</p>
       <p class="lede">Vivo lo que este lugar vende y me interesa que se cuente bien.</p>
       <ul class="bullets">
-        <li>Facilito yoga, respiración y meditación, y he guiado varias ceremonias de cacao. Puedo contar y ofrecer las experiencias desde dentro.</li>
+        <li>Certificado en Raja Yoga y Prana Nidra. Facilito yoga, respiración y meditación, y he guiado varias ceremonias de cacao. Puedo contar y ofrecer las experiencias desde dentro.</li>
+        <li>Cuatro años en El Silicon Valley, en Antioquia, dos de ellos como mentor de mentalidad y bienestar, guiando yoga y meditación a grupos de emprendedores. Sé cómo se vive y se opera un lugar que recibe grupos.</li>
+        <li>Allí aprendí las bases de IA que hoy aplico en mi trabajo de contenido y automatizaciones.</li>
         <li>Crucé 17 países en bicicleta y lo conté en un libro. Conozco a quien viaja hasta un lugar como este.</li>
         <li>Trabajo en español, inglés y francés, y el material sale en los tres.</li>
         <li>Lo que publico en mi cuenta llega sobre todo a gente que no me conocía. Esa es la audiencia que necesita IX, y puedo sumarla con piezas hechas en conjunto, con créditos para ambos.</li>
       </ul>
       <p class="muted small">Mi experiencia en redes viene de mi propia marca. Aquí la pongo al servicio de la tuya.</p>
+      <p class="muted small">Webs que construí: <a href="https://tincholibre.com" target="_blank" rel="noopener">tincholibre.com</a> · <a href="https://shapulpo.netlify.app/" target="_blank" rel="noopener">shapulpo.netlify.app</a></p>
       <details class="proof">
         <summary>Mis números en redes</summary>
         <div class="proof-body">
@@ -825,6 +850,7 @@ footer .sig { font-family: var(--display); font-size: 1.5rem; color: var(--ink);
     </div>
     <div class="section-body wide">
       <p style="max-width:760px">Yoga, respiración, meditación, sonoterapia, ceremonias de cacao e inmersión en hielo, en sesiones grupales privadas. Se programan por evento y con tiempo. Más adelante, y cuando tenga sentido, podemos mirar retiros pequeños con aliados locales.</p>
+      <figure class="quote"><blockquote>“Pensaba entrenar en el gym luego de la meditación y no pude — por el estado de serenidad que jamás había tenido en 50 años. Toda la vida he ido a mil, y hoy siento que voy a 20.”</blockquote><figcaption><b>Yuby</b> · estudiante de meditación</figcaption></figure>
       <div class="table-wrap">
         <table class="stack">
           <thead><tr><th>Experiencia</th><th class="num">Precio por sesión grupal privada</th></tr></thead>
